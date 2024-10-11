@@ -110,17 +110,17 @@ public class Jugador
 
     public void TomarDecision(Pokemon propio, Pokemon oponente)
     {
-        Console.WriteLine($"{this.Name}, elige una accion: \n1. Atacar\n2. Usar Mochila\n3. Cambiar Pokemon");
+        Console.WriteLine($"\n{this.Name}, elige una accion: \n1. Atacar\n2. Usar Mochila\n3. Cambiar Pokemon");
         string opcion = Console.ReadLine();
 
         switch (opcion)
         {
             case "1":
                 Console.WriteLine($"{this.Name} decidio atacar");
-                Console.WriteLine($"Selecciona un ataque: ");
+                Console.WriteLine($"\nSelecciona un ataque: ");
                 for (int i = 0; i < propio.Ataques.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1} {propio.Ataques[i].Name}");
+                    Console.WriteLine($"{i + 1}. 🔹 {propio.Ataques[i].Name} = {propio.Ataques[i].Daño}");
                 }
 
                 int seleccion;
@@ -134,7 +134,7 @@ public class Jugador
                 }
                 break;
             case "2":
-                Console.WriteLine($"Estos son sus objetos:\n-pocion-\n-antidoto-\n-revivir-\n");
+                Console.WriteLine($"Estos son sus objetos:\n- 🍄 pocion-\n- 💉 antidoto-\n- 💗 revivir-\n");
                 Console.WriteLine("Escribe el nombre del objeto que desea usar: ");
                 string objeto = Console.ReadLine();
                 propio.Mochila(objeto);

@@ -7,8 +7,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
-        Facada jugar = new Facada("Pedro","Juan");
-		jugar.IniciarPartida();
+        Console.WriteLine("hello guord");
+        Menu menujugar = new Menu();
+        menujugar.MostrarMenuPrincipal();
+        //Facada jugar = new Facada("Pedro","Juan");
+        //jugar.IniciarPartida();
     }
 }

@@ -8,7 +8,11 @@ public class Menu
 	
 	public Menu()
 	{
-		facada = new Facada("Jugador 1", "Jugador 2");
+		Console.WriteLine("\n 📝 Escriba el nombre del Jugador 1");
+		string jug1 = Console.ReadLine();
+		Console.WriteLine("\n 📝 Escriba el nombre del Jugador 2");
+		string jug2 = Console.ReadLine();
+		facada = new Facada(jug1, jug2);
 		InicializarPokemons();
 	}
 
@@ -35,7 +39,7 @@ public class Menu
 				facada.IniciarPartida();
 				break;
 			case "2":
-				Console.WriteLine("Gracias por jugar\nHasta la proxima!");
+				Console.WriteLine("Gracias por jugar\nHasta la proxima!\n");
 				break;
 			default:
 				Console.WriteLine("Opcion incorrecta");

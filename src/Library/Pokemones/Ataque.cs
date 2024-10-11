@@ -63,7 +63,8 @@ namespace Library;
 			Console.WriteLine($"{this.Name} esta en enfriamiento por {enfriamientoActual} turnos restantes");
 			return;
 			}
-			Console.WriteLine($" 👊 {this.Name} le hizo {this.Daño} a {oponente.Name}");
+			Console.WriteLine($"\n 👊 {this.Name} le hizo {this.Daño} puntos de daño a {oponente.Name}\n ahora tiene {oponente.Hp}");
+			Console.WriteLine($" 📊 {oponente.Name} tiene {oponente.Hp} restante");
 			oponente.RecibirDaño(this.Daño);
 			enfriamientoActual = EnfriamientoMax;
 		}

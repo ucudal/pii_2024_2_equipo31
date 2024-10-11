@@ -1,29 +1,52 @@
-namespace Library;
 using System;
+using System.Collections.Generic;
 
-class Juego
+namespace Library;
+
+// En esta clase pondre los metodos que necesite posteriormente, como curar, mostrar estado de la batalla, etc.
+
+public class Facada
 {
-    public Jugador Jugador{ get; private set; }
-    public Menu Menu { get; private set; }
-    public string Pokemon { get; private set; }
+    private Jugador jugador1;
+	private Jugador jugador2;
+	private Batalla batalla;
+	
+	public Facada (string nombreJugador1, string nombreJugador2)
+	{
+		jugador1 = new Jugador(nombreJugador1);
+		jugador2 = new Jugador(nombreJugador2);
+	}
+	
+	public Pokemon SeleccionarPokemonParaJugar(int jugadorNumero)
+	{
+		if (jugadorNumero == 1)
+		{
+			return jugador1.Seleccionar_Pokemons();
+		}
+		else if (jugadorNumero == 2)
+		{
+			return jugador2.Seleccionar_Pokemons();
+		}
+		return null;
+	}
+
+	public void AgregarPokemonAJugador(int jugadorNumero, Pokemon pokemon)
+	{
+		if (jugadorNumero == 1)
+		{
+			jugador1.ListPokemons.Add(pokemon);
+		}
+		else if (jugadorNumero == 2)
+		{
+			jugador2.ListPokemons.Add(pokemon);
+		}
+	}
+
 
     public void IniciarPartida()
     {
-        Jugador = new Jugador("pepeGrillo");
-        Menu = new Menu();
-        Console.WriteLine("¡Partida iniciada!");
+        batalla = new Batalla(jugador1, jugador2);
+		batalla.Iniciar();
     }
-    
-    private string MostrarMenu()
-    {
-        string[] opciones = { "1. Jugar", "2. Salir" };
-        Console.WriteLine("Menú:");
-        foreach (var opcion in opciones)
-        {
-            Console.WriteLine(opcion);
-        }
-        Console.Write("Elige una opción: ");
-        return Console.ReadLine();
-    }
-    }
+}
 

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Library;
 
 public class Pokemon
@@ -18,34 +21,80 @@ public class Pokemon
         this.EnCombate = false;
 		this.Ataques = ataques;
     }
+	
+	public bool EstaDerrotado()
+	{
+		if (this.Hp <= 0)
+		{
+			Console.WriteLine($" 😵 {this.Name} fue derrotado");
+			this.EnCombate = false;
+			return true;
+		}
+		return false;
+	}
+        private static void ActualizarEnfriamientos(Jugador jugador)
+        {
+            foreach(var pokemon in jugador.ListPokemons)
+            {
+                foreach(var ataque in pokemon.Ataques.OfType<AtaqueEspecial>())
+                {
+                    ataque.ReducirEnfriamiento();
+                }
+            }
+        }
+
 
     public void Luchar(Pokemon oponente)
     {
-        if (this.Hp <= 0)
-        {
-            Console.WriteLine($" 💀 {this.Name} no puede luchar, ya que no tiene puntos de vida.");
-            return;
-        }
-        
+		if (this.EstaDerrotado())
+		{
+			Console.WriteLine($" 💀 {this.Name} ya fue derrotado");
+			return;
+		}
+
         this.EnCombate = true;
+		
+		Console.WriteLine($" 💪 Seleccione un ataque: ");
+		for (int i = 0; i < this.Ataques.Count; i++)
+		{
+			Console.WriteLine($"{i+1} {this.Ataques[i].Name} ({this.Ataques[i].Daño} daño)");
+		}
 
-		/////////////
-		Random rnd = new Random();
-		Ataque ataqueUsado = this.Ataques[rnd.Next(this.Ataques.Count)];
+		int eleccion;
+		while (!int.TryParse(Console.ReadLine(), out eleccion) || eleccion < 1 || eleccion > this.Ataques.Count)
+		{
+			Console.WriteLine("Opcion no valida, seleccione un numero de ataque correcto");
+		}
 
-		Console.WriteLine($" 👊 {this.Name} uso el ataque {ataqueUsado.Name} contra {oponente.Name}");
+		Ataque ataqueUsado = this.Ataques[eleccion - 1];
+		
+		if (ataqueUsado is AtaqueEspecial ataqueEspecial)
+		{
+			if (ataqueEspecial.PuedeUsarAtaque())
+			{
+				ataqueEspecial.UsarAtaque();
+				Console.WriteLine($"{this.Name} uso el ataque especial {ataqueUsado.Name}");
+			}
+			else
+			{
+				Console.WriteLine($"{ataqueUsado.Name} esta en enfriamiento por {ataqueEspecial.EnfriamientoActual} turnos restantes");
+				return;
+			}
+		}
+		else
+		{
+			Console.WriteLine($" 👊 {this.Name} uso el ataque {ataqueUsado.Name} contra {oponente.Name}");	
+		}
 
 		int dañoFinal = Math.Max(0, ataqueUsado.Daño - oponente.Defensa);
 		oponente.Hp -= dañoFinal;
-		//////////////
+		oponente.Hp = Math.Max(0, oponente.Hp);
 
         Console.WriteLine($" 💥 {oponente.Name} recibe {dañoFinal} de daño. Le quedan {oponente.Hp} de vida.");
 
-        if (oponente.Hp <= 0)
+        if (oponente.EstaDerrotado())
         {
-            oponente.Hp = 0;
-            Console.WriteLine($" 😵 {oponente.Name} fue derrotado");
-            oponente.EnCombate = false;
+            return;
         }
     }
 

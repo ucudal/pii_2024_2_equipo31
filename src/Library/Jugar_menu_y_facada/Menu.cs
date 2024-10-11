@@ -5,11 +5,11 @@ public class Menu
     public bool Turno { get; set; }
     public bool Batalla { get; set; }
 
-    public void Estado_Batalla()
+    public void Estado_Batalla(Jugador jugador1)
     {
-        if (Jugador.ListPokemons.Count > 0)
+        if (jugador1.ListPokemons.Count > 0)
         {
-            Console.WriteLine($"Al jugador le quedan {Jugador.ListPokemons.Count} pokemones.");
+            Console.WriteLine($"Al jugador le quedan {jugador1.ListPokemons.Count} pokemones.");
             Console.WriteLine("Cuando al jugador le queden cero pokemones la batalla finalizará");
         }
         else

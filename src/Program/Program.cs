@@ -8,8 +8,8 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
-        Jugador feijoada = new Jugador("Agustin");
-        feijoada.Seleccionar_Pokemons();
-        
+        Jugador jugador1 = new Jugador("Personaje");
+		Jugador jugador2 = new Jugador("Rival");
+        Jugador.Batalla.IniciarBatalla(jugador1,jugador2);
     }
 }

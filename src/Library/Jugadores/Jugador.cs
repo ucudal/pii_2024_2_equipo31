@@ -11,13 +11,44 @@ public class Jugador
     public Jugador(string nombre)
     {
         this.Name = nombre;
-        ListPokemons = new List<Pokemon>();
-        ListPokemons.Add(new Pokemon("pepe", 20, 20, "fuego"));
-        ListPokemons.Add(new Pokemon("juan", 20, 20, "fuego"));
-        ListPokemons.Add(new Pokemon("clara", 20, 20, "fuego"));
-        ListPokemons.Add(new Pokemon("armando", 20, 20, "fuego"));
-        ListPokemons.Add(new Pokemon("nati", 20, 20, "fuego"));
-
+        ListPokemons = new List<Pokemon>
+        {
+            new Pokemon("Crocalor", 81, 78, "fuego", new List<Ataque>
+            {
+                new Ataque("Llamarada", 30),
+                new Ataque("Ascuas", 15),
+                new Ataque("Giro Fuego", 25),
+                new Ataque("Latigo", 10)
+            }),
+            new Pokemon("juan", 20, 20, "fuego", new List<Ataque>
+            {
+                new Ataque("Llamarada", 30),
+                new Ataque("Ascuas", 15),
+                new Ataque("Giro Fuego", 25),
+                new Ataque("Latigo", 10)
+            }),
+            new Pokemon("clara", 20, 20, "fuego", new List<Ataque>
+            {
+                new Ataque("Llamarada", 30),
+                new Ataque("Ascuas", 15),
+                new Ataque("Giro Fuego", 25),
+                new Ataque("Latigo", 10)
+            }),
+            new Pokemon("armando", 20, 20, "fuego", new List<Ataque>
+            {
+                new Ataque("Llamarada", 30),
+                new Ataque("Ascuas", 15),
+                new Ataque("Giro Fuego", 25),
+                new Ataque("Latigo", 10)
+            }),
+            new Pokemon("nati", 20, 20, "fuego", new List<Ataque>
+            {
+                new Ataque("Llamarada", 30),
+                new Ataque("Ascuas", 15),
+                new Ataque("Giro Fuego", 25),
+                new Ataque("Latigo", 10)
+            }),
+        };
         Console.WriteLine($"\nSu jugador se llama {this.Name}\n");
     }
 
@@ -51,6 +82,12 @@ public class Jugador
         {
             Console.WriteLine($"\n{this.Name} saco a {seleccionado}\n");
             Console.WriteLine($"{encontrado.Name} tiene {encontrado.Hp} puntos de vida, {encontrado.Defensa} puntos de defensa y es de tipo {encontrado.Tipo}\n");
+            Console.WriteLine("Ataques disponibles: ");
+            foreach (Ataque ataq in encontrado.Ataques)
+            {
+                Console.WriteLine($"- {ataq.Name} = {ataq.Daño}");
+            }
+            Console.WriteLine("\n")
             return encontrado;
         }
         else

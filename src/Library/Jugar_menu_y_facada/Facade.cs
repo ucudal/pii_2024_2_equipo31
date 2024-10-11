@@ -9,7 +9,7 @@ class Juego
 
     public void IniciarPartida()
     {
-        Jugador = new Jugador();
+        Jugador = new Jugador("pepeGrillo");
         Menu = new Menu();
         Console.WriteLine("¡Partida iniciada!");
     }

@@ -7,14 +7,16 @@ public class Pokemon
     public int Defensa { get; set; }
     public string Tipo { get; set; }
     public bool EnCombate { get; set; }
+	public List<Ataque> Ataques {get; set; }
 
-    public Pokemon(string nombre, int vida, int def, string tipo)
+    public Pokemon(string nombre, int vida, int def, string tipo, List<Ataque> ataques)
     {
         this.Name = nombre;
         this.Hp = vida;
         this.Defensa = def;
         this.Tipo = tipo;
         this.EnCombate = false;
+		this.Ataques = ataques;
     }
 
     public void Luchar(Pokemon oponente)
@@ -27,23 +29,23 @@ public class Pokemon
         
         this.EnCombate = true;
 
-        Console.WriteLine($"{this.Name} ataco a {oponente.Name}");
+		/////////////
+		Random rnd = new Random();
+		Ataque ataqueUsado = this.Ataques[rnd.Next(this.Ataques.Count)];
 
-        int daño = Math.Max(0, 10 - oponente.Defensa);
-        oponente.Hp -= daño;
+		Console.WriteLine($"{this.Name} uso el ataque {ataqueUsado.Name} contra {oponente.Name}");
 
-        Console.WriteLine($"{oponente.Name} recibe {daño} de daño. Le quedan {oponente.Hp} de vida.");
+		int dañoFinal = Math.Max(0, ataqueUsado.Daño - oponente.Defensa);
+		oponente.Hp -= dañoFinal;
+		//////////////
+
+        Console.WriteLine($"{oponente.Name} recibe {dañoFinal} de daño. Le quedan {oponente.Hp} de vida.");
 
         if (oponente.Hp <= 0)
         {
             oponente.Hp = 0;
             Console.WriteLine($"{oponente.Name} fue derrotado");
             oponente.EnCombate = false;
-        }
-
-        if (this.Hp > 100)
-        {
-            this.Hp = 100;
         }
     }
 

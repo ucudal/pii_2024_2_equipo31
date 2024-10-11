@@ -32,7 +32,7 @@ public class Pokemon
 		}
 		return false;
 	}
-        private static void ActualizarEnfriamientos(Jugador jugador)
+        public static void ActualizarEnfriamientos(Jugador jugador)
         {
             foreach(var pokemon in jugador.ListPokemons)
             {

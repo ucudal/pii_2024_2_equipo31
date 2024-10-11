@@ -123,7 +123,8 @@ public class Jugador
                 propio.Luchar(oponente);
                 break;
             case "2":
-                Console.WriteLine("Escribe el nombre del objeto: ");
+                Console.WriteLine($"Estos son sus objetos:\n-pocion-\n-antidoto-\n-revivir-\n");
+                Console.WriteLine("Escribe el nombre del objeto que desea usar: ");
                 string objeto = Console.ReadLine();
                 propio.Mochila(objeto);
                 break;
@@ -140,7 +141,7 @@ public class Jugador
                 break;
         }
 
-        propio.ActualizarEnfriamientos();
+        Pokemon.ActualizarEnfriamientos(jugador);
     }
     
     public bool TienePokemonsDisponibles()

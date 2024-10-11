@@ -16,6 +16,11 @@ public class Batalla
 
     public void Iniciar()
     {
+        Console.WriteLine("Todos los jugadores deben seleccionar 6 Pokemons para poder batallar.");
+
+        jugador1.SeleccionarPokemons();
+        jugador2.Seleccionar_Pokemons();
+        
         Pokemon pokemon1 = jugador1.Seleccionar_Pokemons();
         Pokemon pokemon2 = jugador2.Seleccionar_Pokemons();
 

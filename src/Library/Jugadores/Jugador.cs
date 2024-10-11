@@ -63,6 +63,33 @@ public class Jugador
         }));
     }
 
+    public List<Pokemon> SeleccionarPokemons()
+    {
+        List<Pokemon> seleccionados = new List<Pokemon>();
+
+        while (seleccionados.Count < 6)
+        {
+            Console.WriteLine($" ◽ {this.Name}, añade un Pokémon (actualmente tienes {seleccionados.Count}/6 seleccionados):");
+            MostrarPokemonsDisponibles();
+
+            string seleccionado = Console.ReadLine();
+            Pokemon encontrado = ListPokemons.Find(p => p.Name == seleccionado);
+
+            if (encontrado != null && !seleccionados.Contains(encontrado))
+            {
+                seleccionados.Add(encontrado);
+                Console.WriteLine($" 🐵 {this.Name} añadio a {encontrado.Name}");
+            }
+            else
+            {
+                Console.WriteLine(" 🚫 Seleccion invalida o Pokemon ya seleccionado.");
+            }
+        }
+
+        return ListPokemons = seleccionados; 
+    }
+    
+
     public Pokemon Seleccionar_Pokemons()
     {
         List<string> actuales = new List<string>();
@@ -73,7 +100,7 @@ public class Jugador
             if (!bicho.EnCombate && bicho.Hp > 0)
             {
                 actuales.Add(bicho.Name);
-                Console.WriteLine($" ✪ {bicho.Name}");
+                Console.WriteLine($" ✪ {bicho.Name}, (Vida: {bicho.Hp}, Defensa: {bicho.Defensa})");
             }
         }
 
@@ -107,6 +134,16 @@ public class Jugador
         }
      
     }
+
+    public void MostrarPokemonsDisponibles()
+    {
+        Console.WriteLine("Pokemons disponibles: ");
+        foreach (var pokemon in ListPokemons)
+        {
+            Console.WriteLine($" ✪ {pokemon.Name} (Vida: {pokemon.Hp}, Defensa: {pokemon.Defensa}, Tipo: {pokemon.Tipo})");
+        }
+    }
+
 
     public void TomarDecision(Pokemon propio, Pokemon oponente)
     {

@@ -7,77 +7,125 @@ public class Jugador
 {
     public string Name { get; set; }
     public List<Pokemon> ListPokemons { get; set; }
+    private List<Pokemon> pokemonsDisponibles;
 
     public Jugador(string nombre)
     {
         this.Name = nombre;
         ListPokemons = new List<Pokemon>();
-        InicializarPokemons();
+        InicializarPokemonsDisponibles();
+    }
+	
+    private void InicializarPokemonsDisponibles()
+    {
+        pokemonsDisponibles = new List<Pokemon>
+        {
+            new Pokemon("Crocalor", 81, 78, "Fuego", new List<IAtaque>
+            {
+                new AtaqueNormal("Explosion de Fuego", 110),
+                new AtaqueNormal("Colmillo de Fuego", 65),
+                new AtaqueNormal("Carga de Fuego", 50),
+                new AtaqueEspecial("Lanzallamas", 90, 2)
+            }),
+
+            new Pokemon("Cacnea", 50, 40, "Hierba", new List<IAtaque>
+            {
+                new AtaqueNormal("Bola de Energia", 90),
+                new AtaqueNormal("Drenaje", 75),
+                new AtaqueNormal("Nudo de Hierba", 45),
+                new AtaqueEspecial("Tormenta de Hojas", 130, 2)
+            }),
+
+            new Pokemon("Dewott", 75, 60, "Agua", new List<IAtaque>
+            {
+                new AtaqueNormal("Cuchilla de Agua", 70),
+                new AtaqueNormal("Chorro de Agua", 40),
+                new AtaqueNormal("Marea Alta", 90),
+                new AtaqueEspecial("Agua Helada", 50, 2)
+            }),
+            new Pokemon("Gagnar", 60, 60, "Fantasma", new List<IAtaque>
+            {
+                new AtaqueNormal("Maldicion", 20),
+                new AtaqueNormal("Vinculo de Destino", 65),
+                new AtaqueNormal("Mal de Ojo", 65),
+                new AtaqueEspecial("Sombra Nocturna", 40, 2)
+            }),
+            new Pokemon("Mareep", 55, 40, "Electrico", new List<IAtaque>
+            {
+                new AtaqueNormal("Descarga", 80),
+                new AtaqueNormal("Trueno", 75),
+                new AtaqueNormal("Rayo", 90),
+                new AtaqueEspecial("Choque Relampago", 110, 2)
+            }),
+            new Pokemon("NosePass", 30, 135, "Roca", new List<IAtaque>
+            {
+                new AtaqueNormal("Cabezazo", 150),
+                new AtaqueNormal("Rayo de Meteorito", 120),
+                new AtaqueNormal("Gema de poder", 80),
+                new AtaqueEspecial("Explosion de Roca", 25, 2)
+            }),
+            new Pokemon("Crocalor 2", 81, 78, "Fuego", new List<IAtaque>
+            {
+                new AtaqueNormal("Explosion de Fuego", 110),
+                new AtaqueNormal("Colmillo de Fuego", 65),
+                new AtaqueNormal("Carga de Fuego", 50),
+                new AtaqueEspecial("Lanzallamas", 90, 2)
+            }),
+
+            new Pokemon("Cacnea 2", 50, 40, "Hierba", new List<IAtaque>
+            {
+                new AtaqueNormal("Bola de Energia", 90),
+                new AtaqueNormal("Drenaje", 75),
+                new AtaqueNormal("Nudo de Hierba", 45),
+                new AtaqueEspecial("Tormenta de Hojas", 130, 2)
+            }),
+
+            new Pokemon("Dewott 2", 75, 60, "Agua", new List<IAtaque>
+            {
+                new AtaqueNormal("Cuchilla de Agua", 70),
+                new AtaqueNormal("Chorro de Agua", 40),
+                new AtaqueNormal("Marea Alta", 90),
+                new AtaqueEspecial("Agua Helada", 50, 2)
+            }),
+            new Pokemon("Gagnar 2", 60, 60, "Fantasma", new List<IAtaque>
+            {
+                new AtaqueNormal("Maldicion", 20),
+                new AtaqueNormal("Vinculo de Destino", 65),
+                new AtaqueNormal("Mal de Ojo", 65),
+                new AtaqueEspecial("Sombra Nocturna", 40, 2)
+            }),
+            new Pokemon("Mareep 2", 55, 40, "Electrico", new List<IAtaque>
+            {
+                new AtaqueNormal("Descarga", 80),
+                new AtaqueNormal("Trueno", 75),
+                new AtaqueNormal("Rayo", 90),
+                new AtaqueEspecial("Choque Relampago", 110, 2)
+            }),
+            new Pokemon("NosePass 2", 30, 135, "Roca", new List<IAtaque>
+            {
+                new AtaqueNormal("Cabezazo", 150),
+                new AtaqueNormal("Rayo de Meteorito", 120),
+                new AtaqueNormal("Gema de poder", 80),
+                new AtaqueEspecial("Explosion de Roca", 25, 2)
+            }),
+        };
+
     }
 
-    public void InicializarPokemons()
+    public void SeleccionarPokemons()
     {
-        ListPokemons.Add(new Pokemon("Crocalor", 81, 78, "Fuego", new List<IAtaque>
+        while (ListPokemons.Count < 6)
         {
-            new AtaqueNormal("Explosion de Fuego", 110),
-            new AtaqueNormal("Colmillo de Fuego", 65),
-            new AtaqueNormal("Carga de Fuego", 50),
-            new AtaqueEspecial("Lanzallamas", 90,2)
-        }));
-
-        ListPokemons.Add(new Pokemon("Cacnea", 50, 40, "Hierba", new List<IAtaque>
-        {
-            new AtaqueNormal("Bola de Energia", 90),
-            new AtaqueNormal("Drenaje", 75),
-            new AtaqueNormal("Nudo de Hierba", 45),
-            new AtaqueEspecial("Tormenta de Hojas", 130,2)
-        }));
-
-        ListPokemons.Add(new Pokemon("Dewott", 75, 60, "Agua", new List<IAtaque>
-        {
-            new AtaqueNormal("Cuchilla de Agua", 70),
-            new AtaqueNormal("Chorro de Agua", 40),
-            new AtaqueNormal("Marea Alta", 90),
-            new AtaqueEspecial("Agua Helada", 50,2)
-        }));
-        ListPokemons.Add(new Pokemon("Gagnar", 60, 60, "Fantasma", new List<IAtaque>
-        {
-            new AtaqueNormal("Maldicion", 20),
-            new AtaqueNormal("Vinculo de Destino", 65),
-            new AtaqueNormal("Mal de Ojo", 65),
-            new AtaqueEspecial("Sombra Nocturna", 40,2)
-        }));
-        ListPokemons.Add(new Pokemon("Mareep", 55, 40, "Electrico", new List<IAtaque>
-        {
-            new AtaqueNormal("Descarga", 80),
-            new AtaqueNormal("Trueno", 75),
-            new AtaqueNormal("Rayo", 90),
-            new AtaqueEspecial("Choque Relampago", 110,2)
-        }));
-        ListPokemons.Add(new Pokemon("NosePass", 30, 135, "Roca", new List<IAtaque>
-        { 
-            new AtaqueNormal("Cabezazo", 150), 
-            new AtaqueNormal("Rayo de Meteorito", 120), 
-            new AtaqueNormal("Gema de poder", 80), 
-            new AtaqueEspecial("Explosion de Roca", 25,2)
-        }));
-    }
-
-    public List<Pokemon> SeleccionarPokemons()
-    {
-        List<Pokemon> seleccionados = new List<Pokemon>();
-
-        while (seleccionados.Count < 6)
-        {
-            Console.WriteLine($" ◽ {this.Name}, añade un Pokémon (actualmente tienes {seleccionados.Count}/6 seleccionados):");
+            Console.WriteLine($" ◽ {this.Name}, añade un Pokémon (actualmente tienes {ListPokemons.Count}/6):");
             MostrarPokemonsDisponibles();
 
             string seleccionado = Console.ReadLine();
-            Pokemon encontrado = ListPokemons.Find(p => p.Name == seleccionado);
+            Pokemon encontrado = pokemonsDisponibles.Find(p => p.Name == seleccionado);
 
-            if (encontrado != null && !seleccionados.Contains(encontrado))
+            if (encontrado != null && !ListPokemons.Contains(encontrado))
             {
-                seleccionados.Add(encontrado);
+                ListPokemons.Add(encontrado);
+				pokemonsDisponibles.Remove(encontrado);
                 Console.WriteLine($" 🐵 {this.Name} añadio a {encontrado.Name}");
             }
             else
@@ -85,39 +133,25 @@ public class Jugador
                 Console.WriteLine(" 🚫 Seleccion invalida o Pokemon ya seleccionado.");
             }
         }
-
-        return ListPokemons = seleccionados; 
     }
-    
 
     public Pokemon Seleccionar_Pokemons()
     {
-        List<string> actuales = new List<string>();
-        Console.WriteLine($" ◽ {this.Name}\n 🐗 Estos son sus Pokémons actuales:");
-
-        foreach (Pokemon bicho in ListPokemons)
+        Console.WriteLine($" ◽ {this.Name}\n ⏳ selecciona el Pokemon para luchar: ");
+		foreach (Pokemon bicho in ListPokemons)
         {
             if (!bicho.EnCombate && bicho.Hp > 0)
             {
-                actuales.Add(bicho.Name);
                 Console.WriteLine($" ✪ {bicho.Name}, (Vida: {bicho.Hp}, Defensa: {bicho.Defensa})");
             }
         }
 
-        if (actuales.Count == 0)
-        {
-            Console.WriteLine($" ❌ {this.Name}\nNo tienes mas pokemons disponibles para luchar");
-            return null;
-        }
-
-        Console.WriteLine($"\n ⏳ {this.Name}\n Escriba a quien quiere usar: ");
         string seleccionado = Console.ReadLine();
-
         Pokemon encontrado = ListPokemons.Find(p => p.Name == seleccionado);
 
-        if (encontrado != null)
+        if (encontrado != null && encontrado.Hp > 0)
         {
-            Console.WriteLine($"\n 🐵 {this.Name} saco a {seleccionado}\n");
+            Console.WriteLine($"\n 🐵 {this.Name} saco a {encontrado.Name}\n");
             Console.WriteLine($" 🐵 {encontrado.Name} tiene {encontrado.Hp} puntos de vida, {encontrado.Defensa} puntos de defensa y es de tipo {encontrado.Tipo}\n");
             Console.WriteLine(" 💣 Ataques disponibles: ");
             foreach (IAtaque ataq in encontrado.Ataques)
@@ -135,10 +169,10 @@ public class Jugador
      
     }
 
-    public void MostrarPokemonsDisponibles()
+    private void MostrarPokemonsDisponibles()
     {
-        Console.WriteLine("Pokemons disponibles: ");
-        foreach (var pokemon in ListPokemons)
+        Console.WriteLine("\nPokemons disponibles: ");
+        foreach (var pokemon in pokemonsDisponibles)
         {
             Console.WriteLine($" ✪ {pokemon.Name} (Vida: {pokemon.Hp}, Defensa: {pokemon.Defensa}, Tipo: {pokemon.Tipo})");
         }

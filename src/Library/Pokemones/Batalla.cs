@@ -16,20 +16,17 @@ public class Batalla
 
     public void Iniciar()
     {
-        Console.WriteLine("Todos los jugadores deben seleccionar 6 Pokemons para poder batallar.");
+        Console.WriteLine("Iniciando la batalla.");
 
-        jugador1.SeleccionarPokemons();
-        jugador2.Seleccionar_Pokemons();
-        
-        Pokemon pokemon1 = jugador1.Seleccionar_Pokemons();
-        Pokemon pokemon2 = jugador2.Seleccionar_Pokemons();
-
-        if (pokemon1 == null || pokemon2 == null)
+        if (!jugador1.TienePokemonsDisponibles() || !jugador2.TienePokemonsDisponibles())
         {
             Console.WriteLine("No hay suficientes pokemons para inciar una batalla");
             return;
         }
-
+        
+        Pokemon pokemon1 = jugador1.Seleccionar_Pokemons();
+        Pokemon pokemon2 = jugador2.Seleccionar_Pokemons();
+        
         while (jugador1.TienePokemonsDisponibles() && jugador2.TienePokemonsDisponibles())
         {
             TomarTurno(jugador1, pokemon1, pokemon2);

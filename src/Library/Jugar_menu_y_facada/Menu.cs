@@ -18,11 +18,11 @@ public class Menu
 
 	private void InicializarPokemons()
 	{
-		var jugador1Pokemon = facada.SeleccionarPokemonParaJugar(1);
-		var jugador2Pokemon = facada.SeleccionarPokemonParaJugar(2);
-
-		facada.AgregarPokemonAJugador(1, jugador1Pokemon);
-		facada.AgregarPokemonAJugador(2, jugador2Pokemon);
+		Console.WriteLine("El primer jugador debera seleccionar sus 6 pokemon: ");
+		facada.AgregarPokemonAJugador(1);
+		
+		Console.WriteLine("El segundo jugador debera seleccionar sus 6 pokemons: ");
+		facada.AgregarPokemonAJugador(2);
 	}
 	
 	public void MostrarMenuPrincipal()

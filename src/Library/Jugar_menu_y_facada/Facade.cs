@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace Library;
 
-// En esta clase pondre los metodos que necesite posteriormente, como curar, mostrar estado de la batalla, etc.
-
 public class Facada
 {
     private Jugador jugador1;
@@ -16,7 +14,7 @@ public class Facada
 		jugador1 = new Jugador(nombreJugador1);
 		jugador2 = new Jugador(nombreJugador2);
 	}
-	
+
 	public Pokemon SeleccionarPokemonParaJugar(int jugadorNumero)
 	{
 		if (jugadorNumero == 1)
@@ -30,18 +28,17 @@ public class Facada
 		return null;
 	}
 
-	public void AgregarPokemonAJugador(int jugadorNumero, Pokemon pokemon)
+	public void AgregarPokemonAJugador(int jugadorNumero)
 	{
 		if (jugadorNumero == 1)
 		{
-			jugador1.ListPokemons.Add(pokemon);
+			jugador1.SeleccionarPokemons();
 		}
 		else if (jugadorNumero == 2)
 		{
-			jugador2.ListPokemons.Add(pokemon);
+			jugador2.SeleccionarPokemons();
 		}
 	}
-
 
     public void IniciarPartida()
     {

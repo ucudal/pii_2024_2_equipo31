@@ -10,7 +10,5 @@ class Program
         Console.WriteLine("hello guord");
         Menu menujugar = new Menu();
         menujugar.MostrarMenuPrincipal();
-        //Facada jugar = new Facada("Pedro","Juan");
-        //jugar.IniciarPartida();
     }
 }

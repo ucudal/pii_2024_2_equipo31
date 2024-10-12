@@ -25,7 +25,7 @@ public class Jugador
                 new AtaqueNormal("Explosion de Fuego", 110),
                 new AtaqueNormal("Colmillo de Fuego", 65),
                 new AtaqueNormal("Carga de Fuego", 50),
-                new AtaqueEspecial("Lanzallamas", 90, 2)
+                new AtaqueEspecial(" ⚠ Lanzallamas", 90, 2)
             }),
 
             new Pokemon("Cacnea", 50, 40, "Hierba", new List<IAtaque>
@@ -33,7 +33,7 @@ public class Jugador
                 new AtaqueNormal("Bola de Energia", 90),
                 new AtaqueNormal("Drenaje", 75),
                 new AtaqueNormal("Nudo de Hierba", 45),
-                new AtaqueEspecial("Tormenta de Hojas", 130, 2)
+                new AtaqueEspecial(" ⚠ Tormenta de Hojas", 130, 2)
             }),
 
             new Pokemon("Dewott", 75, 60, "Agua", new List<IAtaque>
@@ -41,35 +41,35 @@ public class Jugador
                 new AtaqueNormal("Cuchilla de Agua", 70),
                 new AtaqueNormal("Chorro de Agua", 40),
                 new AtaqueNormal("Marea Alta", 90),
-                new AtaqueEspecial("Agua Helada", 50, 2)
+                new AtaqueEspecial(" ⚠ Agua Helada", 50, 2)
             }),
             new Pokemon("Gagnar", 60, 60, "Fantasma", new List<IAtaque>
             {
                 new AtaqueNormal("Maldicion", 20),
                 new AtaqueNormal("Vinculo de Destino", 65),
                 new AtaqueNormal("Mal de Ojo", 65),
-                new AtaqueEspecial("Sombra Nocturna", 40, 2)
+                new AtaqueEspecial(" ⚠ Sombra Nocturna", 40, 2)
             }),
             new Pokemon("Mareep", 55, 40, "Electrico", new List<IAtaque>
             {
                 new AtaqueNormal("Descarga", 80),
                 new AtaqueNormal("Trueno", 75),
                 new AtaqueNormal("Rayo", 90),
-                new AtaqueEspecial("Choque Relampago", 110, 2)
+                new AtaqueEspecial(" ⚠ Choque Relampago", 110, 2)
             }),
             new Pokemon("NosePass", 30, 135, "Roca", new List<IAtaque>
             {
                 new AtaqueNormal("Cabezazo", 150),
                 new AtaqueNormal("Rayo de Meteorito", 120),
                 new AtaqueNormal("Gema de poder", 80),
-                new AtaqueEspecial("Explosion de Roca", 25, 2)
+                new AtaqueEspecial(" ⚠ Explosion de Roca", 25, 2)
             }),
             new Pokemon("Crocalor 2", 81, 78, "Fuego", new List<IAtaque>
             {
                 new AtaqueNormal("Explosion de Fuego", 110),
                 new AtaqueNormal("Colmillo de Fuego", 65),
                 new AtaqueNormal("Carga de Fuego", 50),
-                new AtaqueEspecial("Lanzallamas", 90, 2)
+                new AtaqueEspecial(" ⚠ Lanzallamas", 90, 2)
             }),
 
             new Pokemon("Cacnea 2", 50, 40, "Hierba", new List<IAtaque>
@@ -77,7 +77,7 @@ public class Jugador
                 new AtaqueNormal("Bola de Energia", 90),
                 new AtaqueNormal("Drenaje", 75),
                 new AtaqueNormal("Nudo de Hierba", 45),
-                new AtaqueEspecial("Tormenta de Hojas", 130, 2)
+                new AtaqueEspecial(" ⚠ Tormenta de Hojas", 130, 2)
             }),
 
             new Pokemon("Dewott 2", 75, 60, "Agua", new List<IAtaque>
@@ -85,28 +85,28 @@ public class Jugador
                 new AtaqueNormal("Cuchilla de Agua", 70),
                 new AtaqueNormal("Chorro de Agua", 40),
                 new AtaqueNormal("Marea Alta", 90),
-                new AtaqueEspecial("Agua Helada", 50, 2)
+                new AtaqueEspecial(" ⚠ Agua Helada", 50, 2)
             }),
             new Pokemon("Gagnar 2", 60, 60, "Fantasma", new List<IAtaque>
             {
                 new AtaqueNormal("Maldicion", 20),
                 new AtaqueNormal("Vinculo de Destino", 65),
                 new AtaqueNormal("Mal de Ojo", 65),
-                new AtaqueEspecial("Sombra Nocturna", 40, 2)
+                new AtaqueEspecial(" ⚠ Sombra Nocturna", 40, 2)
             }),
             new Pokemon("Mareep 2", 55, 40, "Electrico", new List<IAtaque>
             {
                 new AtaqueNormal("Descarga", 80),
                 new AtaqueNormal("Trueno", 75),
                 new AtaqueNormal("Rayo", 90),
-                new AtaqueEspecial("Choque Relampago", 110, 2)
+                new AtaqueEspecial(" ⚠ Choque Relampago", 110, 2)
             }),
             new Pokemon("NosePass 2", 30, 135, "Roca", new List<IAtaque>
             {
                 new AtaqueNormal("Cabezazo", 150),
                 new AtaqueNormal("Rayo de Meteorito", 120),
                 new AtaqueNormal("Gema de poder", 80),
-                new AtaqueEspecial("Explosion de Roca", 25, 2)
+                new AtaqueEspecial(" ⚠ Explosion de Roca", 25, 2)
             }),
         };
 

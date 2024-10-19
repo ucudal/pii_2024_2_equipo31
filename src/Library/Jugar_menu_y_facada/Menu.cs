@@ -27,23 +27,33 @@ public class Menu
 	
 	public void MostrarMenuPrincipal()
 	{
-		Console.WriteLine("Bienvenido al menu de batallas!");
+		Console.WriteLine("\nBienvenido al menu de batallas!");
 		Console.WriteLine("1. Iniciar Batalla");
 		Console.WriteLine("2. Salir");
 		Console.WriteLine("Escriba su opcion: ");
 
 		string opcion = Console.ReadLine();
-		switch (opcion)
-		{
-			case "1":
-				facada.IniciarPartida();
-				break;
-			case "2":
-				Console.WriteLine("Gracias por jugar\nHasta la proxima!\n");
-				break;
-			default:
-				Console.WriteLine("Opcion incorrecta");
-				break;
+		
+		while (opcion != "1" || opcion != "2")
+		{		
+			switch (opcion)
+			{
+				case "1":
+					facada.IniciarPartida();
+					break;
+				case "2":
+					Console.WriteLine("Gracias por jugar\nHasta la proxima!\n");
+					break;
+				default:
+					Console.WriteLine("Opcion incorrecta");
+					break;
+			}
+			Console.WriteLine("\nBienvenido al menu de batallas!");
+			Console.WriteLine("1. Iniciar Batalla");
+			Console.WriteLine("2. Salir");
+			Console.WriteLine("Escriba su opcion: ");
+
+			opcion = Console.ReadLine();
 		}
 	}
 }

@@ -16,7 +16,7 @@ public class Batalla
 
     public void Iniciar()
     {
-        Console.WriteLine("Iniciando la batalla.");
+        Console.WriteLine("\nIniciando la batalla.");
 
         if (!jugador1.TienePokemonsDisponibles() || !jugador2.TienePokemonsDisponibles())
         {
@@ -30,14 +30,14 @@ public class Batalla
         while (jugador1.TienePokemonsDisponibles() && jugador2.TienePokemonsDisponibles())
         {
             TomarTurno(jugador1, pokemon1, pokemon2);
-            if (pokemon2.EstaDerrotado())
+            if (!jugador1.TienePokemonsDisponibles())
             {
                 Console.WriteLine($"{jugador1.Name} gano la batalla");
                 break;
             }
 
             TomarTurno(jugador2, pokemon2, pokemon1);
-            if (pokemon1.EstaDerrotado())
+            if (!jugador2.TienePokemonsDisponibles())
             {
                 Console.WriteLine($"{jugador2.Name} gano la batalla");
                 break;

@@ -7,7 +7,6 @@ namespace Library;
 public class Jugador
 {
     public string Name { get; set; }
-    public bool Quiere_Cambiar_Luchador;
     public List<Pokemon> ListPokemons { get; set; }
     private List<Pokemon> pokemonsDisponibles;
     public List<int> CantidadItems;
@@ -15,7 +14,6 @@ public class Jugador
     public Jugador(string nombre)
     {
         this.Name = nombre;
-        this.Quiere_Cambiar_Luchador = false;
         ListPokemons = new List<Pokemon>();
         CantidadItems = new List<int> { 4, 1, 2 };
         Inicializar_Total_Pokemons_Disponibles_Juego();
@@ -180,7 +178,6 @@ public class Jugador
 
     public Pokemon Seleccionar_Pokemons_Para_Luchar(Pokemon pokemonActual = null) // EL JUGADOR SELECCIONA POKEMONS QUE ESTEN DISPONIBLES PARA LUCHAR
     {
-        this.Quiere_Cambiar_Luchador = true;
         if (!Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
         {
             Console.WriteLine($"{this.Name} no tiene mas pokemons disponibles para luchar");
@@ -235,18 +232,18 @@ public class Jugador
     
     public void Acciones_Del_Jugador_En_Batalla(ref Pokemon propio, Pokemon oponente) // MENU DE OPCIONES DENTRO DE LA BATALLA
     {
-        Console.WriteLine($"\n{this.Name}, elige una accion: \n1. Atacar\n2. Usar Mochila\n3. Cambiar Pokemon");
+        Console.WriteLine($"\n ⚪ {this.Name}, elige una accion: \n1. Atacar\n2. Usar Mochila\n3. Cambiar Pokemon");
         string opcion = Console.ReadLine();
         Random random = new Random();
 
         switch (opcion)
         {
             case "1":
-                Console.WriteLine($"{this.Name} decidio atacar");
+                Console.WriteLine($" ❗ {this.Name} decidio atacar");
 
                     if (propio.El_Pokemon_Esta_Derrotado())
                     {
-                        Console.WriteLine($"{propio.Name} no puede seguir luchando, debe cambiar o revivir al pokemon: ");
+                        Console.WriteLine($" 🔻 {propio.Name} no puede seguir luchando, debe cambiar o revivir al pokemon: ");
                         propio.EstadoNegativo = "Ninguno";
                         this.Acciones_Del_Jugador_En_Batalla(ref propio, oponente);
                     }
@@ -254,22 +251,22 @@ public class Jugador
                     {
                         if (propio.EstadoNegativo == "Dormido")
                         {
-                            Console.WriteLine($"{propio.Name} no puede atacar en este turno porque esta {propio.EstadoNegativo}");
+                            Console.WriteLine($"{propio.Name} no puede atacar en este turno porque esta {propio.EstadoNegativo} 💤 ");
                             int TurnosAleatorios = random.Next(1, 5);
                             if (TurnosAleatorios == 1)
                             {
-                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo}.");
+                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo} 💤 .");
                                 propio.EstadoNegativo = "Ninguno";
                             }
                             break;
                         }
                         else if (propio.EstadoNegativo == "Paralizado")
                         {
-                            Console.WriteLine($"{propio.Name} perdio este turno porque estaba {propio.EstadoNegativo}");
+                            Console.WriteLine($"{propio.Name} perdio este turno porque estaba {propio.EstadoNegativo} 😨 ");
                             int TurnosAleatorios = random.Next(1, 3);
                             if (TurnosAleatorios == 1)
                             {
-                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo}.");
+                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo} 😨 .");
                                 break;
                             }
                         }
@@ -296,25 +293,17 @@ public class Jugador
                     }
                 break;
             case "2":
-                Console.WriteLine($"Selecciona un item: \n1. Pocion\n2. Antidoto\n3. Revivir\n");
+                Console.WriteLine($" 🎒 Selecciona un item: \n1. Super Pocion\n2. Cura Total\n3. Revivir\n");
                 string objeto = Console.ReadLine();
                 this.Mochila_Del_Jugador(objeto, propio);
                 break;
             case "3":
-                /*
-                 propio.EnCombate = false;
-                if (propio.El_Pokemon_Esta_Derrotado())
-                {
-                    ListPokemons.Remove(propio);
-                    Console.WriteLine($"{propio.Name} fue removido de tu equipo ya que esta derrotado");
-                }
-                */
                 Pokemon nuevoPokemon = Seleccionar_Pokemons_Para_Luchar(propio);
                 if (nuevoPokemon != null && !nuevoPokemon.El_Pokemon_Esta_Derrotado())
                 {
                     propio.EnCombate = false;
                     nuevoPokemon.EnCombate = true;
-                    Console.WriteLine($"{this.Name} cambio a {nuevoPokemon.Name} y pierde el turno");
+                    Console.WriteLine($" 🔄 {this.Name} cambio a {nuevoPokemon.Name} y pierde el turno");
                     propio = nuevoPokemon;
                 }
                 break;
@@ -329,21 +318,21 @@ public class Jugador
             {
                 double dañoVeneno = propio.HpInicial * 0.05;
                 propio.Hp -= dañoVeneno;
-                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo}, en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un antidoto");
+                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo} 💚 , en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un antidoto");
             }
             else if (propio.EstadoNegativo == "Quemado")
             {
                 double dañoQuemadura = propio.HpInicial * 0.10;
                 propio.Hp -= dañoQuemadura;
-                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo}, en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar un antidoto");
+                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo} 🔥 , en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar un antidoto");
             }
             Console.WriteLine($"Ahora {propio.Name} tiene {propio.Hp} puntos de vida");
-            if (propio.El_Pokemon_Esta_Derrotado())
-            {
-                Console.WriteLine($"{propio.Name} fue derrotado debido a que se encontraba {propio.EstadoNegativo}.");
-                propio.EnCombate = false;
-                return;
-            }
+        }
+        else
+        {
+            Console.WriteLine($"{propio.Name} fue derrotado debido a que se encontraba {propio.EstadoNegativo}.");
+            propio.EnCombate = false;
+            return;
         }
     }
     
@@ -360,7 +349,11 @@ public class Jugador
                 if (CantidadItems[0] >= 1)
                 {
                     pokemonMoch.Hp = pokemonMoch.Hp + 70;
-                    Console.WriteLine($" 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y tiene {pokemonMoch.Hp} puntos de vida");
+                    if (pokemonMoch.Hp > pokemonMoch.HpInicial)
+                    {
+                        pokemonMoch.Hp = pokemonMoch.HpInicial;
+                    }
+                    Console.WriteLine($" 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y ahora tiene {pokemonMoch.Hp} puntos de vida");
                     CantidadItems[0] -= 1;
                     Console.WriteLine($"A {this.Name} le quedan {CantidadItems[0]} super pociones en su mochila.");
                 }
@@ -411,20 +404,11 @@ public class Jugador
                         Console.WriteLine("No se ha seleccionado ningun pokemon.");
                     }
                 }
-                else
-                { 
-                    Console.WriteLine($" Items revivir actuales |{CantidadItems[1]}|\nSi tienes algun item revivir, asegurate que tu pokemon no tiene mas puntos de vida");
-                }
                 break;
 
             default:
                 Console.WriteLine($" 🚫 El objeto '{objeto}' no está disponible en la mochila.");
                 break;
-        }
-
-        if (pokemonMoch.Hp > pokemonMoch.HpInicial)
-        {
-            pokemonMoch.Hp = pokemonMoch.HpInicial;
         }
     }
 }

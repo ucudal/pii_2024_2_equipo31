@@ -42,10 +42,16 @@ public class Pokemon
 			double dañoADefensa = Math.Max(this.Defensa, daño);
 			this.Defensa -= dañoADefensa;
 			daño -= dañoADefensa;
+			
 		}
 		if (daño > 0)
 		{
 			this.Hp = Math.Max(0, this.Hp - daño);
+		}
+
+		if (this.Defensa < 0)
+		{
+			this.Defensa = 0;
 		}
 	}
 }

@@ -7,7 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("hello guord");
+        Console.WriteLine(" ⏩ Bienvenido a PokeWorld ⏪ ");
         Menu menujugar = new Menu();
         menujugar.MostrarMenuPrincipal();
     }

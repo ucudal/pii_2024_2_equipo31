@@ -50,7 +50,7 @@ public class Batalla
                 Cada_Jugador_Tomar_Su_Turno(jugador2, ref pokemon2, pokemon1);
                 if (!jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
                 {
-                    Console.WriteLine($"{jugador2.Name} gano la batalla");
+                    Console.WriteLine($"{jugador2.Name} perdio la batalla");
                     break;
                 }
             }

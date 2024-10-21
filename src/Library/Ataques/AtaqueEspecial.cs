@@ -45,7 +45,7 @@ namespace Library;
 		{
 			if (!PuedeUsarAtaque())
 			{
-				Console.WriteLine($"{this.Name} esta en enfriamiento por {enfriamientoActual} turnos restantes");
+				Console.WriteLine($"{this.Name} esta en enfriamiento por {enfriamientoActual} turnos restantes ⌛ ");
 				return;
 			}
 			else
@@ -57,7 +57,7 @@ namespace Library;
 				Console.WriteLine($" 📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa.");
 				if (oponente.EstadoNegativo != "Ninguno")
 				{
-					Console.WriteLine($" 📊 Luego de ese ataque {oponente.Name} tiene el estado 💢 {oponente.EstadoNegativo} 💢 ");
+					Console.WriteLine($" Luego de ese ataque {oponente.Name} tiene el estado 💢 {oponente.EstadoNegativo} 💢 ");
 				}
 				enfriamientoActual = EnfriamientoMax;
 			}

@@ -14,44 +14,61 @@ public class Batalla
         this.jugador2 = jugador2;
     }
 
-    public void Iniciar()
+    public void Iniciar_Batalla() // INICIA LA BATALLA EN SI
     {
         Console.WriteLine("\nIniciando la batalla.");
 
-        if (!jugador1.TienePokemonsDisponibles() || !jugador2.TienePokemonsDisponibles())
+        if (!jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar() || !jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
         {
             Console.WriteLine("No hay suficientes pokemons para inciar una batalla");
             return;
         }
-        
-        Pokemon pokemon1 = jugador1.Seleccionar_Pokemons();
-        Pokemon pokemon2 = jugador2.Seleccionar_Pokemons();
-        
-        while (jugador1.TienePokemonsDisponibles() && jugador2.TienePokemonsDisponibles())
-        {
-            TomarTurno(jugador1, pokemon1, pokemon2);
-            if (!jugador1.TienePokemonsDisponibles())
-            {
-                Console.WriteLine($"{jugador1.Name} gano la batalla");
-                break;
-            }
 
-            TomarTurno(jugador2, pokemon2, pokemon1);
-            if (!jugador2.TienePokemonsDisponibles())
+        Pokemon pokemon1 = jugador1.Seleccionar_Pokemons_Para_Luchar();
+        Pokemon pokemon2 = jugador2.Seleccionar_Pokemons_Para_Luchar();
+
+        while (jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar() && jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
+        {
+
+            if (!pokemon1.El_Pokemon_Esta_Derrotado() || jugador1.CantidadItems[1] != 0)
             {
-                Console.WriteLine($"{jugador2.Name} gano la batalla");
-                break;
+                Cada_Jugador_Tomar_Su_Turno(jugador1, ref pokemon1, pokemon2);
+                if (!jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
+                {
+                    Console.WriteLine($"{jugador1.Name} perdio la batalla");
+                    break;
+                }
+            }
+            else if (pokemon1.El_Pokemon_Esta_Derrotado() && jugador1.CantidadItems[1] == 0)
+            {
+                pokemon1 = jugador1.Seleccionar_Pokemons_Para_Luchar();
+                continue;
+            }
+            
+            if (!pokemon2.El_Pokemon_Esta_Derrotado() || jugador2.CantidadItems[1] != 0)
+            {
+                Cada_Jugador_Tomar_Su_Turno(jugador2, ref pokemon2, pokemon1);
+                if (!jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
+                {
+                    Console.WriteLine($"{jugador2.Name} gano la batalla");
+                    break;
+                }
+            }
+            else if (pokemon2.El_Pokemon_Esta_Derrotado() && jugador2.CantidadItems[1] == 0)
+            {
+                pokemon2 = jugador2.Seleccionar_Pokemons_Para_Luchar();
+                continue;
             }
         }
     }
 
-    public void TomarTurno(Jugador jugador, Pokemon propio, Pokemon oponente)
+    public void Cada_Jugador_Tomar_Su_Turno(Jugador jugador, ref Pokemon propio, Pokemon oponente) // CADA JUGADOR ENTRA EN SU SELECCION DE ACCIONES POR TURNO
     {
-        jugador.TomarDecision(propio, oponente);
-        ActualizarEnfriamientos(jugador);
+        jugador.Acciones_Del_Jugador_En_Batalla(ref propio, oponente);
+        Cada_Jugador_Actualiza_Los_Enfriamientos_De_Ataques_Especiales(jugador);
     }
 
-    public void ActualizarEnfriamientos(Jugador jugador)
+    public void Cada_Jugador_Actualiza_Los_Enfriamientos_De_Ataques_Especiales(Jugador jugador) // ACTUALIZA EL ENFRIAMIENTO DE LOS ATAQUES ESPECIALES
     {
         foreach (var pokemon in jugador.ListPokemons)
         {

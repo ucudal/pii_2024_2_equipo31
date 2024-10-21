@@ -16,44 +16,41 @@ public class Menu
 		InicializarPokemons();
 	}
 
-	private void InicializarPokemons()
+	private void InicializarPokemons()	// CADA JUGADOR SELECCIONA SUS POKEMONS INICIALES
 	{
 		Console.WriteLine("El primer jugador debera seleccionar sus 6 pokemon: ");
-		facada.AgregarPokemonAJugador(1);
+		facada.Cada_Jugador_Agrega_Pokemons(1);
 		
 		Console.WriteLine("El segundo jugador debera seleccionar sus 6 pokemons: ");
-		facada.AgregarPokemonAJugador(2);
+		facada.Cada_Jugador_Agrega_Pokemons(2);
 	}
 	
-	public void MostrarMenuPrincipal()
+	public void MostrarMenuPrincipal()	// MUESTRO EL MENU PARA INICIAR LAS BATALLAS O SALIR
 	{
-		Console.WriteLine("\nBienvenido al menu de batallas!");
-		Console.WriteLine("1. Iniciar Batalla");
-		Console.WriteLine("2. Salir");
-		Console.WriteLine("Escriba su opcion: ");
-
-		string opcion = Console.ReadLine();
+		string opcion;
 		
-		while (opcion != "1" || opcion != "2")
+		do
 		{		
+			Console.WriteLine("\nBienvenido al menu de batallas!");
+			Console.WriteLine("1. Iniciar Batalla");
+			Console.WriteLine("2. Salir");
+			Console.WriteLine("Escriba su opcion: ");
+			
+			opcion = Console.ReadLine();
+
 			switch (opcion)
 			{
 				case "1":
-					facada.IniciarPartida();
+					facada.Iniciar_Nueva_Batalla();
 					break;
 				case "2":
 					Console.WriteLine("Gracias por jugar\nHasta la proxima!\n");
 					break;
 				default:
-					Console.WriteLine("Opcion incorrecta");
+					Console.WriteLine("Opcion incorrecta, ingrese una opcion valida.");
 					break;
 			}
-			Console.WriteLine("\nBienvenido al menu de batallas!");
-			Console.WriteLine("1. Iniciar Batalla");
-			Console.WriteLine("2. Salir");
-			Console.WriteLine("Escriba su opcion: ");
-
-			opcion = Console.ReadLine();
 		}
+		while (opcion != "2");
 	}
 }

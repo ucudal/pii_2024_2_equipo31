@@ -14,36 +14,23 @@ public class Facada
 		jugador1 = new Jugador(nombreJugador1);
 		jugador2 = new Jugador(nombreJugador2);
 	}
-
-	public Pokemon SeleccionarPokemonParaJugar(int jugadorNumero)
+	
+	public void Cada_Jugador_Agrega_Pokemons(int jugadorNumero)	// SEGUN EL JUGADOR, SELECCIONO LOS POKEMONS INICIALES
 	{
 		if (jugadorNumero == 1)
 		{
-			return jugador1.Seleccionar_Pokemons();
+			jugador1.Seleccionar_6_Pokemons_Iniciales();
 		}
 		else if (jugadorNumero == 2)
 		{
-			return jugador2.Seleccionar_Pokemons();
-		}
-		return null;
-	}
-
-	public void AgregarPokemonAJugador(int jugadorNumero)
-	{
-		if (jugadorNumero == 1)
-		{
-			jugador1.SeleccionarPokemons();
-		}
-		else if (jugadorNumero == 2)
-		{
-			jugador2.SeleccionarPokemons();
+			jugador2.Seleccionar_6_Pokemons_Iniciales();
 		}
 	}
 
-    public void IniciarPartida()
+    public void Iniciar_Nueva_Batalla()	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
     {
         batalla = new Batalla(jugador1, jugador2);
-		batalla.Iniciar();
+		batalla.Iniciar_Batalla();
     }
 }
 

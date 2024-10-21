@@ -36,17 +36,16 @@ public class Pokemon
 	
 	public void El_Pokemon_Recibio_Daño(double daño)
 	{
-		double dañoFinal = Math.Max(0, daño - this.Defensa);
-		this.Hp -= dañoFinal;
-		if (dañoFinal > 0)
+		
+		if (this.Defensa > 0)
 		{
-			this.Defensa = 0;
+			double dañoADefensa = Math.Max(this.Defensa, daño);
+			this.Defensa -= dañoADefensa;
+			daño -= dañoADefensa;
 		}
-		else
+		if (daño > 0)
 		{
-			this.Defensa -= daño;
+			this.Hp = Math.Max(0, this.Hp - daño);
 		}
-		this.Hp = Math.Max(0, this.Hp);
 	}
-	
 }

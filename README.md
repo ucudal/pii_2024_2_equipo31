@@ -7,3 +7,5 @@ Un jugador ganará la batalla cuando la vida de los Pokémon del rival llegue a 
 Cada jugador obtiene la posibilidad de cambiar de Pokémon durante la batalla.
 
 La 1ra entraega constará de el diagrama UML de las clases que se utilizarán a continuación para llevar a cabo el proyecto final. Además de las tarjetas CRC, la Facada y el esquema de clases. 
+
+Guia a seguir = TITULO - INTRO - PRIMERA (LO QUE PIDERON) - SEGUNDA ENTREGA (CORRECCIONES + IMPLEMENTACIONES NUEVAS) - DESAFIOS - BIBLIOGRAFIA

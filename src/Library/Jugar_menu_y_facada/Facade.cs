@@ -7,6 +7,7 @@ public class Facada
 {
     private Jugador jugador1;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private Jugador jugador2;
     private Batalla batalla;
 
@@ -41,6 +42,8 @@ public class Facada
         }
     }
 =======
+=======
+>>>>>>> origin/agustin
 	private Jugador jugador2;
 	private Batalla batalla;
 	private Sala_De_Espera salaDeEspera;
@@ -67,6 +70,7 @@ public class Facada
 			jugador2.Seleccionar_6_Pokemons_Iniciales();
 		}
 	}
+<<<<<<< HEAD
 >>>>>>> origin/agustin
 
     public void Iniciar_Nueva_Batalla()	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
@@ -85,6 +89,11 @@ public class Facada
     {
         return jugador2.ListPokemons;
 =======
+=======
+
+    public void Iniciar_Nueva_Batalla()	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
+    {
+>>>>>>> origin/agustin
 	    if (jugador2 != null)
 	    {
 		    batalla = new Batalla(jugador1, jugador2);
@@ -119,6 +128,14 @@ public class Facada
     public void MostrarJugadoresEnEspera()
     {
 	    salaDeEspera.MostrarListaDeEspera();
+<<<<<<< HEAD
+>>>>>>> origin/agustin
+=======
+    }
+
+    public List<Pokemon> ObtenerPokemonsJugador2()
+    {
+        return jugador2.ListPokemons;
 >>>>>>> origin/agustin
     }
 }

@@ -6,105 +6,52 @@ namespace Library;
 public class Pokemon
 {
     public string Name { get; private set; }
-    public int Hp { get; private set; }
-    public int Defensa { get; private set; }
+    public int Id { get; set; }
+    public double HpInicial {get; private set; }
+    public double Hp { get; set; }
+    public double Defensa { get; private set; }
     public string Tipo { get; private set; }
     public bool EnCombate { get; set; }
+    public string EstadoNegativo { get; set; }
 	public List<IAtaque> Ataques {get; private set; }
 
-    public Pokemon(string nombre, int vida, int def, string tipo, List<IAtaque> ataques)
+    public Pokemon(int id, string nombre, int vida, double def, string tipo, List<IAtaque> ataques)
     {
         this.Name = nombre;
-        this.Hp = vida;
+        this.Id = id;
+        this.HpInicial = vida;
+        this.Hp = this.HpInicial;
         this.Defensa = def;
         this.Tipo = tipo;
         this.EnCombate = false;
 		this.Ataques = ataques;
+		this.EstadoNegativo = "Ninguno";
     }
 	
-	public bool EstaDerrotado()
+	public bool El_Pokemon_Esta_Derrotado()
 	{
+		EnCombate = false;
 		return this.Hp <= 0;
 	}
 	
-	public void RecibirDaño(int daño)
+	public void El_Pokemon_Recibio_Daño(double daño)
 	{
-		int dañoFinal = Math.Max(0, daño - this.Defensa);
-		this.Hp -= dañoFinal;
-		this.Hp = Math.Max(0, this.Hp);
+		
+		if (this.Defensa > 0)
+		{
+			double dañoADefensa = Math.Max(this.Defensa, daño);
+			this.Defensa -= dañoADefensa;
+			daño -= dañoADefensa;
+			
+		}
+		if (daño > 0)
+		{
+			this.Hp = Math.Max(0, this.Hp - daño);
+		}
+
+		if (this.Defensa < 0)
+		{
+			this.Defensa = 0;
+		}
 	}
-		
-	public void Curar (int cantidad)
-	{
-		this.Hp = Math.Min(100, this.Hp + cantidad);
-	}
-
-    public void Luchar(Pokemon oponente)
-    {
-		if (this.EstaDerrotado())
-		{
-			Console.WriteLine($" 💀 {this.Name} ya fue derrotado");
-			return;
-		}
-
-        this.EnCombate = true;
-		
-		Console.WriteLine($" 💪 Seleccione un ataque: ");
-		for (int i = 0; i < this.Ataques.Count; i++)
-		{
-			Console.WriteLine($"{i+1} {this.Ataques[i].Name} ({this.Ataques[i].Daño} daño)");
-		}
-
-		int eleccion;
-		while (!int.TryParse(Console.ReadLine(), out eleccion) || eleccion < 1 || eleccion > this.Ataques.Count)
-		{
-			Console.WriteLine("Opcion no valida, seleccione un numero de ataque correcto");
-		}
-
-		IAtaque ataqueUsado = this.Ataques[eleccion - 1];
-		
-		int dañoFinal = ataqueUsado.Daño - oponente.Defensa;
-		oponente.RecibirDaño(dañoFinal);
-
-        Console.WriteLine($" 💥 {oponente.Name} recibe {dañoFinal} de daño. Le quedan {oponente.Hp} de vida.");
-
-        if (oponente.EstaDerrotado())
-        {
-            Console.WriteLine($"{oponente.Name} fue derrotado");
-        }
-    }
-
-    public void Mochila(string objeto)
-    {
-    
-    var objetosDisponibles = new Dictionary<string, Action>
-    {
-        { "pocion", () => { Console.WriteLine($" 💝 {this.Name} usó poción y recuperó 20 puntos de vida"); this.Hp = Math.Min(100, this.Hp + 20); } },
-        { "antidoto", () => Console.WriteLine($" 💉 {this.Name} usó antídoto") },
-        { "revivir", () => {
-            if (this.Hp <= 0)
-            {
-                Console.WriteLine($" 😇 {this.Name} fue revivido y tiene 50 puntos de vida");
-                this.Hp = 50;
-            }
-            else
-            {
-                Console.WriteLine(" 😅 Solo puedes revivir a un Pokémon que no tiene puntos de vida");
-            }
-        }}
-    };
-
-    if (objetosDisponibles.ContainsKey(objeto.ToLower()))
-    {
-        objetosDisponibles[objeto.ToLower()].Invoke();
-    }
-    else
-    {
-        Console.WriteLine($" 🚫 El objeto '{objeto}' no está disponible en la mochila.");
-    }
-    if (this.Hp > 100)
-    {
-     	this.Hp = 100;
-    }       
-}
 }

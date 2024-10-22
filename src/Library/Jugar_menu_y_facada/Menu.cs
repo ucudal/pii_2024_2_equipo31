@@ -32,8 +32,12 @@ public class Menu
 		do
 		{		
 			Console.WriteLine("\nBienvenido al menu de batallas!");
-			Console.WriteLine("1. Iniciar Batalla");
-			Console.WriteLine("2. Salir");
+			Console.WriteLine("1. Iniciar Batalla Local");
+			Console.WriteLine("2. Unirse a la lista de espera");
+			Console.WriteLine("3. Ver jugadores en la lista de espera");
+			Console.WriteLine("4. Iniciar batalla con un jugador de la lista de espera");
+			Console.WriteLine("5. Agregar bots a la lista de espera");
+			Console.WriteLine("6. Salir");
 			Console.WriteLine("Escriba su opcion: ");
 			
 			opcion = Console.ReadLine();
@@ -44,6 +48,19 @@ public class Menu
 					facada.Iniciar_Nueva_Batalla();
 					break;
 				case "2":
+					UnirJugadorALaEspera();
+					break;
+				case "3":
+					facada.MostrarJugadoresEnEspera();
+					break;
+				case "4":
+					facada.IniciarBatallaEnEspera();
+					break;
+				case "5":
+					facada.AgregarMaquinaALaEspera();
+					Console.WriteLine("Se agrego un bot a la lista de espera.");
+					break;
+				case "6":
 					Console.WriteLine("Gracias por jugar\nHasta la proxima!\n");
 					break;
 				default:
@@ -51,6 +68,13 @@ public class Menu
 					break;
 			}
 		}
-		while (opcion != "2");
+		while (opcion != "6");
+	}
+	private void UnirJugadorALaEspera()
+	{	
+		Console.WriteLine("Escribe el nombre del jugador que quiere unirse a la lista de espera: ");
+		string nombreJugador = Console.ReadLine();
+		Jugador jugador = new Jugador(nombreJugador);
+		facada.Unir_Jugador_A_La_Espera(jugador);
 	}
 }

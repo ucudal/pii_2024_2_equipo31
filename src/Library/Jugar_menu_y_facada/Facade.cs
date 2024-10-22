@@ -70,5 +70,9 @@ public class Facada
     {
 	    salaDeEspera.MostrarListaDeEspera();
     }
-}
 
+    public List<Pokemon> ObtenerPokemonsJugador2()
+    {
+        return jugador2.ListPokemons;
+    }
+}

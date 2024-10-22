@@ -7,6 +7,7 @@ namespace Library;
 		public string TipoAtaque {get; private set;}
 		public int EnfriamientoMax {get; private set;}
 		private int enfriamientoActual;
+		public int EnfriamientoActual => enfriamientoActual;
 
 		public AtaqueEspecial(string nombre, double daño, int enfriamiento, string tipoAtaqueEsp)
 		{

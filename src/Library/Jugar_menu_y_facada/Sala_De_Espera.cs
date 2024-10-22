@@ -5,18 +5,30 @@ namespace Library;
 
 public class Sala_De_Espera
 {
-    private List<Jugador> listaEspera = new List<Jugador>();
+    public List<Jugador> listaEspera = new List<Jugador>();
+    public List<Jugador> jugadoresCreados { get; set; } = new List<Jugador>();
 
     public Sala_De_Espera()
     {
         listaEspera = new List<Jugador>();
     }
-    public void UnirseALaListaDeEspera(Jugador jugador)
-    {
-        listaEspera.Add(jugador);
-        Console.WriteLine($"{jugador.Name} se unio a la lista de espera.");
-    }
 
+    public void AgregarJugadorCreado(Jugador jugador)
+    {
+        jugadoresCreados.Add(jugador);
+    }
+    public void UnirseALaListaDeEspera(Jugador jugador, List<Jugador> jugadoresCreados)
+    {
+        if (jugadoresCreados.Contains(jugador))
+        {
+            listaEspera.Add(jugador);
+            Console.WriteLine($"{jugador.Name} se unio a la lista de espera");
+        }
+        else
+        {
+            Console.WriteLine("Solo los jugadores creados pueden unirse a la sala de espera.");
+        }
+    }
     public void MostrarListaDeEspera()
     {
         if (listaEspera.Count > 0)
@@ -24,7 +36,7 @@ public class Sala_De_Espera
             Console.WriteLine("Jugadores en lista de espera: ");
             foreach (var jugador in listaEspera)
             {
-                Console.WriteLine($"- {jugador.Name}");
+                Console.WriteLine($" 👦 {jugador.Name}");
             }
         }
         else
@@ -47,7 +59,9 @@ public class Sala_De_Espera
             Jugador primero = random.Next(2) == 0 ? jugador1 : jugador2;
             
             Console.WriteLine($"{primero.Name} comienza la partida.");
+            
             Batalla batalla = new Batalla(jugador1, jugador2);
+            batalla.Iniciar_Batalla();
         }
         else
         {

@@ -8,7 +8,7 @@ public class Menu
 	
 	public Menu()
 	{
-		Console.WriteLine("\n 📝 ¿Cuantos jugadores desea crear? (1 0 2): ");
+		Console.WriteLine("\n 📝 ¿Cuantos jugadores desea crear? (1 o 2): ");
 		string respuesta = Console.ReadLine();
 		int cantidadJugadores;
 
@@ -58,7 +58,7 @@ public class Menu
 			switch (opcion)
 			{
 				case "1":
-					facada.Iniciar_Nueva_Batalla();
+					facada.Iniciar_Nueva_Batalla(facada.Jugador2);
 					break;
 				case "2":
 					UnirJugadorALaEspera();

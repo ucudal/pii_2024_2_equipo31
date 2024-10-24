@@ -33,7 +33,7 @@ public class Facada
 		}
 	}
 
-    public void Iniciar_Nueva_Batalla()	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
+    public void Iniciar_Nueva_Batalla(Jugador jugador1, Jugador jugador2 = null)	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
     {
 	    if (jugador2 != null)
 	    {

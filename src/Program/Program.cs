@@ -8,5 +8,8 @@ namespace Program;
 
 class Program
 {
-    Console.WriteLine("\nBuenas");
+    static void Main()
+    {
+        Console.WriteLine("\nBuenas");
+    }
 }

@@ -12,11 +12,12 @@ public class AtaqueTests
     public void TestEjecutarAtaqueNormal()
     {
         // Arrange
-        Pokemon oponente = new Pokemon("Bulbasaur", 85, 70, "planta", new List<IAtaque>());
-        AtaqueNormal ataque = new AtaqueNormal("Impactrueno", 30);
+        Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
+
+        AtaqueNormal ataque = new AtaqueNormal("Impactrueno", 30,"Hierba");
 
         // Act
-        ataque.Ejecutar(oponente);
+        ataque.Ejecutar_Ataque(oponente);
 
         // Assert: Verificar que el oponente ha recibido el daño
         Assert.AreEqual(70 - 30, oponente.Hp, $"{oponente.Name} debería tener {oponente.Hp} HP después del ataque.");
@@ -26,11 +27,12 @@ public class AtaqueTests
     public void TestEjecutarAtaqueEspecial_CuandoPuedeUsar()
     {
         // Arrange
-        Pokemon oponente = new Pokemon("Bulbasaur", 85, 70, "planta", new List<IAtaque>());
-        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2); // Enfriamiento de 2 turnos
+        Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
+
+        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2,"Hierba"); // Enfriamiento de 2 turnos
 
         // Act
-        ataqueEspecial.Ejecutar(oponente);
+        ataqueEspecial.Ejecutar_Ataque(oponente);
 
         // Assert: Verificar que el oponente ha recibido el daño
         Assert.AreEqual(70 - 50, oponente.Hp, $"{oponente.Name} debería tener {oponente.Hp} HP después del ataque especial.");
@@ -41,14 +43,15 @@ public class AtaqueTests
     public void TestEjecutarAtaqueEspecial_CuandoNoPuedeUsar()
     {
         // Arrange
-        Pokemon oponente = new Pokemon("Bulbasaur", 85, 70, "planta", new List<IAtaque>());
-        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2);
+        Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
+        AtaqueEspecial ataqueEspecial =  new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
+
 
         // Usar el ataque especial una vez para ponerlo en enfriamiento
-        ataqueEspecial.Ejecutar(oponente); // El oponente debería recibir daño y el ataque estará en enfriamiento
+        ataqueEspecial.Ejecutar_Ataque(oponente); // El oponente debería recibir daño y el ataque estará en enfriamiento
 
         // Act: Intentar usarlo nuevamente
-        ataqueEspecial.Ejecutar(oponente);
+        ataqueEspecial.Ejecutar_Ataque(oponente);
 
         // Assert: El ataque no debe ejecutarse, y se debe mostrar un mensaje de enfriamiento
         // Aquí podrías verificar que el HP no cambió, o que se llamó a Console.WriteLine() con el mensaje de enfriamiento.
@@ -59,7 +62,8 @@ public class AtaqueTests
     public void TestPuedeUsarAtaque_CuandoEnfriamientoEsCero()
     {
         // Arrange
-        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2);
+        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
+
 
         // Act
         bool puedeUsar = ataqueEspecial.PuedeUsarAtaque();
@@ -72,8 +76,10 @@ public class AtaqueTests
     public void TestPuedeUsarAtaque_CuandoEnfriamientoNoEsCero()
     {
         // Arrange
-        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2);
-        ataqueEspecial.Ejecutar(new Pokemon("Bulbasaur", 85, 70, "planta", new List<IAtaque>())); // Usamos el ataque para poner en enfriamiento
+        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
+
+        ataqueEspecial.Ejecutar_Ataque( new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>()));
+        // Usamos el ataque para poner en enfriamiento
 
         // Act
         bool puedeUsar = ataqueEspecial.PuedeUsarAtaque();

@@ -1,4 +1,4 @@
-using Library;
+using Library; 
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
@@ -16,21 +16,13 @@ public class FacadaTests
         string nombreJugador2 = "Misty";
         Facada facada = new Facada(nombreJugador1, nombreJugador2);
 
-        // Simular entradas de usuario
-        Queue<string> nombresDePokemonEntrada = new Queue<string>(new[] { "Pikachu", "Charmander", "Bulbasaur", "InvalidPokemon", "Charmander", "Squirtle" });
-
-        // Función de entrada simulada
-        string ObtenerEntradaSimulada() => nombresDePokemonEntrada.Dequeue();
-
         // Act
-        facada.AgregarPokemonAJugador(1); // Agregar Pokémon para el jugador 1
+        facada.Jugador1.Seleccionar_6_Pokemons_Iniciales(); // Asumiendo que la función agrega Pokémon a la lista del jugador
+        facada.Jugador2.Seleccionar_6_Pokemons_Iniciales();
 
         // Assert
-        Assert.AreEqual(3, facada.ObtenerPokemonsJugador1().Count, "El jugador 1 debería tener 3 Pokémon.");
-        Assert.AreEqual("Pikachu", facada.ObtenerPokemonsJugador1()[0].Name, "El primer Pokémon debería ser Pikachu.");
-        Assert.AreEqual("Charmander", facada.ObtenerPokemonsJugador1()[1].Name, "El segundo Pokémon debería ser Charmander.");
-        Assert.AreEqual("Bulbasaur", facada.ObtenerPokemonsJugador1()[2].Name, "El tercer Pokémon debería ser Bulbasaur.");
-
+        Assert.AreEqual(6, facada.Jugador1.ListPokemons.Count, "El jugador 1 debería tener 6 Pokémon.");
+        Assert.AreEqual(6, facada.Jugador2.ListPokemons.Count, "El jugador 2 debería tener 6 Pokémon.");
     }
 
     [Test]
@@ -42,8 +34,8 @@ public class FacadaTests
         Facada facada = new Facada(nombreJugador1, nombreJugador2);
 
         // Agregar Pokémon a los jugadores
-        facada.AgregarPokemonAJugador(1);
-        facada.AgregarPokemonAJugador(2);
+        facada.Jugador1.Seleccionar_6_Pokemons_Iniciales();
+        facada.Jugador2.Seleccionar_6_Pokemons_Iniciales();
 
         // Capturamos la salida de consola
         using (var sw = new StringWriter())
@@ -51,7 +43,7 @@ public class FacadaTests
             Console.SetOut(sw);
 
             // Act
-            facada.IniciarPartida();
+            facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2); // Asegúrate de pasar los jugadores correctos
 
             // Assert
             string output = sw.ToString().Trim();

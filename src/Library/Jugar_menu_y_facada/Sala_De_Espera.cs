@@ -29,19 +29,72 @@ public class Sala_De_Espera
             Console.WriteLine("Solo los jugadores creados pueden unirse a la sala de espera.");
         }
     }
-    public void MostrarListaDeEspera()
+    public string MostrarListaDeEspera()
     {
         if (listaEspera.Count > 0)
         {
-            Console.WriteLine("Jugadores en lista de espera: ");
+            string lista = "Jugadores en lista de espera: \n";
             foreach (var jugador in listaEspera)
             {
-                Console.WriteLine($" 👦 {jugador.Name}");
+                lista += $" 👦 {jugador.Name}";
             }
+
+            return lista;
         }
         else
         {
-            Console.WriteLine("No hay jugadores en lista de espera.");
+            return "No hay jugadores en lista de espera.";
+        }
+    }
+
+    public Jugador ObtenerJugador(string nombreJugador)
+    {
+        Jugador jugadorBuscado = new Jugador("buscado");
+        foreach (var jugador in listaEspera)
+        {
+            if (jugador.Name == nombreJugador)
+            {
+                jugadorBuscado = jugador;
+                return jugadorBuscado;
+            }
+            else
+            {
+                Console.WriteLine($"{nombreJugador} no esta en la sala de espera!");
+                jugadorBuscado = null;
+                return jugadorBuscado;
+            }
+        }
+        return jugadorBuscado;
+    }
+    
+    public Jugador ObtenerOtroJugador(string nombreJugador)
+    {
+        Jugador jugadorBuscado = new Jugador("buscado");
+        foreach (var jugador in listaEspera)
+        {
+            if (listaEspera.Count >= 2 && jugador.Name != nombreJugador)
+            {
+                jugadorBuscado = jugador;
+                return jugadorBuscado;
+            }
+            else
+            {
+                Console.WriteLine($"No hay rivales disponibles en la sala de espera.");
+                jugadorBuscado = null;
+                return jugadorBuscado;
+            }
+        }
+        return jugadorBuscado;
+    }
+
+    public void EliminarJugador(Jugador jugador)
+    {
+        foreach (var jugadoresEspera in listaEspera)
+        {
+            if (jugadoresEspera == jugador)
+            {
+                listaEspera.Remove(jugadoresEspera);
+            }
         }
     }
 

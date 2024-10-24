@@ -8,7 +8,7 @@ public class Menu
 	
 	public Menu()
 	{
-		Console.WriteLine("\n 📝 ¿Cuantos jugadores desea crear? (1 0 2): ");
+		Console.WriteLine("\n 📝 ¿Cuantos jugadores desea crear? (1 o 2): ");
 		string respuesta = Console.ReadLine();
 		int cantidadJugadores;
 

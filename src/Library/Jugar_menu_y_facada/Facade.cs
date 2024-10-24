@@ -11,8 +11,35 @@ public class Facada
     private Sala_De_Espera salaDeEspera;
     public Jugador Jugador1 => jugador1;
 
+<<<<<<< HEAD
     public Jugador Jugador2 => jugador2;
     public Facada (string nombreJugador1, string nombreJugador2 = null)
+=======
+	public Jugador Jugador2 => jugador2;
+	public Facada (string nombreJugador1, string nombreJugador2 = null)
+	{
+		jugador1 = new Jugador(nombreJugador1);
+		if (nombreJugador2 != null)
+		{
+			jugador2 = new Jugador(nombreJugador2);
+		}
+		salaDeEspera = new Sala_De_Espera();
+	}
+	
+	public void Cada_Jugador_Agrega_Pokemons(int jugadorNumero)	// SEGUN EL JUGADOR, SELECCIONO LOS POKEMONS INICIALES
+	{
+		if (jugadorNumero == 1)
+		{
+			jugador1.Seleccionar_6_Pokemons_Iniciales();
+		}
+		else if (jugadorNumero == 2)
+		{
+			jugador2.Seleccionar_6_Pokemons_Iniciales();
+		}
+	}
+
+    public void Iniciar_Nueva_Batalla(Jugador jugador1, Jugador jugador2 = null)	// CREO UNA NUEVA INSTANCIA DE BATALLA E INICIO
+>>>>>>> TrabajoAgustin
     {
         jugador1 = new Jugador(nombreJugador1);
         if (nombreJugador2 != null)

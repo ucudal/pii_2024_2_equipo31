@@ -9,13 +9,21 @@ public class Jugador
     public string Name { get; set; }
     public List<Pokemon> ListPokemons { get; set; }
     private List<Pokemon> pokemonsDisponibles;
-    public List<int> CantidadItems;
 
-    public Jugador(string nombre)
+    public Items_Jugador ItemsMochila;
+
+    //public List<int> CantidadItems;
+    public int Pociones { get; set; }
+    public int Curas { get; set; }
+    public int Revivir { get; set; }
+
+
+public Jugador(string nombre)
     {
         this.Name = nombre;
         ListPokemons = new List<Pokemon>();
-        CantidadItems = new List<int> { 4, 1, 2 };
+        ItemsMochila = new Items_Jugador();
+        //CantidadItems = new List<int> { 4, 1, 2 };
         Inicializar_Total_Pokemons_Disponibles_Juego();
     }
 	
@@ -346,7 +354,7 @@ public class Jugador
         switch (objeto.ToLower())
         {
             case "1":
-                if (CantidadItems[0] >= 1)
+                if (ItemsMochila.Cantidad_Items_Jugador.Super_Pocion >= 1)
                 {
                     pokemonMoch.Hp = pokemonMoch.Hp + 70;
                     if (pokemonMoch.Hp > pokemonMoch.HpInicial)
@@ -364,7 +372,7 @@ public class Jugador
                 break;
 
             case "2":
-                if(CantidadItems[2] >= 1 && pokemonMoch.EstadoNegativo != "Ninguno")
+                if(ItemsMochila.Cantidad_Items_Jugador.Cura_Total >= 1 && pokemonMoch.EstadoNegativo != "Ninguno")
                 {
                     Console.WriteLine($" 💉 {this.Name} usó una cura total y se recupero de todos los efectos negativos");
                     CantidadItems[2] -= 1;
@@ -383,7 +391,7 @@ public class Jugador
                 break;
 
             case "3":
-                if (pokemonMoch.Hp <= 0 && CantidadItems[1] >= 1)
+                if (pokemonMoch.Hp <= 0 && ItemsMochila.Cantidad_Items_Jugador.Revivir >= 1)
                 {
                     pokemonMoch.Hp = pokemonMoch.HpInicial * 0.5;
                     Console.WriteLine($" 😇 {pokemonMoch.Name} fue revivido y ahora tiene {pokemonMoch.Hp} puntos de vida");

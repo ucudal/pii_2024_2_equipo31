@@ -2,10 +2,11 @@ namespace Library;
 
 public class Items_Jugador
 {
-    public enum Cantidad_Items_Jugador
+    public string Nombre { get; set; }
+    public int Cantidad { get; set; }
+    public Items_Jugador(string nombre, int cantidad)
     {
-        Super_Pocion = 4,
-        Cura_Total = 1,
-        Revivir = 2
+        this.Nombre = nombre;
+        this.Cantidad = cantidad;
     }
 }

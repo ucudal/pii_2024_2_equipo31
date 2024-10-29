@@ -9,21 +9,19 @@ public class Jugador
     public string Name { get; set; }
     public List<Pokemon> ListPokemons { get; set; }
     private List<Pokemon> pokemonsDisponibles;
-
-    public Items_Jugador ItemsMochila;
-
-    //public List<int> CantidadItems;
-    public int Pociones { get; set; }
-    public int Curas { get; set; }
-    public int Revivir { get; set; }
-
+    public Dictionary<int, Items_Jugador> CantidadItems { get; set; }
+ 
 
 public Jugador(string nombre)
     {
         this.Name = nombre;
         ListPokemons = new List<Pokemon>();
-        ItemsMochila = new Items_Jugador();
-        //CantidadItems = new List<int> { 4, 1, 2 };
+        CantidadItems = new Dictionary<int, Items_Jugador>
+        {
+            { 1, new Items_Jugador("Súper pociones", 4) },
+            { 2, new Items_Jugador("Cura total", 2 )},
+            { 3, new Items_Jugador("Revivir", 1) }
+        };
         Inicializar_Total_Pokemons_Disponibles_Juego();
     }
 	
@@ -301,7 +299,7 @@ public Jugador(string nombre)
                     }
                 break;
             case "2":
-                Console.WriteLine($" 🎒 Selecciona un item: \n1. Super Pocion\n2. Cura Total\n3. Revivir\n");
+                Console.WriteLine($" 🎒 Selecciona un item: \n1. Súper pociones\n2. Cura Total\n3. Revivir\n");
                 string objeto = Console.ReadLine();
                 this.Mochila_Del_Jugador(objeto, propio);
                 break;
@@ -354,7 +352,7 @@ public Jugador(string nombre)
         switch (objeto.ToLower())
         {
             case "1":
-                if (ItemsMochila.Cantidad_Items_Jugador.Super_Pocion >= 1)
+                if (CantidadItems[1].Cantidad >= 1)
                 {
                     pokemonMoch.Hp = pokemonMoch.Hp + 70;
                     if (pokemonMoch.Hp > pokemonMoch.HpInicial)
@@ -362,8 +360,8 @@ public Jugador(string nombre)
                         pokemonMoch.Hp = pokemonMoch.HpInicial;
                     }
                     Console.WriteLine($" 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y ahora tiene {pokemonMoch.Hp} puntos de vida");
-                    CantidadItems[0] -= 1;
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[0]} super pociones en su mochila.");
+                    CantidadItems[1].Cantidad -= 1;
+                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[1].Cantidad} super pociones en su mochila.");
                 }
                 else
                 {
@@ -372,17 +370,17 @@ public Jugador(string nombre)
                 break;
 
             case "2":
-                if(ItemsMochila.Cantidad_Items_Jugador.Cura_Total >= 1 && pokemonMoch.EstadoNegativo != "Ninguno")
+                if(CantidadItems[2].Cantidad >= 1 && pokemonMoch.EstadoNegativo != "Ninguno")
                 {
                     Console.WriteLine($" 💉 {this.Name} usó una cura total y se recupero de todos los efectos negativos");
-                    CantidadItems[2] -= 1;
+                    CantidadItems[2].Cantidad -= 1;
                     pokemonMoch.EstadoNegativo = "Ninguno";
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[2]} curas totales en su mochila.");
+                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[2].Cantidad} curas totales en su mochila.");
                 }
                 else if (pokemonMoch.EstadoNegativo == "Ninguno")
                 {
                     Console.WriteLine($"{pokemonMoch.Name} no tiene ningun estado negativo por ser revertido.");
-                    Console.WriteLine($"A {this.Name} aun le quedan {CantidadItems[2]} curas totales");
+                    Console.WriteLine($"A {this.Name} aun le quedan {CantidadItems[2].Cantidad} curas totales");
                 }
                 else
                 {
@@ -391,14 +389,14 @@ public Jugador(string nombre)
                 break;
 
             case "3":
-                if (pokemonMoch.Hp <= 0 && ItemsMochila.Cantidad_Items_Jugador.Revivir >= 1)
+                if (CantidadItems[3].Cantidad >= 1)
                 {
                     pokemonMoch.Hp = pokemonMoch.HpInicial * 0.5;
                     Console.WriteLine($" 😇 {pokemonMoch.Name} fue revivido y ahora tiene {pokemonMoch.Hp} puntos de vida");
-                    CantidadItems[1] -= 1;
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[1]} revivir en su mochila.");
+                    CantidadItems[3].Cantidad -= 1;
+                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[3].Cantidad} revivir en su mochila.");
                 }
-                else if (CantidadItems[1] == 0)
+                else if (CantidadItems[3].Cantidad == 0)
                 {
                     Console.WriteLine($" 😅 No tienes mas items revivir.");
                     Console.WriteLine(" Debes cambiar de pokemon, redirigiendo...");

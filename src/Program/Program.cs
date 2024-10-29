@@ -10,6 +10,8 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("\nBuenas");
+        Console.WriteLine("\n ⏩  Bienvenido a PokeWorld ⏪  ");
+        Menu menujugar = new Menu();
+        menujugar.MostrarMenuPrincipal();
     }
 }

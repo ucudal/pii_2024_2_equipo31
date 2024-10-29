@@ -1,5 +1,6 @@
 namespace Library;
 
+
 /// <summary>
 /// Representa un ataque especial en el sistema, hereda de la clase Ataque.
 /// </summary>
@@ -9,6 +10,7 @@ public class AtaqueEspecial : Ataque, IAtaque
     /// Obtiene el nombre del ataque especial.
     /// </summary>
     public string Name { get; private set; }
+
 
     /// <summary>
     /// Obtiene o establece el daño del ataque especial.

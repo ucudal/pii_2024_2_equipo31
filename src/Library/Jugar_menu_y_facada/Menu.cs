@@ -58,7 +58,7 @@ public class Menu
 			switch (opcion)
 			{
 				case "1":
-					facada.Iniciar_Nueva_Batalla(facada.Jugador2);
+					facada.Iniciar_Nueva_Batalla(facada.Jugador1,facada.Jugador2);
 					break;
 				case "2":
 					UnirJugadorALaEspera();

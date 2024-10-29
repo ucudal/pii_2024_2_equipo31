@@ -40,7 +40,7 @@ public class Batalla
         {
             if (esTurnoJugador1)
             {
-                if (!pokemon1.El_Pokemon_Esta_Derrotado() || jugador1.CantidadItems[1] != 0)
+                if (!pokemon1.El_Pokemon_Esta_Derrotado() || jugador1.CantidadItems[3].Cantidad != 0)
                 {
                     Cada_Jugador_Tomar_Su_Turno(jugador1, ref pokemon1, pokemon2);
                     if (!jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
@@ -49,7 +49,7 @@ public class Batalla
                         break;
                     }
                 }
-                else if (pokemon1.El_Pokemon_Esta_Derrotado() && jugador1.CantidadItems[1] == 0)
+                else if (pokemon1.El_Pokemon_Esta_Derrotado() && jugador1.CantidadItems[3].Cantidad == 0)
                 {
                     pokemon1 = jugador1.Seleccionar_Pokemons_Para_Luchar();
                     continue;
@@ -59,7 +59,7 @@ public class Batalla
             }
             else
             {
-                if (!pokemon2.El_Pokemon_Esta_Derrotado() || (jugador2 != null && jugador2.CantidadItems[1] != 0))
+                if (!pokemon2.El_Pokemon_Esta_Derrotado() || (jugador2 != null && jugador2.CantidadItems[3].Cantidad != 0))
                 {
                     Cada_Jugador_Tomar_Su_Turno(jugador2, ref pokemon2, pokemon1);
                     if (!jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
@@ -68,7 +68,7 @@ public class Batalla
                         break;
                     }
                 }
-                else if (pokemon2.El_Pokemon_Esta_Derrotado() && jugador2.CantidadItems[1] == 0)
+                else if (pokemon2.El_Pokemon_Esta_Derrotado() && jugador2.CantidadItems[3].Cantidad == 0)
                 {
                     pokemon2 = jugador2.Seleccionar_Pokemons_Para_Luchar();
                     continue;

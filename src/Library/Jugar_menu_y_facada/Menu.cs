@@ -31,7 +31,7 @@ public class Menu
             Console.WriteLine($"\n 📝 Escribe el nombre del Jugador {i}: ");
             nombreJugadores.Add(Console.ReadLine());
         }
-        facada = new Facada(nombreJugadores[0], nombreJugadores.Count > 1 ? nombreJugadores[1] : null);
+        this.facada = new Facada(nombreJugadores[0], nombreJugadores.Count > 1 ? nombreJugadores[1] : null);
         InicializarPokemons();
     }
 
@@ -100,7 +100,21 @@ public class Menu
     {
         Console.WriteLine("Escribe el nombre del jugador que quiere unirse a la lista de espera: ");
         string nombreJugador = Console.ReadLine();
-        Jugador jugador = new Jugador(nombreJugador);
-        facada.Unir_Jugador_A_La_Espera(jugador);
+        while (nombreJugador != this.facada.Jugador1.Name || nombreJugador != this.facada.Jugador2.Name)
+        {
+            if(nombreJugador == this.facada.Jugador1.Name)
+            {
+                Jugador jugador = this.facada.Jugador1;
+                facada.Unir_Jugador_A_La_Espera(jugador);
+                break;
+            }
+            else if (nombreJugador == this.facada.Jugador2.Name)
+            {
+                Jugador jugador = this.facada.Jugador2;
+                facada.Unir_Jugador_A_La_Espera(jugador);
+                break;
+            }
+        }
     }
 }
+

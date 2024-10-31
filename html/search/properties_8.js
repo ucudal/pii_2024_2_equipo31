@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tipo_0',['Tipo',['../class_library_1_1_pokemon.html#adc4c1d2f1483875da479258d02b3f62c',1,'Library::Pokemon']]],
-  ['tipoataque_1',['TipoAtaque',['../class_library_1_1_ataque.html#a9878158ec73d857a47c37f55999c898a',1,'Library.Ataque.TipoAtaque'],['../class_library_1_1_ataque_especial.html#a9994c7317a3cdb547e0f6b4e0445f76f',1,'Library.AtaqueEspecial.TipoAtaque'],['../class_library_1_1_ataque_normal.html#a3a782b03944ae5731bf40338b4f8e710',1,'Library.AtaqueNormal.TipoAtaque'],['../interface_library_1_1_i_ataque.html#a551ff5c9cb884a05830c5225c7daff61',1,'Library.IAtaque.TipoAtaque']]]
+  ['name_0',['Name',['../class_library_1_1_ataque.html#a116bc350e949ce1a25a27d61f91f987c',1,'Library.Ataque.Name'],['../class_library_1_1_ataque_especial.html#aa2704fb67e3382538222357d0c5cf1be',1,'Library.AtaqueEspecial.Name'],['../class_library_1_1_ataque_normal.html#a3660236eb085d29ad09efbd4fc1233fb',1,'Library.AtaqueNormal.Name'],['../interface_library_1_1_i_ataque.html#a50bcbced924c38031c9bff09992d4e73',1,'Library.IAtaque.Name'],['../class_library_1_1_jugador.html#aeab93c4e8f981120445f8a2964c9def1',1,'Library.Jugador.Name'],['../class_library_1_1_pokemon.html#a68c19b133602cf71110cb160e443aa15',1,'Library.Pokemon.Name']]],
+  ['nombre_1',['Nombre',['../class_library_1_1_items___jugador.html#a9acbcda5fcd1c53d373e24cb42b5e668',1,'Library::Items_Jugador']]]
 ];

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['menu_0',['Menu',['../class_library_1_1_menu.html#a60af0f09ff1c37348e1e4e04b2e2322b',1,'Library::Menu']]],
-  ['mostrarjugadoresenespera_1',['MostrarJugadoresEnEspera',['../class_library_1_1_facada.html#a1a81e21a64c8c25cde95bcf3d3b6247f',1,'Library::Facada']]],
-  ['mostrarlistadeespera_2',['MostrarListaDeEspera',['../class_library_1_1_sala___de___espera.html#aba702521a6eca5f372a6485f2f370dfd',1,'Library::Sala_De_Espera']]],
-  ['mostrarmenuprincipal_3',['MostrarMenuPrincipal',['../class_library_1_1_menu.html#abaf3c02c75e24adbe6b57a3ad6c6d712',1,'Library::Menu']]]
+  ['jugador_0',['Jugador',['../class_library_1_1_jugador.html#a08300073d56e1146926129abe3562968',1,'Library::Jugador']]],
+  ['jugador_5ftiene_5fpokemons_5fdisponibles_5fpara_5fluchar_1',['Jugador_Tiene_Pokemons_Disponibles_Para_Luchar',['../class_library_1_1_jugador.html#a54b57a207b2f8616cddf7d130ae6e955',1,'Library::Jugador']]]
 ];

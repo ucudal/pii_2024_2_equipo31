@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sala_5fde_5fespera_0',['Sala_De_Espera',['../class_library_1_1_sala___de___espera.html#a9d01c7b1d37d486d851f982584706ecb',1,'Library::Sala_De_Espera']]]
+  ['reducirenfriamiento_0',['ReducirEnfriamiento',['../class_library_1_1_ataque_especial.html#a2c48f6da40dfce3a3cd8c5f2112e44e4',1,'Library::AtaqueEspecial']]]
 ];

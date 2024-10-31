@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['unir_5fjugador_5fa_5fla_5fespera_0',['Unir_Jugador_A_La_Espera',['../class_library_1_1_facada.html#a08acb0b32678c89c71155c813e29165f',1,'Library::Facada']]],
-  ['unirsealalistadeespera_1',['UnirseALaListaDeEspera',['../class_library_1_1_sala___de___espera.html#a574509e306cf83aea7ccb20802eff393',1,'Library::Sala_De_Espera']]]
+  ['sala_5fde_5fespera_0',['Sala_De_Espera',['../class_library_1_1_sala___de___espera.html#a9d01c7b1d37d486d851f982584706ecb',1,'Library::Sala_De_Espera']]],
+  ['seleccionar_5f6_5fpokemons_5finiciales_1',['Seleccionar_6_Pokemons_Iniciales',['../class_library_1_1_jugador.html#a6ff3b2ce6b140de1aa7248ac3d21b486',1,'Library::Jugador']]],
+  ['seleccionar_5fpokemons_5fpara_5fluchar_2',['Seleccionar_Pokemons_Para_Luchar',['../class_library_1_1_jugador.html#a9a2daa71eea8ba541b46c1d65a2e2bbb',1,'Library::Jugador']]]
 ];

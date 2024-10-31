@@ -28,7 +28,7 @@ public class Batalla
     public void Iniciar_Batalla()
     {
         Console.WriteLine("\nIniciando la batalla.");
-
+        Console.WriteLine($"Pokemos del jugador 1: {jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar()}");
         if (!jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
         {
             Console.WriteLine("No hay suficientes pokemons para iniciar una batalla");

@@ -145,10 +145,13 @@ public class Sala_De_Espera
     /// </summary>
     public void IniciarBatallaSalaEspera()
     {
+        Console.WriteLine(listaEspera.Count);
         if (listaEspera.Count >= 2)
         {
             Jugador jugador1 = listaEspera[0];
+            Console.WriteLine(jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar());
             Jugador jugador2 = listaEspera[1];
+            Console.WriteLine(jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar());
             listaEspera.RemoveRange(0, 2);
 
             Console.WriteLine($"¡{jugador1.Name} y {jugador2.Name} comenzaron una batalla!");

@@ -104,6 +104,6 @@ public class Facada
     /// </summary>
     public void MostrarJugadoresEnEspera()
     {
-        salaDeEspera.MostrarListaDeEspera();
+        Console.WriteLine(salaDeEspera.MostrarListaDeEspera());
     }
 }

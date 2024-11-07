@@ -4,6 +4,7 @@
 
 ![](https://i.pinimg.com/originals/f3/44/58/f344588bb0af858118a06d2004d2420d.gif) 
 ___
+
 ### Introducción
 
 El mismo, se trata del desarrollo de un chatbot, cuyo proposito sera facilitar la introduccion de acciones dentro de un entorno de chat. Este bot permitira organizar y gestionar una batalla entre jugadores utilizando Pokémon como personajes principales.
@@ -27,7 +28,7 @@ ___
 
 ___
 
- ### Segunda Entrega.
+### Segunda Entrega.
 En la segunda entrega del proyecto, se implementaron varias mejoras significativas y se ampliaron las funcionalidades originales del sistema. Entre los principales avances se encuentran la incorporación de ataques especiales para los Pokémon, que añaden un nivel de intensidad y estrategia adicional a las batallas. Estos ataques especiales permiten que cada Pokémon tenga habilidades únicas, ofreciendo así una mayor variedad de interacciones durante el combate.
 
 Otro aspecto fundamental en esta segunda etapa fue la implementación de la efectividad de tipos. Los tipos de Pokémon, como agua, fuego, planta, entre otros, ahora tienen un impacto directo en la batalla, replicando las dinámicas de ventaja y desventaja presentes en el universo Pokémon. Esta nueva mecanica ayuda a que las decisiones de los jugadores durante la batalla sean más relevantes y cuidadosas.
@@ -45,8 +46,13 @@ ___
 #### Tarjetas CRC (ACTUAL)
 ![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final%20Segunda%20Entrega.png)
 ___
-### Desafíos Encontrados.
 
+### Desafíos Encontrados.
+Algunos de los desafios de la segunda entrega fue la implementación de la sala de espera, tanto al intentar iniciar una batalla como para ver la lista de jugadores en espera.
+Los items del jugador estaban agregados en una lista de int, se mejoro creando una clase para dichos items para que cumpla de mejor manera la consigna e intentando que cumpla con el principio de delegación.
+El cambio de pokemon fue un problema, tanto el hecho de cambiar durante la batalla como intentar cambiarlo cuando ya no tenia vida.
+Otro desafio fue cuando el pokemon en batalla perdia toda su vida y no tenia mas items revivir, la batalla se perdia automaticamente, no se consideraba si habian mas pokemons disponibles para luchar o no.
+___
 
 ### Bibliografía
 

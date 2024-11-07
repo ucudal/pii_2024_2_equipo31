@@ -4,7 +4,15 @@
 
 ![](https://i.pinimg.com/originals/f3/44/58/f344588bb0af858118a06d2004d2420d.gif)
 ___
-  
+### Introducción
+
+El mismo, se trata del desarrollo de un chatbot, cuyo proposito sera facilitar la introduccion de acciones dentro de un entorno de chat. Este bot permitira organizar y gestionar una batalla entre jugadores utilizando Pokémon como personajes principales.
+
+Cada jugador contará con un equipo compuesto por seis Pokémon, los cuales participarán en combates estratégicos contra los oponentes. Cada Pokémon tendrá atributos específicos como vida, ataque y turno de participación. Asimismo, se dispondrá de una variedad de tipos de Pokémon, cada uno con una efectividad particular frente a otros tipos, lo que añadirá un componente táctico a las batallas.
+
+La victoria será otorgada al jugador que logre reducir la vida de todos los Pokémon del adversario a cero (0). Además, durante el desarrollo de la batalla, los jugadores tendrán la opción de intercambiar los Pokémon de su equipo, proporcionando mayor dinamismo y flexibilidad en el transcurso del combate.
+___
+
 ### Primera Entrega
 Para comenzar al equipo se le panteó una **lista objetivos** que debía cumplir para la realización del proyecto pokémon, estos mismo eran:
 - Realizar las tarjetas CRC, responsabilidades y colaboraciones identificadas para resolver el problema.
@@ -13,23 +21,6 @@ Para comenzar al equipo se le panteó una **lista objetivos** que debía cumplir
 - Facada
 
 ___
-
-### Introducción
-
-El mismo, se trata del desarrollo de un chatbot, cuyo proposito sera facilitar la introduccion de acciones dentro de un entorno de chat. Este bot permitira organizar y gestionar una batalla entre jugadores utilizando Pokémon como personajes principales.
-
-Cada jugador contará con un equipo compuesto por seis Pokémon, los cuales participarán en combates estratégicos contra los oponentes. Cada Pokémon tendrá atributos específicos como vida, ataque y turno de participación. Asimismo, se dispondrá de una variedad de tipos de Pokémon, cada uno con una efectividad particular frente a otros tipos, lo que añadirá un componente táctico a las batallas.
-
-La victoria será otorgada al jugador que logre reducir la vida de todos los Pokémon del adversario a cero (0). Además, durante el desarrollo de la batalla, los jugadores tendrán la opción de intercambiar los Pokémon de su equipo, proporcionando mayor dinamismo y flexibilidad en el transcurso del combate.
-
-___
-
-#### Diagrama de Clases(UML).
-![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Final.png?raw=true)
-
-
-___
-
 
 #### Facada.
 ![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/Facada%20Final.png?raw=true****)
@@ -47,7 +38,13 @@ Continuando, como parte del proceso de actualización, se realizó una reestruct
 
 ___
 
+#### Diagrama de clases (UML ACTUAL).
+![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Segunda%20Entrega%20Final.png)
+___
 
+#### Tarjetas CRC (ACTUAL)
+![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final.png)
+___
 ### Desafíos Encontrados.
 
 
@@ -72,6 +69,8 @@ ___
 [Conocimientos Pokémon](https://www.pokemon.com/us/pokedex)
 
 [Diseños](https://github.com/ucudal/PII_Guias)
+
+[Discord Bot](https://discordjs.guide/#before-you-begin)
 
 Como segunda entrega debimos implementar ataques especiales, efectividad de tipos(agua,fuego etc), correcciones al codigo, restructuración del UML, desafios que tuvimos , aprendisaje adquirido, y bibliografia.
 

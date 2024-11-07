@@ -23,7 +23,7 @@ Para comenzar al equipo se le panteó una **lista objetivos** que debía cumplir
 ___
 
 #### Facada.
-![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/Facada%20Final.png?raw=true****)
+![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/FACADA%20Final%20Segunda%20Entrega.png)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 ___
 
 #### Tarjetas CRC (ACTUAL)
-![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final.png)
+![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final%20Segunda%20Entrega.png)
 ___
 ### Desafíos Encontrados.
 

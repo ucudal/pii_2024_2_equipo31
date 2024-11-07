@@ -2,7 +2,7 @@
 ## Equipo LRAC, Proyecto Pokémon.
 #### Equipo integrado por Lautaro Arrigoni, Adolfo Bravo, Agustin Cigaran y Bernardino Ochoa.
 
-![](https://i.pinimg.com/originals/f3/44/58/f344588bb0af858118a06d2004d2420d.gif)
+![](https://i.pinimg.com/originals/f3/44/58/f344588bb0af858118a06d2004d2420d.gif) 
 ___
 ### Introducción
 

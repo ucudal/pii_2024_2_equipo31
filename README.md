@@ -78,5 +78,5 @@ ___
 
 [Discord Bot](https://discordjs.guide/#before-you-begin)
 
-Como segunda entrega debimos implementar ataques especiales, efectividad de tipos(agua,fuego etc), correcciones al codigo, restructuración del UML, desafios que tuvimos , aprendisaje adquirido, y bibliografia.
+___
 

@@ -63,21 +63,23 @@ public class SalaDeEsperaTests
     [Test]
     public void TestMostrarListaDeEspera()
     {
+        // Crear una instancia de Sala_De_Espera
+        Sala_De_Espera salaDeEspera = new Sala_De_Espera();
+    
         // Crear un jugador y agregarlo a la lista
         Jugador jugador = new Jugador("Jugador1");
         salaDeEspera.AgregarJugadorCreado(jugador);
         salaDeEspera.UnirseALaListaDeEspera(jugador, salaDeEspera.jugadoresCreados);
 
-        // Simular la salida de mostrar la lista de espera
-        StringWriter output = new StringWriter();
-        Console.SetOut(output);
-
-        salaDeEspera.MostrarListaDeEspera();
+        // Obtener la cadena de salida directamente del método
+        string output = salaDeEspera.MostrarListaDeEspera();
 
         // Verificar que se muestra el jugador en la lista de espera
         string expectedOutput = "Jugadores en lista de espera: \n 👦 Jugador1";
-        Assert.IsTrue(output.ToString().Contains(expectedOutput));
+        Assert.AreEqual(expectedOutput, output);
     }
+
+
 
     [Test]
     public void TestIniciarBatallaSalaEspera_SuficientesJugadores()

@@ -100,21 +100,20 @@ public class Menu
     {
         Console.WriteLine("Escribe el nombre del jugador que quiere unirse a la lista de espera: ");
         string nombreJugador = Console.ReadLine();
-        while (nombreJugador != this.facada.Jugador1.Name || nombreJugador != this.facada.Jugador2.Name)
+
+        if (nombreJugador == this.facada.Jugador1.Name)
         {
-            if(nombreJugador == this.facada.Jugador1.Name)
-            {
-                Jugador jugador = this.facada.Jugador1;
-                facada.Unir_Jugador_A_La_Espera(jugador);
-                break;
-            }
-            else if (nombreJugador == this.facada.Jugador2.Name)
-            {
-                Jugador jugador = this.facada.Jugador2;
-                facada.Unir_Jugador_A_La_Espera(jugador);
-                break;
-            }
+            facada.Unir_Jugador_A_La_Espera(this.facada.Jugador1);
+        }
+        else if (facada.Jugador2 != null && nombreJugador == this.facada.Jugador2.Name)
+        {
+            facada.Unir_Jugador_A_La_Espera(this.facada.Jugador2);
+        }
+        else
+        {
+            Console.WriteLine("Nombre de jugador no válido. Intente de nuevo.");
         }
     }
+
 }
 

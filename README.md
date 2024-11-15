@@ -50,8 +50,9 @@ ___
 ### Desafíos Encontrados.
 - Implementación de la sala de espera, fue desafiante tanto al intentar iniciar una batalla con los usuarios en la sala, como para ver la lista de jugadores en espera.
 - Los items del jugador estaban implementados/vinculados en una lista de int, se mejoro creando una clase para dichos items para que cumpla de mejor manera la consigna e intentando que cumpla con el principio de delegación.
-- El cambio de pokemon fue un problema, tanto el hecho de cambiar durante la batalla como intentar cambiarlo cuando ya no tenia vida.
+- El cambio de pokemon fue un problema, tanto el hecho de cambiar durante la batalla como intentar cambiarlo cuando ya no tenia vida. (la utilización del comando ref fue clave)
 - Cuando el pokemon en batalla perdia toda su vida y no tenia mas items revivir, la batalla se perdia automaticamente, no se consideraba si habian mas pokemons disponibles para luchar o no.
+- Uno de los desafios "finales" fue en cuanto a la implementación del bot, ya que el proyecto ya estaba enfocado en ir mostrando los mensajes por consola y cuando se ejecutaba el bot por discord no mostraba los pokemones, etc. Debido a ello se tuvo que cambiar casi todos los "console.writeline" por return en los metodos void o por el comando "out mensaje" para los metodos que ya devolvian algo como un tipo pokemon, de esa forma el metodo tiene una "doble devoluciom" o un "doble tipo" y se puede enviar dichos mensajes al bot.
 ___
 
 ### Bibliografía

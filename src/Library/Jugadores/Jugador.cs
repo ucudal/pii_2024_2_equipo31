@@ -50,7 +50,7 @@ public class Jugador
     /// <summary>
     /// Crea una lista con todos los Pokémon del juego a modo de base de datos.
     /// </summary>
-    private void Inicializar_Total_Pokemons_Disponibles_Juego() 
+    private List<Pokemon> Inicializar_Total_Pokemons_Disponibles_Juego() 
     {
         pokemonsDisponibles = new List<Pokemon>
         {
@@ -157,6 +157,7 @@ public class Jugador
                 new AtaqueEspecial(" ⚠ Danza del Bicho", 95, 2, "Bicho")
             }),
         };
+        return pokemonsDisponibles;
     }
     
     /// <summary>

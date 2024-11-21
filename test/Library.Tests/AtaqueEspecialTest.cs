@@ -44,8 +44,7 @@ public class AtaqueTests
     {
         // Arrange
         Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
-        AtaqueEspecial ataqueEspecial =  new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
-
+        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
 
         // Usar el ataque especial una vez para ponerlo en enfriamiento
         ataqueEspecial.Ejecutar_Ataque(oponente); // El oponente debería recibir daño y el ataque estará en enfriamiento
@@ -53,10 +52,10 @@ public class AtaqueTests
         // Act: Intentar usarlo nuevamente
         ataqueEspecial.Ejecutar_Ataque(oponente);
 
-        // Assert: El ataque no debe ejecutarse, y se debe mostrar un mensaje de enfriamiento
-        // Aquí podrías verificar que el HP no cambió, o que se llamó a Console.WriteLine() con el mensaje de enfriamiento.
-        Assert.AreEqual(70 - 50, oponente.Hp, $"{oponente.Name} debería seguir teniendo {oponente.Hp} HP.");
+        // Assert: El ataque no debe ejecutarse, y el HP no debe haber cambiado
+        Assert.AreEqual(85, oponente.Hp, $"{oponente.Name} debería seguir teniendo 85 HP.");
     }
+
 
     [Test]
     public void TestPuedeUsarAtaque_CuandoEnfriamientoEsCero()

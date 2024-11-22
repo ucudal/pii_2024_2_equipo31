@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Library.Tests;
 
-[TestFixture]g
+[TestFixture]
 public class AtaqueTests
 {
     [Test]

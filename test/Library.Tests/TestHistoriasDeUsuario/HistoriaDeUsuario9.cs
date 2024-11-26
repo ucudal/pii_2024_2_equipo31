@@ -1,10 +1,5 @@
 namespace Library.Tests;
 
-public class HistoriaDeUsuario9
-{
-    
-}
-=======
 using System.Collections.Generic; // Necesario para usar listas.
 using Xunit; // Marco de pruebas utilizado.
 

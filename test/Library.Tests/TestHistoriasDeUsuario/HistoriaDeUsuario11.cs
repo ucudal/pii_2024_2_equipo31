@@ -136,3 +136,4 @@ public class HistoriaDeUsuario11
         // Por simplicidad en este ejemplo, no simulamos la verificación del mensaje.
     }
 }
+

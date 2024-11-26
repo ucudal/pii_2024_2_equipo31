@@ -5,14 +5,26 @@ using Library; // Asegúrate de usar el namespace correcto
 
 namespace Library.Tests;
 
+<<<<<<< HEAD
 [TestFixture]
 public class HistoriaDeUsuario1
+=======
+using System;
+using System.Collections.Generic;
+using NUnit.Framework; 
+using Library;
+
+
+[TestFixture]
+public class HistoriaDelUsuario1
+>>>>>>> origin/agustin
 {
     [Test]
     public void Seleccionar_6_Pokemons_Iniciales_Agrega_Pokemon_Valido()
     {
         // Arrange
         var jugador = new Jugador("Ash"); // Crear un jugador llamado Ash
+<<<<<<< HEAD
 
         // Instanciamos un AtaqueElectrico, que hereda de Ataque
         var ataqueElectrico = new AtaqueElectrico("Impactrueno", 40); // Crear un ataque eléctrico
@@ -29,6 +41,30 @@ public class HistoriaDeUsuario1
         Assert.Contains(charmander, jugador.ListPokemons); // Verificar que Charmander está en la lista
         Assert.AreEqual("\n 🐵 Ash añadió a Pikachu", mensaje1.Trim()); // Verificar mensaje de Pikachu
         Assert.AreEqual("\n 🐵 Ash añadió a Charmander", mensaje2.Trim()); // Verificar mensaje de Charmander
+=======
+        
+        var TodosLosPokemons = jugador.Inicializar_Total_Pokemons_Disponibles_Juego();
+
+
+        Pokemon pokemon1 = TodosLosPokemons[0];
+        Pokemon pokemon2 = TodosLosPokemons[1];
+        
+        // Act
+        string mensaje1 = jugador.Seleccionar_6_Pokemons_Iniciales(1); 
+        string mensaje2 = jugador.Seleccionar_6_Pokemons_Iniciales(2); 
+
+        // manualmente creo una lista para comparar
+        List<Pokemon> listaAcomprobar = new List<Pokemon>();
+        listaAcomprobar.Add(TodosLosPokemons[0]);
+        listaAcomprobar.Add(TodosLosPokemons[0]);
+        
+        
+        // Assert
+        Assert.Contains(pokemon1, jugador.ListPokemons); // Verificar que pokemon1 está en la lista
+        Assert.Contains(pokemon2, jugador.ListPokemons); // Verificar que pokemon2 está en la lista
+        Assert.AreEqual("🐵 Ash añadio a Crocalor", mensaje1.Trim());
+        Assert.AreEqual("🐵 Ash añadio a Cacnea", mensaje2.Trim());
+>>>>>>> origin/agustin
     }
 
     [Test]
@@ -36,6 +72,7 @@ public class HistoriaDeUsuario1
     {
         // Arrange
         var jugador = new Jugador("Ash");
+<<<<<<< HEAD
         var ataqueElectrico = new AtaqueElectrico("Impactrueno", 40); // Crear un ataque eléctrico
         var pokemons = new List<Pokemon>
         {
@@ -78,3 +115,23 @@ public class AtaqueElectrico : Ataque
         return "Ataque realizado.";
     }
 }
+=======
+        
+        // Agrega 6 pokemons
+        jugador.Seleccionar_6_Pokemons_Iniciales(1);
+        jugador.Seleccionar_6_Pokemons_Iniciales(2);
+        jugador.Seleccionar_6_Pokemons_Iniciales(3);
+        jugador.Seleccionar_6_Pokemons_Iniciales(4);
+        jugador.Seleccionar_6_Pokemons_Iniciales(5);
+        jugador.Seleccionar_6_Pokemons_Iniciales(6);
+        
+        // ACT
+        
+        string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intento agregar otro mas con el limite alcanzado
+        
+        // Assert
+        Assert.AreEqual("Selección completada: tienes 6 pokemom.", mensaje.Trim()); // verificar que el mensaje sea correcto
+        Assert.AreEqual(6, jugador.ListPokemons.Count); // Asegurar que tiene solo 6
+    }
+}
+>>>>>>> origin/agustin

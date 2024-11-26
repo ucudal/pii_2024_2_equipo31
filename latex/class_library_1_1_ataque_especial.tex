@@ -1,0 +1,185 @@
+\doxysection{Library.\+Ataque\+Especial Class Reference}
+\hypertarget{class_library_1_1_ataque_especial}{}\label{class_library_1_1_ataque_especial}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+
+
+Representa un ataque especial en el sistema, hereda de la clase \doxylink{class_library_1_1_ataque}{Ataque}.  
+
+
+Inheritance diagram for Library.\+Ataque\+Especial\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_library_1_1_ataque_especial}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_ataque_especial_a07bdfa7314c8e587dc436760cee1b998}{Ataque\+Especial}} (string nombre, double daño, int enfriamiento, string tipo\+Ataque\+Esp)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_ataque_especial}{Ataque\+Especial}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_ataque_especial_acb4851001ab49c35af155c8f3583c57d}{Puede\+Usar\+Ataque}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si se puede usar el ataque especial. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_ataque_especial_a2c48f6da40dfce3a3cd8c5f2112e44e4}\label{class_library_1_1_ataque_especial_a2c48f6da40dfce3a3cd8c5f2112e44e4} 
+void {\bfseries Reducir\+Enfriamiento} ()
+\begin{DoxyCompactList}\small\item\em Reduce el enfriamiento actual del ataque especial en 1. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_especial_ac8f3458e66ed6ae3ff22a1826b5d32c0}{Asignar\+Nuevo\+Estado}} ()
+\begin{DoxyCompactList}\small\item\em Asigna un estado aleatorio al oponente después de usar un ataque especial. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_especial_a19cf8bf24372a2186ad1e9d992fc6bb1}{Ejecutar\+\_\+\+Ataque}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente)
+\begin{DoxyCompactList}\small\item\em Ejecuta el ataque especial sobre un Pokémon oponente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_library_1_1_ataque}{Library.\+Ataque}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_af85d6bdf589bbbafa744461b4f13771f}{Ejecutar\+\_\+\+Ataque}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente)
+\begin{DoxyCompactList}\small\item\em Ejecuta el ataque sobre un Pokémon oponente. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_library_1_1_ataque_a2001b86f71a1da11efb47d895ca4142a}{Efectividad\+Tipos}} (double daño\+Entrante, string tipo\+Del\+Ataque, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente)
+\begin{DoxyCompactList}\small\item\em Calcula la efectividad del ataque basado en el tipo del ataque y el tipo del oponente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_library_1_1_i_ataque}{Library.\+IAtaque}}}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_especial_aa2704fb67e3382538222357d0c5cf1be}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del ataque especial. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_library_1_1_ataque_especial_a5f63086953f26a6f39dcf227b5d624ce}{Daño}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el daño del ataque especial. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_especial_a9994c7317a3cdb547e0f6b4e0445f76f}{Tipo\+Ataque}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo de ataque especial. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_ataque_especial_a0e6132ca3f8dc04da304ae17a7b6025d}\label{class_library_1_1_ataque_especial_a0e6132ca3f8dc04da304ae17a7b6025d} 
+int {\bfseries Enfriamiento\+Max}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el enfriamiento máximo del ataque especial. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_ataque_especial_ae8a0305bfad02fced184289346efe6e0}\label{class_library_1_1_ataque_especial_ae8a0305bfad02fced184289346efe6e0} 
+int {\bfseries Enfriamiento\+Actual}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Propiedad que representa el enfriamiento actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_library_1_1_ataque}{Library.\+Ataque}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_a116bc350e949ce1a25a27d61f91f987c}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del ataque. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_library_1_1_ataque_a88d1abff2a767fe34651cafec238871a}{Daño}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el daño del ataque. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_ataque_a9878158ec73d857a47c37f55999c898a}{Tipo\+Ataque}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el tipo de ataque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{interface_library_1_1_i_ataque}{Library.\+IAtaque}}}
+
+
+\doxysubsection{Detailed Description}
+Representa un ataque especial en el sistema, hereda de la clase \doxylink{class_library_1_1_ataque}{Ataque}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_ataque_especial_a07bdfa7314c8e587dc436760cee1b998}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!AtaqueEspecial@{AtaqueEspecial}}
+\index{AtaqueEspecial@{AtaqueEspecial}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{AtaqueEspecial()}{AtaqueEspecial()}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_a07bdfa7314c8e587dc436760cee1b998} 
+Library.\+Ataque\+Especial.\+Ataque\+Especial (\begin{DoxyParamCaption}\item[{string}]{nombre}{, }\item[{double}]{daño}{, }\item[{int}]{enfriamiento}{, }\item[{string}]{tipo\+Ataque\+Esp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_ataque_especial}{Ataque\+Especial}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & El nombre del ataque especial.\\
+\hline
+{\em daño} & El daño que inflige el ataque especial.\\
+\hline
+{\em enfriamiento} & El enfriamiento máximo del ataque especial.\\
+\hline
+{\em tipo\+Ataque\+Esp} & El tipo del ataque especial.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_ataque_especial_ac8f3458e66ed6ae3ff22a1826b5d32c0}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!AsignarNuevoEstado@{AsignarNuevoEstado}}
+\index{AsignarNuevoEstado@{AsignarNuevoEstado}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{AsignarNuevoEstado()}{AsignarNuevoEstado()}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_ac8f3458e66ed6ae3ff22a1826b5d32c0} 
+string Library.\+Ataque\+Especial.\+Asignar\+Nuevo\+Estado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asigna un estado aleatorio al oponente después de usar un ataque especial. 
+
+\begin{DoxyReturn}{Returns}
+El nuevo estado asignado al oponente.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_ataque_especial_a19cf8bf24372a2186ad1e9d992fc6bb1}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!Ejecutar\_Ataque@{Ejecutar\_Ataque}}
+\index{Ejecutar\_Ataque@{Ejecutar\_Ataque}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{Ejecutar\_Ataque()}{Ejecutar\_Ataque()}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_a19cf8bf24372a2186ad1e9d992fc6bb1} 
+string Library.\+Ataque\+Especial.\+Ejecutar\+\_\+\+Ataque (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{oponente}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ejecuta el ataque especial sobre un Pokémon oponente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em oponente} & El Pokémon que será atacado.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_ataque_a2ad2f720f6e3f654315a5033a5eac9c6}{Library.\+IAtaque}}.
+
+\Hypertarget{class_library_1_1_ataque_especial_acb4851001ab49c35af155c8f3583c57d}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!PuedeUsarAtaque@{PuedeUsarAtaque}}
+\index{PuedeUsarAtaque@{PuedeUsarAtaque}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{PuedeUsarAtaque()}{PuedeUsarAtaque()}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_acb4851001ab49c35af155c8f3583c57d} 
+bool Library.\+Ataque\+Especial.\+Puede\+Usar\+Ataque (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si se puede usar el ataque especial. 
+
+\begin{DoxyReturn}{Returns}
+Devuelve true si el ataque especial está listo para ser usado, de lo contrario false.
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_library_1_1_ataque_especial_a5f63086953f26a6f39dcf227b5d624ce}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!Daño@{Daño}}
+\index{Daño@{Daño}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{Daño}{Daño}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_a5f63086953f26a6f39dcf227b5d624ce} 
+double Library.\+Ataque\+Especial.\+Daño\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece el daño del ataque especial. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_ataque_aca9a587c4190572553179e08672732cb}{Library.\+IAtaque}}.
+
+\Hypertarget{class_library_1_1_ataque_especial_aa2704fb67e3382538222357d0c5cf1be}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!Name@{Name}}
+\index{Name@{Name}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_aa2704fb67e3382538222357d0c5cf1be} 
+string Library.\+Ataque\+Especial.\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene el nombre del ataque especial. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_ataque_a50bcbced924c38031c9bff09992d4e73}{Library.\+IAtaque}}.
+
+\Hypertarget{class_library_1_1_ataque_especial_a9994c7317a3cdb547e0f6b4e0445f76f}\index{Library.AtaqueEspecial@{Library.AtaqueEspecial}!TipoAtaque@{TipoAtaque}}
+\index{TipoAtaque@{TipoAtaque}!Library.AtaqueEspecial@{Library.AtaqueEspecial}}
+\doxysubsubsection{\texorpdfstring{TipoAtaque}{TipoAtaque}}
+{\footnotesize\ttfamily \label{class_library_1_1_ataque_especial_a9994c7317a3cdb547e0f6b4e0445f76f} 
+string Library.\+Ataque\+Especial.\+Tipo\+Ataque\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene el tipo de ataque especial. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_ataque_a551ff5c9cb884a05830c5225c7daff61}{Library.\+IAtaque}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Ataques/Ataque\+Especial.\+cs\end{DoxyCompactItemize}

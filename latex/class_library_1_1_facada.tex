@@ -1,0 +1,157 @@
+\doxysection{Library.\+Facada Class Reference}
+\hypertarget{class_library_1_1_facada}{}\label{class_library_1_1_facada}\index{Library.Facada@{Library.Facada}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_facada_afaba65cf7c5ca915d0c44b42cc3538fd}{Facada}} (\mbox{\hyperlink{class_library_1_1_sala___de___espera}{Sala\+\_\+\+De\+\_\+\+Espera}} sala\+De\+Espera)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_facada}{Facada}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_facada_a9bcad3b56e96c577ecdb858b4d5738dd}{Unir\+Jugador}} (string nombre\+Jugador)
+\begin{DoxyCompactList}\small\item\em Une a un jugador a la sala de espera. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_facada_a062fd27356d161568dbcd45c075020fa}{Mostrar\+Pokemons\+Disponibles}} (string nombre\+Jugador)
+\begin{DoxyCompactList}\small\item\em Muestra todos los Pokémon disponibles en el juego para un jugador específico. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_facada_ae115571d301a70554b2810fda1dccab5}{Mostrar\+Pokemons\+Disponibles\+Del\+Jugador}} (string nombre\+Jugador)
+\begin{DoxyCompactList}\small\item\em Muestra los Pokémon disponibles de un jugador específico en la sala de espera. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_facada_a2c2b943388e37c07afd7a616d81ae21c}{Iniciar\+Batalla}} (string nombre\+Jugador, Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Inicia una batalla entre dos jugadores seleccionados de la sala de espera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_facada_ac54bcd47c3397d91da604ac79deb87c4}\label{class_library_1_1_facada_ac54bcd47c3397d91da604ac79deb87c4} 
+List$<$ \mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} $>$ {\bfseries jugador\+En\+Espera} = new List$<$\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}}$>$()
+\begin{DoxyCompactList}\small\item\em Lista de jugadores en espera. Esta lista se sincroniza con la lista de espera de la sala de espera. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_facada_a5e98aac1458076bf83008d9fd80a78ab}\label{class_library_1_1_facada_a5e98aac1458076bf83008d9fd80a78ab} 
+\mbox{\hyperlink{class_library_1_1_batalla}{Batalla}} {\bfseries batalla\+En\+Facada}
+\begin{DoxyCompactList}\small\item\em La batalla gestionada por la fachada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_facada_afaba65cf7c5ca915d0c44b42cc3538fd}\index{Library.Facada@{Library.Facada}!Facada@{Facada}}
+\index{Facada@{Facada}!Library.Facada@{Library.Facada}}
+\doxysubsubsection{\texorpdfstring{Facada()}{Facada()}}
+{\footnotesize\ttfamily \label{class_library_1_1_facada_afaba65cf7c5ca915d0c44b42cc3538fd} 
+Library.\+Facada.\+Facada (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_sala___de___espera}{Sala\+\_\+\+De\+\_\+\+Espera}}}]{sala\+De\+Espera}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_facada}{Facada}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sala\+De\+Espera} & La sala de espera a la que se conecta la fachada.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_facada_a2c2b943388e37c07afd7a616d81ae21c}\index{Library.Facada@{Library.Facada}!IniciarBatalla@{IniciarBatalla}}
+\index{IniciarBatalla@{IniciarBatalla}!Library.Facada@{Library.Facada}}
+\doxysubsubsection{\texorpdfstring{IniciarBatalla()}{IniciarBatalla()}}
+{\footnotesize\ttfamily \label{class_library_1_1_facada_a2c2b943388e37c07afd7a616d81ae21c} 
+async Task Library.\+Facada.\+Iniciar\+Batalla (\begin{DoxyParamCaption}\item[{string}]{nombre\+Jugador}{, }\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia una batalla entre dos jugadores seleccionados de la sala de espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & El nombre del jugador que solicita iniciar la batalla.\\
+\hline
+{\em ctx} & El contexto de la interacción en Discord.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea asíncrona que representa la operación de iniciar la batalla.
+\end{DoxyReturn}
+
+
+Este método verifica que ambos jugadores tengan al menos 6 Pokémon seleccionados. Si alguno de los jugadores no cumple con este requisito, se envía un mensaje al canal de Discord indicando que deben seleccionar más Pokémon. Si ambos jugadores cumplen, se crea una instancia de la clase \doxylink{class_library_1_1_batalla}{Batalla} para gestionar el combate. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Lanza una excepción si ocurre un error durante el manejo de la interacción de Discord.\\
+\hline
+\end{DoxyExceptions}
+
+
+Ejemplo de uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{await\ \mbox{\hyperlink{class_library_1_1_facada_a2c2b943388e37c07afd7a616d81ae21c}{IniciarBatalla}}(\textcolor{stringliteral}{"{}Jugador1"{}},\ ctx);}
+
+\end{DoxyCode}
+ \Hypertarget{class_library_1_1_facada_a062fd27356d161568dbcd45c075020fa}\index{Library.Facada@{Library.Facada}!MostrarPokemonsDisponibles@{MostrarPokemonsDisponibles}}
+\index{MostrarPokemonsDisponibles@{MostrarPokemonsDisponibles}!Library.Facada@{Library.Facada}}
+\doxysubsubsection{\texorpdfstring{MostrarPokemonsDisponibles()}{MostrarPokemonsDisponibles()}}
+{\footnotesize\ttfamily \label{class_library_1_1_facada_a062fd27356d161568dbcd45c075020fa} 
+string Library.\+Facada.\+Mostrar\+Pokemons\+Disponibles (\begin{DoxyParamCaption}\item[{string}]{nombre\+Jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra todos los Pokémon disponibles en el juego para un jugador específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & El nombre del jugador que solicita ver los Pokémon disponibles.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una cadena con la lista de todos los Pokémon disponibles en el juego si el jugador está en la sala de espera. Si el jugador no está en la sala de espera, devuelve un mensaje indicando que debe unirse primero. 
+\end{DoxyReturn}
+
+
+Este método verifica si el jugador está en la sala de espera utilizando el método Sala\+De\+Espera.\+Obtener\+Jugador. Si el jugador es encontrado, llama al método \doxylink{class_library_1_1_jugador_af0e00b9ce3bd28e4b36c18b2096d2f71}{Jugador.\+Mostrar\+\_\+\+Todos\+\_\+\+Los\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Del\+\_\+\+Juego} para obtener la lista completa de Pokémon. En caso contrario, sugiere unirse al juego. 
+
+Ejemplo de uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ pokemons\ =\ \mbox{\hyperlink{class_library_1_1_facada_a062fd27356d161568dbcd45c075020fa}{MostrarPokemonsDisponibles}}(\textcolor{stringliteral}{"{}Jugador1"{}});}
+\DoxyCodeLine{Console.WriteLine(pokemons);}
+
+\end{DoxyCode}
+ \Hypertarget{class_library_1_1_facada_ae115571d301a70554b2810fda1dccab5}\index{Library.Facada@{Library.Facada}!MostrarPokemonsDisponiblesDelJugador@{MostrarPokemonsDisponiblesDelJugador}}
+\index{MostrarPokemonsDisponiblesDelJugador@{MostrarPokemonsDisponiblesDelJugador}!Library.Facada@{Library.Facada}}
+\doxysubsubsection{\texorpdfstring{MostrarPokemonsDisponiblesDelJugador()}{MostrarPokemonsDisponiblesDelJugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_facada_ae115571d301a70554b2810fda1dccab5} 
+string Library.\+Facada.\+Mostrar\+Pokemons\+Disponibles\+Del\+Jugador (\begin{DoxyParamCaption}\item[{string}]{nombre\+Jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra los Pokémon disponibles de un jugador específico en la sala de espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & El nombre del jugador cuyos Pokémon disponibles se desean mostrar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una cadena con la lista de Pokémon disponibles del jugador si se encuentra en la sala de espera. Si el jugador no se encuentra, devuelve un mensaje indicando que no fue encontrado. 
+\end{DoxyReturn}
+
+
+Este método busca al jugador en la sala de espera y, si lo encuentra, llama al método \doxylink{class_library_1_1_jugador_ae181b500a4b7c5e7f1a1b4ca3f90818e}{Jugador.\+Mostrar\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Del\+\_\+\+Jugador} para obtener la lista de sus Pokémon. Si el jugador no está en la sala de espera, devuelve un mensaje de error. 
+
+Ejemplo de uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ pokemons\ =\ \mbox{\hyperlink{class_library_1_1_facada_ae115571d301a70554b2810fda1dccab5}{MostrarPokemonsDisponiblesDelJugador}}(\textcolor{stringliteral}{"{}Jugador1"{}});}
+\DoxyCodeLine{Console.WriteLine(pokemons);}
+
+\end{DoxyCode}
+ \Hypertarget{class_library_1_1_facada_a9bcad3b56e96c577ecdb858b4d5738dd}\index{Library.Facada@{Library.Facada}!UnirJugador@{UnirJugador}}
+\index{UnirJugador@{UnirJugador}!Library.Facada@{Library.Facada}}
+\doxysubsubsection{\texorpdfstring{UnirJugador()}{UnirJugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_facada_a9bcad3b56e96c577ecdb858b4d5738dd} 
+void Library.\+Facada.\+Unir\+Jugador (\begin{DoxyParamCaption}\item[{string}]{nombre\+Jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Une a un jugador a la sala de espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & El nombre del jugador que se va a unir.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Jugar\+\_\+menu\+\_\+y\+\_\+facada/Facade.\+cs\end{DoxyCompactItemize}

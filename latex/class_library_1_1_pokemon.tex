@@ -1,0 +1,145 @@
+\doxysection{Library.\+Pokemon Class Reference}
+\hypertarget{class_library_1_1_pokemon}{}\label{class_library_1_1_pokemon}\index{Library.Pokemon@{Library.Pokemon}}
+
+
+Representa un Pokémon con atributos específicos como puntos de salud, defensa, tipo y una lista de ataques.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_pokemon_a61c7e2d1f7e4df5e16bcf1d46510ae31}{Pokemon}} (int id, string nombre, int vida, double def, string tipo, List$<$ \mbox{\hyperlink{interface_library_1_1_i_ataque}{IAtaque}} $>$ ataques)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_pokemon}{Pokemon} con los atributos especificados. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_pokemon_ab7c17c873845f811552042566f8de5d7}{El\+\_\+\+Pokemon\+\_\+\+Esta\+\_\+\+Derrotado}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el Pokémon ha sido derrotado (es decir, si los puntos de salud son cero o menos) y actualiza el estado de combate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_pokemon_a5d85cce70b764cdb7f0385dca06c2636}{El\+\_\+\+Pokemon\+\_\+\+Recibio\+\_\+\+Daño}} (double daño)
+\begin{DoxyCompactList}\small\item\em Reduce la salud y defensa del Pokémon en función del daño recibido. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_pokemon_aad7891cd8eb0be013e6183d2c3150df9}{Aplicar\+Estados}} ()
+\begin{DoxyCompactList}\small\item\em Aplica los efectos de los estados negativos al Pokémon, si es que tiene alguno. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a68c19b133602cf71110cb160e443aa15}\label{class_library_1_1_pokemon_a68c19b133602cf71110cb160e443aa15} 
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a873aee05e475206929db8e56fd88ca35}\label{class_library_1_1_pokemon_a873aee05e475206929db8e56fd88ca35} 
+int {\bfseries Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el ID del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_af2c1ab7858eb881546927898afa287ce}\label{class_library_1_1_pokemon_af2c1ab7858eb881546927898afa287ce} 
+double {\bfseries Hp\+Inicial}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene los puntos de salud iniciales del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a7c3e7d1fb3e12ae06e687711b4956427}\label{class_library_1_1_pokemon_a7c3e7d1fb3e12ae06e687711b4956427} 
+double {\bfseries Hp}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de salud actuales del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ad6499161b4042715f1b8993d0f1dc7b0}\label{class_library_1_1_pokemon_ad6499161b4042715f1b8993d0f1dc7b0} 
+double {\bfseries Defensa}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el valor de defensa del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_adc4c1d2f1483875da479258d02b3f62c}\label{class_library_1_1_pokemon_adc4c1d2f1483875da479258d02b3f62c} 
+string {\bfseries Tipo}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo del Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ae3cba114ab47846277a01ec343d511b8}\label{class_library_1_1_pokemon_ae3cba114ab47846277a01ec343d511b8} 
+bool {\bfseries En\+Combate}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece si el Pokémon está actualmente en combate. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_af8fe78fa1489055d84a0d2914bbc752d}\label{class_library_1_1_pokemon_af8fe78fa1489055d84a0d2914bbc752d} 
+string {\bfseries Estado\+Negativo}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el efecto de estado negativo que afecta al Pokémon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ad99e3f0797507e580f8e30b0f0112e96}\label{class_library_1_1_pokemon_ad99e3f0797507e580f8e30b0f0112e96} 
+List$<$ \mbox{\hyperlink{interface_library_1_1_i_ataque}{IAtaque}} $>$ {\bfseries Ataques}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene la lista de ataques disponibles para el Pokémon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un Pokémon con atributos específicos como puntos de salud, defensa, tipo y una lista de ataques. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_pokemon_a61c7e2d1f7e4df5e16bcf1d46510ae31}\index{Library.Pokemon@{Library.Pokemon}!Pokemon@{Pokemon}}
+\index{Pokemon@{Pokemon}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{Pokemon()}{Pokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a61c7e2d1f7e4df5e16bcf1d46510ae31} 
+Library.\+Pokemon.\+Pokemon (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{nombre}{, }\item[{int}]{vida}{, }\item[{double}]{def}{, }\item[{string}]{tipo}{, }\item[{List$<$ \mbox{\hyperlink{interface_library_1_1_i_ataque}{IAtaque}} $>$}]{ataques}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_pokemon}{Pokemon} con los atributos especificados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & El identificador único del Pokémon.\\
+\hline
+{\em nombre} & El nombre del Pokémon.\\
+\hline
+{\em vida} & Los puntos de salud iniciales del Pokémon.\\
+\hline
+{\em def} & El valor de defensa del Pokémon.\\
+\hline
+{\em tipo} & El tipo del Pokémon (por ejemplo, fuego, agua).\\
+\hline
+{\em ataques} & La lista de ataques disponibles para el Pokémon.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_pokemon_aad7891cd8eb0be013e6183d2c3150df9}\index{Library.Pokemon@{Library.Pokemon}!AplicarEstados@{AplicarEstados}}
+\index{AplicarEstados@{AplicarEstados}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{AplicarEstados()}{AplicarEstados()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_aad7891cd8eb0be013e6183d2c3150df9} 
+string Library.\+Pokemon.\+Aplicar\+Estados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Aplica los efectos de los estados negativos al Pokémon, si es que tiene alguno. 
+
+\begin{DoxyReturn}{Returns}
+Un mensaje que describe el estado actual del Pokémon, los efectos aplicados y las consecuencias. 
+\end{DoxyReturn}
+
+
+Este método verifica si el Pokémon está derrotado antes de aplicar los estados. Si el Pokémon está "{}\+Envenenado"{} o "{}\+Quemado"{}, se calcula el daño correspondiente según el estado y se reduce la cantidad de puntos de vida ({\ttfamily Hp}) del Pokémon. También genera un mensaje con los detalles del estado y el daño recibido. 
+
+Ejemplo de uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ resultado\ =\ pokemon.AplicarEstados();}
+\DoxyCodeLine{Console.WriteLine(resultado);}
+
+\end{DoxyCode}
+ 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_library_1_1_pokemon_ab7c17c873845f811552042566f8de5d7}{El\+\_\+\+Pokemon\+\_\+\+Esta\+\_\+\+Derrotado}, \doxylink{class_library_1_1_pokemon_af8fe78fa1489055d84a0d2914bbc752d}{Estado\+Negativo}, \doxylink{class_library_1_1_pokemon_a7c3e7d1fb3e12ae06e687711b4956427}{Hp}
+
+
+\end{DoxySeeAlso}
+\Hypertarget{class_library_1_1_pokemon_ab7c17c873845f811552042566f8de5d7}\index{Library.Pokemon@{Library.Pokemon}!El\_Pokemon\_Esta\_Derrotado@{El\_Pokemon\_Esta\_Derrotado}}
+\index{El\_Pokemon\_Esta\_Derrotado@{El\_Pokemon\_Esta\_Derrotado}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{El\_Pokemon\_Esta\_Derrotado()}{El\_Pokemon\_Esta\_Derrotado()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_ab7c17c873845f811552042566f8de5d7} 
+bool Library.\+Pokemon.\+El\+\_\+\+Pokemon\+\_\+\+Esta\+\_\+\+Derrotado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el Pokémon ha sido derrotado (es decir, si los puntos de salud son cero o menos) y actualiza el estado de combate. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el Pokémon está derrotado; de lo contrario, {\ttfamily false}.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_pokemon_a5d85cce70b764cdb7f0385dca06c2636}\index{Library.Pokemon@{Library.Pokemon}!El\_Pokemon\_Recibio\_Daño@{El\_Pokemon\_Recibio\_Daño}}
+\index{El\_Pokemon\_Recibio\_Daño@{El\_Pokemon\_Recibio\_Daño}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{El\_Pokemon\_Recibio\_Daño()}{El\_Pokemon\_Recibio\_Daño()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a5d85cce70b764cdb7f0385dca06c2636} 
+void Library.\+Pokemon.\+El\+\_\+\+Pokemon\+\_\+\+Recibio\+\_\+\+Daño (\begin{DoxyParamCaption}\item[{double}]{daño}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reduce la salud y defensa del Pokémon en función del daño recibido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em daño} & La cantidad de daño recibida por el Pokémon.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Pokemones/Pokemon.\+cs\end{DoxyCompactItemize}

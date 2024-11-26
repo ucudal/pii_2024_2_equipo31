@@ -154,7 +154,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 {
                     Color = DiscordColor.Red,
                     Title = $"Pokemons disponibles de {jugadorActual.Name}",
-                    ImageUrl = "https://wallpapers.com/images/hd/nicolas-cage-meme-pokemon-characters-66m522s32l1oiz43.jpg",
+                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/todos%20los%20pokemons.jpg",
                     Description = $"{jugadorActual.Mostrar_Pokemons_Disponibles_Del_Jugador()}"
                 };
 
@@ -204,7 +204,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
@@ -219,7 +219,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
@@ -232,7 +232,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"Ya tienes 6 pokemon\n {nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}"
@@ -309,6 +309,7 @@ public class CommandosIniciales : ApplicationCommandModule
             var embed = new DiscordEmbedBuilder
             {
                 Color = DiscordColor.Black,
+                ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/batalla.jpg",
                 Title = "Batalla",
                 Description = $"No hay suficientes jugadores para iniciar una batalla."
             };

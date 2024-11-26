@@ -7,6 +7,7 @@ using Xunit;
 
 public class HistoriaDeUsuario11
 {
+    public SalaDeEspera _salaDeEspera;
     // Clases auxiliares para simular el entorno del método `IniciarBatalla`.
 
     public class Pokemon { } // Clase simulada de Pokémon, sin detalles relevantes para este test.

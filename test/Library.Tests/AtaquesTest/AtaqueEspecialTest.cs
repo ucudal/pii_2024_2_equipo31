@@ -44,8 +44,8 @@ public class AtaqueTests
     public void TestEjecutarAtaqueEspecial_CuandoNoPuedeUsar()
     {
         // Arrange
-        Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
-        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2, "Eléctrico");
+        Pokemon oponente = new Pokemon(1, "Bulbasaur", 85, 70, "Hierba", new List<IAtaque>());
+        AtaqueEspecial ataqueEspecial = new AtaqueEspecial("Rayo", 50, 2, "Electrico");
 
         // Usar el ataque especial una vez para ponerlo en enfriamiento
         ataqueEspecial.Ejecutar_Ataque(oponente); // El oponente debería recibir daño y el ataque estará en enfriamiento

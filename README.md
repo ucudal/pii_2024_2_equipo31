@@ -44,7 +44,7 @@ ___
 ___
 
 #### Tarjetas CRC (ACTUAL)
-![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final%20Segunda%20Entrega.png)
+![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final%20Tercer%20Entrega.png)
 ___
 
 ### Desafíos Encontrados.

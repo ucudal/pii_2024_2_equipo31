@@ -8,7 +8,6 @@ namespace Library.Tests;
 [TestFixture]
 public class BatallaTests
 {
-    /*     ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
     [Test]
     public void TestIniciar_BatallaSinPokemonsDisponibles()
     {
@@ -26,14 +25,14 @@ public class BatallaTests
             Console.SetOut(sw);
 
             // Act
-            batalla.Iniciar_Batalla(); // Cambiado a Iniciar_Batalla
+            batalla.Iniciar_Batalla_Pruebas(null); // Cambiado a Iniciar_Batalla
 
             // Assert
             string output = sw.ToString().Trim();
             Assert.AreEqual("No hay suficientes pokemons para inciar una batalla", output);
         }
     }
-
+/*
     [Test]
     public void TestIniciar_BatallaConPokemonsDisponibles()
     {

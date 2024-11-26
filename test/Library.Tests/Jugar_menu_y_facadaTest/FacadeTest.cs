@@ -8,42 +8,38 @@ namespace LibraryTests
     [TestFixture]
     public class FacadaTests
     {
-        
+
         [Test]
         public void TestAgregarPokemonAJugador()
-
         {
             private Facada facada;
-
-            [SetUp]
-            public void Setup()
-            {
-                // Crear la fachada con los jugadores Ash y Misty
-                facada = new Facada("Ash", "Misty");
-            }
 
             [Test]
             public void TestIniciarBatallaConAmbosJugadores()
             {
+                Jugador jugador11 = new Jugador("pepe");
+                Jugador jugador22 = new Jugador("popo");
+                jugador11.Seleccionar_6_Pokemons_Iniciales(1);
+                jugador22.Seleccionar_6_Pokemons_Iniciales(2);
                 // Simular que ambos jugadores han agregado sus pokémons
-                facada.Cada_Jugador_Agrega_Pokemons(1);
-                facada.Cada_Jugador_Agrega_Pokemons(2);
+                // facada.Cada_Jugador_Agrega_Pokemons(1);
+                // facada.Cada_Jugador_Agrega_Pokemons(2);
 
                 // Iniciar la batalla
-                facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2);
+                facada.IniciarBatalla(jugador11.Name, null);
 
                 // Verificar que la batalla haya comenzado y que ambos jugadores estén participando
-                Assert.AreEqual("Ash", facada.Jugador1.Name);
-                Assert.AreEqual("Misty", facada.Jugador2.Name);
+                Assert.AreEqual("pepe", facada.jugadorEnEspera[0].Name);
+                Assert.AreEqual("popo", facada.jugadorEnEspera[1].Name);
                 // Se podría agregar más verificaciones para comprobar el estado de la batalla
             }
-
+            
             [Test]
             public void TestUnirJugadorASalaDeEspera()
             {
                 // Crear un jugador y unirlo a la sala de espera
                 Jugador ash = new Jugador("Ash");
-                facada.Unir_Jugador_A_La_Espera(ash);
+                facada.UnirJugador(ash.Name);
 
                 // Verificar que Ash está en la lista de espera
                 string listaEspera = facada.MostrarJugadoresEnEspera();
@@ -71,3 +67,6 @@ namespace LibraryTests
     }
 }
 */
+
+
+

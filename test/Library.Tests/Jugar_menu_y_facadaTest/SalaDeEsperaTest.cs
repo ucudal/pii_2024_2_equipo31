@@ -1,6 +1,8 @@
 using Library;
 using NUnit.Framework;
 using System;
+using System.Collections;
+using System.Diagnostics;
 using System.IO;
 
 namespace Library.Tests;
@@ -8,13 +10,7 @@ namespace Library.Tests;
 [TestFixture]
 public class SalaDeEsperaTests
 {
-    private Sala_De_Espera salaDeEspera;
-
-    [SetUp]
-    public void Setup()
-    {
-        salaDeEspera = new Sala_De_Espera();
-    }
+    private Sala_De_Espera salaDeEspera = new Sala_De_Espera();
 
     [Test]
     public void TestAgregarJugadorCreado()
@@ -49,15 +45,24 @@ public class SalaDeEsperaTests
         // Crear un jugador que no se agrega a la lista
         Jugador jugador = new Jugador("Jugador1");
 
-        // Simular que el jugador intenta unirse sin haber sido creado
-        StringWriter output = new StringWriter();
-        Console.SetOut(output);
+        // intento unir el jugador que no se encuentra en la lista de jugadores creados y guardo el mensaje que me devuelve
+        string mensaje1 = salaDeEspera.UnirseALaListaDeEspera(jugador, salaDeEspera.jugadoresCreados);
         
-        salaDeEspera.UnirseALaListaDeEspera(jugador, salaDeEspera.jugadoresCreados);
-
-        // Verificar el mensaje de error
-        string expectedOutput = "Solo los jugadores creados pueden unirse a la sala de espera.";
-        Assert.IsTrue(output.ToString().Contains(expectedOutput));
+        // Si el mensaje es el que salta cuando el jugador no puede unirse retorno true, de lo contrario retorno false
+        bool algo(string mensaje)
+        {
+            if (mensaje.Contains("Solo los jugadores creados pueden unirse a la sala de espera."))
+            {
+                return false;
+            }
+            return true;
+        }
+        
+        // instancio el metodo anterior
+        algo(mensaje1);
+        
+        // SI EL METODO ES TRUE, SIGNIFICA QUE NO PUEDE I
+        Assert.IsFalse(algo(mensaje1));
     }
 
     [Test]
@@ -78,46 +83,4 @@ public class SalaDeEsperaTests
         string expectedOutput = "Jugadores en lista de espera: \n 👦 Jugador1";
         Assert.AreEqual(expectedOutput, output);
     }
-    
-    /*     ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
-    [Test]
-    public void TestIniciarBatallaSalaEspera_SuficientesJugadores()
-    {
-        // Crear dos jugadores y agregarlos a la sala de espera
-        Jugador jugador1 = new Jugador("Jugador1");
-        Jugador jugador2 = new Jugador("Jugador2");
-        salaDeEspera.AgregarJugadorCreado(jugador1);
-        salaDeEspera.AgregarJugadorCreado(jugador2);
-        salaDeEspera.UnirseALaListaDeEspera(jugador1, salaDeEspera.jugadoresCreados);
-        salaDeEspera.UnirseALaListaDeEspera(jugador2, salaDeEspera.jugadoresCreados);
-
-        // Simular la salida de iniciar una batalla
-        StringWriter output = new StringWriter();
-        Console.SetOut(output);
-
-        salaDeEspera.IniciarBatallaSalaEspera();
-
-        // Verificar que se muestra que la batalla comenzó
-        Assert.IsTrue(output.ToString().Contains("comenzaron una batalla"));
-    }
-
-    [Test]
-    public void TestIniciarBatallaSalaEspera_NoSuficientesJugadores()
-    {
-        // Crear un jugador y agregarlo a la sala de espera
-        Jugador jugador = new Jugador("Jugador1");
-        salaDeEspera.AgregarJugadorCreado(jugador);
-        salaDeEspera.UnirseALaListaDeEspera(jugador, salaDeEspera.jugadoresCreados);
-
-        // Simular la salida de iniciar una batalla
-        StringWriter output = new StringWriter();
-        Console.SetOut(output);
-
-        salaDeEspera.IniciarBatallaSalaEspera();
-
-        // Verificar que se muestra que no hay suficientes jugadores
-        string expectedOutput = "No hay jugadores suficientes en la lista de espera para batallar";
-        Assert.IsTrue(output.ToString().Contains(expectedOutput));
-    }
-    */
 }

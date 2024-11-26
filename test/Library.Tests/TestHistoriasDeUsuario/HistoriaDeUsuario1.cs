@@ -2,8 +2,8 @@ namespace Library.Tests;
 
 using System;
 using System.Collections.Generic;
-using NUnit.Framework; // Usando NUnit como ejemplo para Test
-using Library; // Asegúrate de usar el namespace correcto
+using NUnit.Framework; 
+using Library;
 
 
 [TestFixture]
@@ -14,25 +14,28 @@ public class HistoriaDelUsuario1
     {
         // Arrange
         var jugador = new Jugador("Ash"); // Crear un jugador llamado Ash
+        
+        var TodosLosPokemons = jugador.Inicializar_Total_Pokemons_Disponibles_Juego();
 
-        var ataque = new AtaqueNormal("ataque normal", 10, "Fuego"); // Crear un ataque
-        var pikachu = new Pokemon(1, "Pikachu", 100, 50, "Eléctrico", new List<IAtaque> { ataque }); // Crear un Pokémon
-        var charmander = new Pokemon(2, "Charmander", 120, 40, "Fuego", new List<IAtaque> { ataque });
 
-        // Lista de pokémon disponibles
-        jugador.ListPokemons = new List<Pokemon> { pikachu, charmander };
-
+        Pokemon pokemon1 = TodosLosPokemons[0];
+        Pokemon pokemon2 = TodosLosPokemons[1];
+        
         // Act
-        string mensaje1 = jugador.Seleccionar_6_Pokemons_Iniciales(1); // Seleccionar Pikachu
-        string mensaje2 = jugador.Seleccionar_6_Pokemons_Iniciales(2); // Seleccionar Charmander
+        string mensaje1 = jugador.Seleccionar_6_Pokemons_Iniciales(1); 
+        string mensaje2 = jugador.Seleccionar_6_Pokemons_Iniciales(2); 
 
+        // manualmente creo una lista para comparar
+        List<Pokemon> listaAcomprobar = new List<Pokemon>();
+        listaAcomprobar.Add(TodosLosPokemons[0]);
+        listaAcomprobar.Add(TodosLosPokemons[0]);
+        
+        
         // Assert
-        Assert.Contains(pikachu, jugador.ListPokemons); // Verificar que Pikachu está en la lista
-        Assert.Contains(charmander, jugador.ListPokemons); // Verificar que Charmander está en la lista
-        Assert.IsFalse(jugador.ListPokemons.Contains(pikachu)); // Verificar que Pikachu fue eliminado de disponibles
-        Assert.IsFalse(jugador.ListPokemons.Contains(charmander)); // Verificar que Charmander fue eliminado de disponibles
-        Assert.AreEqual("\n 🐵 Ash añadio a Pikachu", mensaje1.Trim());
-        Assert.AreEqual("\n 🐵 Ash añadio a Charmander", mensaje2.Trim());
+        Assert.Contains(pokemon1, jugador.ListPokemons); // Verificar que pokemon1 está en la lista
+        Assert.Contains(pokemon2, jugador.ListPokemons); // Verificar que pokemon2 está en la lista
+        Assert.AreEqual("🐵 Ash añadio a Crocalor", mensaje1.Trim());
+        Assert.AreEqual("🐵 Ash añadio a Cacnea", mensaje2.Trim());
     }
 
     [Test]
@@ -40,28 +43,21 @@ public class HistoriaDelUsuario1
     {
         // Arrange
         var jugador = new Jugador("Ash");
-        var ataque = new AtaqueNormal("ataque normal 2", 10, "Agua");
-        var pokemons = new List<Pokemon>
-        {
-            new Pokemon(1, "Pikachu", 100, 50, "Eléctrico", new List<IAtaque> { ataque }),
-            new Pokemon(2, "Charmander", 120, 40, "Fuego", new List<IAtaque> { ataque }),
-            new Pokemon(3, "Bulbasaur", 110, 45, "Planta", new List<IAtaque> { ataque }),
-            new Pokemon(4, "Squirtle", 105, 55, "Agua", new List<IAtaque> { ataque }),
-            new Pokemon(5, "Pidgey", 90, 30, "Volador", new List<IAtaque> { ataque }),
-            new Pokemon(6, "Rattata", 85, 25, "Normal", new List<IAtaque> { ataque })
-        };
-
-        jugador.ListPokemons.AddRange(pokemons); // Ya tiene 6 Pokémon
-        jugador.ListPokemons = new List<Pokemon>
-        {
-            new Pokemon(7, "Eevee", 95, 35, "Normal", new List<IAtaque> { ataque })
-        };
-
-        // Act
-        string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intentar añadir un 7° Pokémon
-
+        
+        // Agrega 6 pokemons
+        jugador.Seleccionar_6_Pokemons_Iniciales(1);
+        jugador.Seleccionar_6_Pokemons_Iniciales(2);
+        jugador.Seleccionar_6_Pokemons_Iniciales(3);
+        jugador.Seleccionar_6_Pokemons_Iniciales(4);
+        jugador.Seleccionar_6_Pokemons_Iniciales(5);
+        jugador.Seleccionar_6_Pokemons_Iniciales(6);
+        
+        // ACT
+        
+        string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intento agregar otro mas con el limite alcanzado
+        
         // Assert
-        Assert.AreEqual("\nSelección completada: tienes 6 pokemom.", mensaje.Trim());
+        Assert.AreEqual("Selección completada: tienes 6 pokemom.", mensaje.Trim()); // verificar que el mensaje sea correcto
         Assert.AreEqual(6, jugador.ListPokemons.Count); // Asegurar que tiene solo 6
     }
 }

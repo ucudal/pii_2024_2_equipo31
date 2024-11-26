@@ -24,7 +24,7 @@ Para comenzar al equipo se le panteó una **lista objetivos** que debía cumplir
 ___
 
 #### Facada.
-![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/FACADA%20Final%20Segunda%20Entrega.png)
+![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/Final%20Tercer%20Entrega.png)
 
 ___
 

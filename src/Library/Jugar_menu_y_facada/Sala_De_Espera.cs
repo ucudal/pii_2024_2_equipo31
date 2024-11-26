@@ -11,7 +11,7 @@ public class Sala_De_Espera
     /// <summary>
     /// Lista de jugadores en la sala de espera.
     /// </summary>
-    public List<Jugador> listaEspera = new List<Jugador>();
+    public List<Jugador> listaEspera;
 
     /// <summary>
     /// Lista de jugadores que fueron creados en el sistema.
@@ -40,16 +40,16 @@ public class Sala_De_Espera
     /// </summary>
     /// <param name="jugador">El jugador que desea unirse.</param>
     /// <param name="jugadoresCreados">Lista de jugadores creados.</param>
-    public void UnirseALaListaDeEspera(Jugador jugador, List<Jugador> jugadoresCreados)
+    public string UnirseALaListaDeEspera(Jugador jugador, List<Jugador> jugadoresCreados)
     {
         if (jugadoresCreados.Contains(jugador))
         {
             listaEspera.Add(jugador);
-            Console.WriteLine($"{jugador.Name} se unió a la lista de espera");
+            return $"{jugador.Name} se unió a la lista de espera";
         }
         else
         {
-            Console.WriteLine("Solo los jugadores creados pueden unirse a la sala de espera.");
+            return "Solo los jugadores creados pueden unirse a la sala de espera.";
         }
     }
 
@@ -80,22 +80,22 @@ public class Sala_De_Espera
     /// </summary>
     /// <param name="nombreJugador">Nombre del jugador a buscar.</param>
     /// <returns>El jugador encontrado o null si no está en la lista de espera.</returns>
-    public Jugador ObtenerJugador(string nombreJugador)
+    public Jugador ObtenerJugador(out string mesajeJugador, string nombreJugador)
     {
-        Jugador jugadorBuscado = new Jugador("buscado");
+        mesajeJugador = "";
+        Jugador jugadorBuscado = null;
         foreach (var jugador in listaEspera)
         {
             if (jugador.Name == nombreJugador)
             {
                 jugadorBuscado = jugador;
+                mesajeJugador = null;
                 return jugadorBuscado;
             }
-            else
-            {
-                Console.WriteLine($"{nombreJugador} no está en la sala de espera!");
-                jugadorBuscado = null;
-                return jugadorBuscado;
-            }
+        }
+        if (jugadorBuscado == null)
+        {
+            mesajeJugador = $"{nombreJugador} no está en la sala de espera!";
         }
         return jugadorBuscado;
     }
@@ -107,66 +107,64 @@ public class Sala_De_Espera
     /// <returns>Un jugador disponible en la lista o null si no hay o es el mismo.</returns>
     public Jugador ObtenerOtroJugador(string nombreJugador)
     {
-        Jugador jugadorBuscado = new Jugador("buscado");
         foreach (var jugador in listaEspera)
         {
-            if (listaEspera.Count >= 2 && jugador.Name != nombreJugador)
+            if (listaEspera.Count >= 1 && jugador.Name != nombreJugador)
             {
-                jugadorBuscado = jugador;
-                return jugadorBuscado;
-            }
-            else
-            {
-                Console.WriteLine($"No hay rivales disponibles en la sala de espera.");
-                jugadorBuscado = null;
-                return jugadorBuscado;
+                return jugador;
             }
         }
-        return jugadorBuscado;
+        return null;
     }
 
     /// <summary>
     /// Elimina a un jugador de la lista de espera.
     /// </summary>
     /// <param name="jugador">El jugador a eliminar.</param>
-    public void EliminarJugador(Jugador jugador)
+    public string EliminarJugador(Jugador jugador)
     {
+        string mensaje = null;
         foreach (var jugadoresEspera in listaEspera)
         {
             if (jugadoresEspera == jugador)
             {
                 listaEspera.Remove(jugadoresEspera);
+                mensaje += $"{jugadoresEspera.Name} salio de la sala de espera";
             }
         }
+        return mensaje;
     }
-
+/*
     /// <summary>
     /// Inicia una batalla entre los primeros dos jugadores en la lista de espera.
     /// </summary>
-    public void IniciarBatallaSalaEspera()
+    public string IniciarBatallaSalaEspera()
     {
-        Console.WriteLine(listaEspera.Count);
+        string mensajeBatalla = "";
+        mensajeBatalla = (listaEspera.Count.ToString());
         if (listaEspera.Count >= 2)
         {
             Jugador jugador1 = listaEspera[0];
-            Console.WriteLine(jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar());
+            mensajeBatalla += jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar();
             Jugador jugador2 = listaEspera[1];
-            Console.WriteLine(jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar());
+            mensajeBatalla += jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar();
             listaEspera.RemoveRange(0, 2);
 
-            Console.WriteLine($"¡{jugador1.Name} y {jugador2.Name} comenzaron una batalla!");
+            mensajeBatalla += $"¡{jugador1.Name} y {jugador2.Name} comenzaron una batalla!";
 
             Random random = new Random();
             Jugador primero = random.Next(2) == 0 ? jugador1 : jugador2;
 
-            Console.WriteLine($"{primero.Name} comienza la partida.");
+            mensajeBatalla += $"{primero.Name} comienza la partida.";
 
             Batalla batalla = new Batalla(jugador1, jugador2);
             batalla.Iniciar_Batalla();
         }
         else
         {
-            Console.WriteLine("No hay jugadores suficientes en la lista de espera para batallar");
+            mensajeBatalla = "No hay jugadores suficientes en la lista de espera para batallar";
         }
+        return mensajeBatalla;
     }
+*/
 }

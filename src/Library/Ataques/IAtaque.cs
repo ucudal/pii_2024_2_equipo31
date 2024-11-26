@@ -27,5 +27,5 @@ public interface IAtaque
     /// Ejecuta el ataque sobre un Pokémon oponente.
     /// </summary>
     /// <param name="oponente">El Pokémon que será atacado.</param>
-    void Ejecutar_Ataque(Pokemon oponente);
+    string Ejecutar_Ataque(Pokemon oponente);
 }

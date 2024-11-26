@@ -21,25 +21,38 @@ public class AtaqueNormalTests
         oponente = new Pokemon(1, "Bulbasaur", 85, 70, "planta", new List<IAtaque>());
 
     }
-
+    
     [Test]
     public void TestEjecutarAtaque_DañoCorrecto()
     {
-        // Simular la salida de Console
+        // Arrange
         StringWriter output = new StringWriter();
         Console.SetOut(output);
 
-        // Ejecutar el ataque
+        // Crear un Pokémon de prueba
+        Pokemon oponente = new Pokemon(1, "Bulbasaur", 50, 20, "Planta", new List<IAtaque>());
+
+        // Crear un ataque normal
+        AtaqueNormal ataqueNormal = new AtaqueNormal("Impactrueno", 10, "Eléctrico");
+
+        // Calcular daño esperado
+        double dañoEsperado = 10; // Cambiar según la lógica de tu sistema si es más complejo
+        double hpEsperado = oponente.Hp - dañoEsperado;
+
+        // Act
         ataqueNormal.Ejecutar_Ataque(oponente);
 
-        // Calcular el daño esperado (teniendo en cuenta que no se aplican efectos de tipo)
-        double dañoEsperado = 10; // Cambiar si hay lógica adicional en EfectividadTipos
-        oponente.El_Pokemon_Recibio_Daño(dañoEsperado);
+        // Assert: Verificar salida de consola
+        string salida = output.ToString();
+        Assert.IsTrue(salida.Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"), 
+            "El mensaje de daño no coincide.");
+        Assert.IsTrue(salida.Contains($"📊 A {oponente.Name} le quedan {hpEsperado} puntos de vida, {oponente.Defensa} puntos de defensa."), 
+            "El mensaje de estado no coincide.");
 
-        // Verificar la salida
-        Assert.IsTrue(output.ToString().Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"));
-        Assert.IsTrue(output.ToString().Contains($"📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa."));
+        // Assert: Verificar que el daño fue aplicado correctamente
+        Assert.AreEqual(hpEsperado, oponente.Hp, "El HP del oponente no fue actualizado correctamente.");
     }
+
 
     [Test]
     public void TestEjecutarAtaque_DañoFinalConEfectividad()
@@ -56,7 +69,7 @@ public class AtaqueNormalTests
 
         // Verificar que el daño final se haya calculado correctamente
         // Puedes ajustar el cálculo del dañoFinal aquí si tienes lógica en EfectividadTipos
-         // Cambiar según la efectividad real
+        double dañoEsperado = 10; // Cambiar según la efectividad real
         oponente.El_Pokemon_Recibio_Daño(dañoEsperado);
 
         Assert.IsTrue(output.ToString().Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"));

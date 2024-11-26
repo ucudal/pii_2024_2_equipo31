@@ -2,6 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DSharpPlus;
+using DSharpPlus.Entities;
+using DSharpPlus.EventArgs;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
+using DSharpPlus.SlashCommands;
 
 namespace Library;
 
@@ -14,7 +20,7 @@ public class Jugador
     /// Nombre del jugador.
     /// </summary>
     public string Name { get; set; }
-
+    public Pokemon pokemonEnBatalla { get; private set; }
     /// <summary>
     /// Lista de Pokémon del jugador.
     /// </summary>
@@ -28,7 +34,7 @@ public class Jugador
     /// <summary>
     /// Diccionario que almacena la cantidad de ítems del jugador.
     /// </summary>
-    public Dictionary<int, Items_Jugador> CantidadItems { get; set; }
+    public List<Items_Jugador> Items { get; set; }
 
     /// <summary>
     /// Constructor que inicializa un nuevo jugador con un nombre y establece los Pokémon y los ítems.
@@ -38,11 +44,11 @@ public class Jugador
     {
         this.Name = nombre;
         ListPokemons = new List<Pokemon>();
-        CantidadItems = new Dictionary<int, Items_Jugador>
+        Items = new List<Items_Jugador>()
         {
-            { 1, new Items_Jugador("Súper pociones", 4) },
-            { 2, new Items_Jugador("Cura total", 2 )},
-            { 3, new Items_Jugador("Revivir", 1) }
+             new ("Súper pociones", 4) ,
+              new ("Cura total", 2 ),
+             new ("Revivir", 1) 
         };
         Inicializar_Total_Pokemons_Disponibles_Juego();
     }
@@ -50,7 +56,7 @@ public class Jugador
     /// <summary>
     /// Crea una lista con todos los Pokémon del juego a modo de base de datos.
     /// </summary>
-    private List<Pokemon> Inicializar_Total_Pokemons_Disponibles_Juego() 
+    public List<Pokemon> Inicializar_Total_Pokemons_Disponibles_Juego() 
     {
         pokemonsDisponibles = new List<Pokemon>
         {
@@ -166,29 +172,15 @@ public class Jugador
     /// <param name="listapokemons">Lista de Pokémon de donde se seleccionará.</param>
     /// <param name="debeEstarDisponibleParaCombate">Indica si el Pokémon debe estar disponible para combate.</param>
     /// <returns>El Pokémon encontrado.</returns>
-    private Pokemon Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID(List<Pokemon> listapokemons, bool debeEstarDisponibleParaCombate = false) 
+    private Pokemon Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID( double idPok, List<Pokemon> listapokemons, bool debeEstarDisponibleParaCombate = false) 
     {
         Pokemon encontrado = null;
         
-        while (encontrado == null || encontrado.Hp <= 0 || encontrado.EnCombate)
+        foreach (Pokemon bicho in listapokemons)
         {
-            Console.WriteLine($"Escriba el ID del pokemon que desea seleccionar: ");
-            if (!int.TryParse(Console.ReadLine(), out int seleccionado))
+            if (bicho.Id == idPok)
             {
-                Console.WriteLine($"Debe ingresar un ID de pokemon valido \n(núm entero frente al pokemon)");
-                continue;
-            }
-            
-            encontrado = listapokemons.Find(p => p.Id == seleccionado);
-            
-            if (encontrado == null)
-            {
-                Console.WriteLine($"Pokemon no encontrado.");
-            }
-            else if (debeEstarDisponibleParaCombate && (encontrado.Hp <= 0 || encontrado.EnCombate))
-            {
-                Console.WriteLine("El pokemon seleccionado no se encuentra disponible para el combate");
-                encontrado = null; 
+                return bicho;
             }
         }
         return encontrado;
@@ -197,55 +189,59 @@ public class Jugador
     /// <summary>
     /// Hace que cada jugador seleccione a 6 Pokémon en su lista.
     /// </summary>
-    public void Seleccionar_6_Pokemons_Iniciales() 
+    public string Seleccionar_6_Pokemons_Iniciales(double idPok)
     {
-        while (ListPokemons.Count < 6) 
+        string mensaje = "";
+        
+        if (ListPokemons.Count < 6)
         {
-            Console.WriteLine($" ◽ {this.Name}, añade un Pokémon (actualmente tienes {ListPokemons.Count}/6):");
-            Mostrar_Todos_Los_Pokemons_Disponibles_Del_Juego();
+            Pokemon encontrado = Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID( idPok, pokemonsDisponibles, true);
 
-            Pokemon encontrado = Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID(pokemonsDisponibles);
+            if (encontrado == null)
+            {
+                mensaje += "\n 🚫 Seleccion invalida o Pokemon ya seleccionado.";
+                return mensaje;
+            }
             if (!ListPokemons.Contains(encontrado))
             {
                 ListPokemons.Add(encontrado);
 				pokemonsDisponibles.Remove(encontrado);
-                Console.WriteLine($" 🐵 {this.Name} añadio a {encontrado.Name}");
+                mensaje += $"\n 🐵 {this.Name} añadio a {encontrado.Name}";
             }
             else
             {
-                Console.WriteLine(" 🚫 Seleccion invalida o Pokemon ya seleccionado.");
+                mensaje += "\n 🚫 Seleccion invalida o Pokemon ya seleccionado.";
+                return mensaje;
             }
         }
+        else
+        {
+            mensaje = "\nSelección completada: tienes 6 pokemom.";
+        }
+        return mensaje;
     }
-
+    
     /// <summary>
     /// El jugador selecciona Pokémon que estén disponibles para luchar.
     /// </summary>
+    /// <param name="mensaje"></param>
     /// <param name="pokemonActual">El Pokémon actual que se encuentra en combate.</param>
     /// <returns>El Pokémon seleccionado para luchar.</returns>
-    public Pokemon Seleccionar_Pokemons_Para_Luchar(Pokemon pokemonActual = null) 
+    public Pokemon Seleccionar_Pokemons_Para_Luchar(out string mensaje, double idPok, Pokemon pokemonActual = null)
     {
-        if (!Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
+        if (!Jugador_Tiene_Pokemons_Disponibles_Para_Luchar()) 
         {
-            Console.WriteLine($"{this.Name} no tiene mas pokemons disponibles para luchar");
+            mensaje = $"\n{this.Name} no tiene mas pokemons disponibles para luchar";
             return null;
         }
         
-        Console.WriteLine($" ◽ {this.Name}\n ⏳ selecciona un Pokemon para luchar: ");
-		foreach (Pokemon bicho in ListPokemons)
-        {
-            if (!bicho.EnCombate && bicho.Hp > 0)
-            {
-                Console.WriteLine($" ✪ {bicho.Id} - {bicho.Name}, (Vida: {bicho.Hp}, Defensa: {bicho.Defensa}, Tipo: {bicho.Tipo})");
-            }
-        }
-
-        Pokemon encontrado = Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID(ListPokemons, true);
-
+        mensaje = $"\n ◽ {this.Name}\n ⏳ selecciona un Pokemon para luchar: \n";
+        
+        Pokemon encontrado = Seleccionar_Pokemon_De_Una_Lista_Segun_Su_ID( idPok, ListPokemons, true);
+        
         if (encontrado == null)
         {
-            Console.WriteLine("No se pudo seleccionar ningun pokemon");
-            return null;
+            mensaje = "\nNo se pudo seleccionar ningun pokemon";
         }
 
         if (pokemonActual != null)
@@ -255,29 +251,34 @@ public class Jugador
 
         encontrado.EnCombate = true;
         
-        Console.WriteLine($"\n 🐵 {this.Name} saco a {encontrado.Name}\n");
-        Console.WriteLine($" 🐵 {encontrado.Name} tiene {encontrado.Hp} puntos de vida, {encontrado.Defensa} puntos de defensa y es de tipo {encontrado.Tipo}\n");
-        Console.WriteLine(" 💣 Ataques disponibles: ");
+        mensaje +=  $"\n 🐵 {this.Name} saco a {encontrado.Name}\n" + 
+                    $"\n 🐵 {encontrado.Name} tiene {encontrado.Hp} puntos de vida, {encontrado.Defensa} puntos de defensa y es de tipo {encontrado.Tipo}\n";
         
-        foreach (IAtaque ataq in encontrado.Ataques)
-        { 
-            Console.WriteLine($" 🔹 {ataq.Name} = {ataq.Daño}");
-        }
-        Console.WriteLine("\n");
         pokemonActual = encontrado;
-        return pokemonActual;
+        pokemonEnBatalla = pokemonActual;
+        return pokemonActual;   
     }
 
     /// <summary>
     /// Muestra todos los Pokémon disponibles del juego (no los del jugador).
     /// </summary>
-    private void Mostrar_Todos_Los_Pokemons_Disponibles_Del_Juego() 
+    public string Mostrar_Todos_Los_Pokemons_Disponibles_Del_Juego() 
     {
-        Console.WriteLine("\nPokemons disponibles: ");
+        var mensaje = "\nPokemons disponibles: ";
         foreach (var pokemon in pokemonsDisponibles)
         {
-            Console.WriteLine($" ✪ {pokemon.Id} - {pokemon.Name} (Vida: {pokemon.Hp}, Defensa: {pokemon.Defensa}, Tipo: {pokemon.Tipo})");
+            mensaje += $"\n ✪ {pokemon.Id} - {pokemon.Name} (Vida: {pokemon.Hp}, Defensa: {pokemon.Defensa}, Tipo: {pokemon.Tipo})";
         }
+        return mensaje;
+    }
+    public string Mostrar_Pokemons_Disponibles_Del_Jugador() 
+    {
+        var mensaje = "\nPokemons disponibles del jugador actual: ";
+        foreach (var pokemon in ListPokemons)
+        {
+            mensaje += $"\n ✪ {pokemon.Id} - {pokemon.Name} (Vida: {pokemon.Hp}, Defensa: {pokemon.Defensa}, Tipo: {pokemon.Tipo})";
+        }
+        return mensaje;
     }
     
     /// <summary>
@@ -285,110 +286,35 @@ public class Jugador
     /// </summary>
     /// <param name="propio">El Pokémon del jugador.</param>
     /// <param name="oponente">El Pokémon del oponente.</param>
-    public void Acciones_Del_Jugador_En_Batalla(ref Pokemon propio, Pokemon oponente) 
+    public async Task Acciones_Del_Jugador_En_Batalla(Pokemon propio, Pokemon oponente, ComponentInteractionCreateEventArgs ctx) 
     {
-        Console.WriteLine($"\n ⚪ {this.Name}, elige una accion: \n1. Atacar\n2. Usar Mochila\n3. Cambiar Pokemon");
-        string opcion = Console.ReadLine();
-        Random random = new Random();
-
-        switch (opcion)
-        {
-            case "1":
-                Console.WriteLine($" ❗ {this.Name} decidio atacar");
-
-                    if (propio.El_Pokemon_Esta_Derrotado())
-                    {
-                        Console.WriteLine($" 🔻 {propio.Name} no puede seguir luchando, debe cambiar o revivir al pokemon: ");
-                        propio.EstadoNegativo = "Ninguno";
-                        this.Acciones_Del_Jugador_En_Batalla(ref propio, oponente);
-                    }
-                    else
-                    {
-                        if (propio.EstadoNegativo == "Dormido")
-                        {
-                            Console.WriteLine($"{propio.Name} no puede atacar en este turno porque esta {propio.EstadoNegativo} 💤 ");
-                            int TurnosAleatorios = random.Next(1, 5);
-                            if (TurnosAleatorios == 1)
-                            {
-                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo} 💤 .");
-                                propio.EstadoNegativo = "Ninguno";
-                            }
-                            break;
-                        }
-                        else if (propio.EstadoNegativo == "Paralizado")
-                        {
-                            Console.WriteLine($"{propio.Name} perdio este turno porque estaba {propio.EstadoNegativo} 😨 ");
-                            int TurnosAleatorios = random.Next(1, 3);
-                            if (TurnosAleatorios == 1)
-                            {
-                                Console.WriteLine($"{propio.Name} ya dejo de estar {propio.EstadoNegativo} 😨 .");
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine($"\nSelecciona un ataque: ");
-                            for (int i = 0; i < propio.Ataques.Count; i++)
-                            {
-                                Console.WriteLine($"{i + 1}. 🔹 {propio.Ataques[i].Name} = {propio.Ataques[i].Daño}");
-                            }
-
-                            int seleccion;
-                            if (int.TryParse(Console.ReadLine(), out seleccion) && seleccion >= 1 && seleccion <= propio.Ataques.Count)
-                            {
-                                propio.Ataques[seleccion -1].Ejecutar_Ataque(oponente);
-                            }
-                            else
-                            {
-                                Console.WriteLine("No selecciono un ataque valido");
-                            }
-                            break;
-                        }
-                        break;
-                    }
-                break;
-            case "2":
-                Console.WriteLine($" 🎒 Selecciona un item: \n1. Súper pociones\n2. Cura Total\n3. Revivir\n");
-                string objeto = Console.ReadLine();
-                this.Mochila_Del_Jugador(objeto, propio);
-                break;
-            case "3":
-                Pokemon nuevoPokemon = Seleccionar_Pokemons_Para_Luchar(propio);
-                if (nuevoPokemon != null && !nuevoPokemon.El_Pokemon_Esta_Derrotado())
-                {
-                    propio.EnCombate = false;
-                    nuevoPokemon.EnCombate = true;
-                    Console.WriteLine($" 🔄 {this.Name} cambio a {nuevoPokemon.Name} y pierde el turno");
-                    propio = nuevoPokemon;
-                }
-                break;
-            default:
-                Console.WriteLine("Opcion incorrecta.");
-                break;
-        }
-
+        string mensaje = $"\n ⚪ {this.Name}, elige una accion:\n";
+        
+        DiscordComponent[] components;
+        
         if (!propio.El_Pokemon_Esta_Derrotado())
         {
-            if (propio.EstadoNegativo == "Envenenado")
-            {
-                double dañoVeneno = propio.HpInicial * 0.05;
-                propio.Hp -= dañoVeneno;
-                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo} 💚 , en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un antidoto");
-            }
-            else if (propio.EstadoNegativo == "Quemado")
-            {
-                double dañoQuemadura = propio.HpInicial * 0.10;
-                propio.Hp -= dañoQuemadura;
-                Console.WriteLine($"{propio.Name} se encuentra {propio.EstadoNegativo} 🔥 , en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar un antidoto");
-            }
-            Console.WriteLine($"Ahora {propio.Name} tiene {propio.Hp} puntos de vida");
+            components = new DiscordComponent[]{
+                new DiscordButtonComponent(ButtonStyle.Secondary, "bag", "Usar Mochila"),
+                new DiscordButtonComponent(ButtonStyle.Success, "switch", "Cambiar Pokémon"),
+                new DiscordButtonComponent(ButtonStyle.Primary, "attack", "Atacar")
+            };
         }
         else
         {
-            Console.WriteLine($"{propio.Name} fue derrotado debido a que se encontraba {propio.EstadoNegativo}.");
-            propio.EnCombate = false;
-            return;
+            components = new DiscordComponent[]
+            {
+                new DiscordButtonComponent(ButtonStyle.Secondary, "bag", "Usar Mochila"),
+                new DiscordButtonComponent(ButtonStyle.Success, "switch", "Cambiar Pokémon")
+            };
         }
+
+        var builder = new DiscordMessageBuilder()
+            .WithContent(mensaje)
+            .AddComponents(components);
+        await ctx.Channel.SendMessageAsync(builder);
+        string mensajesEstados = propio.AplicarEstados();
+        await ctx.Channel.SendMessageAsync(mensajesEstados);
     }
     
     /// <summary>
@@ -399,7 +325,14 @@ public class Jugador
     /// </returns>
     public bool Jugador_Tiene_Pokemons_Disponibles_Para_Luchar() 
     {
-        return ListPokemons.Any(p => p.Hp > 0);
+        foreach (Pokemon pokemon in ListPokemons)
+        {
+            if(pokemon.Hp > 0 && !pokemon.EnCombate)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -407,74 +340,70 @@ public class Jugador
     /// </summary>
     /// <param name="objeto">El objeto seleccionado por el jugador.</param>
     /// <param name="pokemonMoch">El Pokémon al que se le aplicará el objeto.</param>
-    public void Mochila_Del_Jugador(string objeto, Pokemon pokemonMoch) 
+    public string Mochila_Del_Jugador(string objeto, Pokemon pokemonMoch)
     {
-        switch (objeto.ToLower())
+        string mensaje = "";
+        switch (objeto)
         {
-            case "1":
-                if (CantidadItems[1].Cantidad >= 1)
+            case "Súper pociones":
+                if (!pokemonMoch.El_Pokemon_Esta_Derrotado())
                 {
-                    pokemonMoch.Hp = pokemonMoch.Hp + 70;
+                    pokemonMoch.Hp += 70;
                     if (pokemonMoch.Hp > pokemonMoch.HpInicial)
                     {
                         pokemonMoch.Hp = pokemonMoch.HpInicial;
                     }
-                    Console.WriteLine($" 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y ahora tiene {pokemonMoch.Hp} puntos de vida");
-                    CantidadItems[1].Cantidad -= 1;
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[1].Cantidad} super pociones en su mochila.");
+                    mensaje += $"\n 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y ahora tiene {pokemonMoch.Hp} puntos de vida";
+                    Items[0].Cantidad -= 1;
+                    mensaje += $"\nA {this.Name} le quedan {Items[0].Cantidad} super pociones en su mochila.";
                 }
                 else
                 {
-                    Console.WriteLine($"{this.Name} no tiene mas pociones en su mochila");
+                    mensaje = "\nSolo puedes curar a un pokemon que no este derrotado!";
                 }
+            
                 break;
 
-            case "2":
-                if(CantidadItems[2].Cantidad >= 1 && pokemonMoch.EstadoNegativo != "Ninguno")
+            case "Cura total":
+                if (pokemonMoch.Hp > 0)
                 {
-                    Console.WriteLine($" 💉 {this.Name} usó una cura total y se recupero de todos los efectos negativos");
-                    CantidadItems[2].Cantidad -= 1;
-                    pokemonMoch.EstadoNegativo = "Ninguno";
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[2].Cantidad} curas totales en su mochila.");
+                    if(pokemonMoch.EstadoNegativo != "Ninguno")
+                    {
+                        mensaje += $"\n 💉 {this.Name} usó una cura total en {pokemonMoch.Name} y se recupero de todos los efectos negativos";
+                        Items[1].Cantidad -= 1;
+                        pokemonMoch.EstadoNegativo = "Ninguno";
+                        mensaje += $"\nA {this.Name} le quedan {Items[1].Cantidad} curas totales en su mochila.";
+                    }
+                    else if (pokemonMoch.EstadoNegativo == "Ninguno")
+                    {
+                        mensaje = $"\n{pokemonMoch.Name} no tiene ningun estado negativo por ser revertido." + 
+                                  $"\nA {this.Name} aun le quedan {Items[1].Cantidad} curas totales";
+                    }
+                    break;
                 }
-                else if (pokemonMoch.EstadoNegativo == "Ninguno")
-                {
-                    Console.WriteLine($"{pokemonMoch.Name} no tiene ningun estado negativo por ser revertido.");
-                    Console.WriteLine($"A {this.Name} aun le quedan {CantidadItems[2].Cantidad} curas totales");
-                }
-                else
-                {
-                    Console.WriteLine($"{this.Name} no tiene mas curas totales en su mochila");
-                }
+
+                mensaje = "\nNo puedes curar a un pokemon que no tiene vida";
                 break;
 
-            case "3":
-                if (CantidadItems[3].Cantidad >= 1)
+            case "Revivir":
+                if (pokemonMoch.El_Pokemon_Esta_Derrotado())
                 {
                     pokemonMoch.Hp = pokemonMoch.HpInicial * 0.5;
-                    Console.WriteLine($" 😇 {pokemonMoch.Name} fue revivido y ahora tiene {pokemonMoch.Hp} puntos de vida");
-                    CantidadItems[3].Cantidad -= 1;
-                    Console.WriteLine($"A {this.Name} le quedan {CantidadItems[3].Cantidad} revivir en su mochila.");
+                    mensaje += $"\n 😇 {pokemonMoch.Name} fue revivido y ahora tiene {pokemonMoch.Hp} puntos de vida";
+                    Items[2].Cantidad -= 1;
+                    mensaje += $"\nA {this.Name} le quedan {Items[2].Cantidad} revivir en su mochila.";
                 }
-                else if (CantidadItems[3].Cantidad == 0)
+                else
                 {
-                    Console.WriteLine($" 😅 No tienes mas items revivir.");
-                    Console.WriteLine(" Debes cambiar de pokemon, redirigiendo...");
-                    Pokemon nuevoPokemon = Seleccionar_Pokemons_Para_Luchar(pokemonMoch);
-                    if (nuevoPokemon != null)
-                    {
-                        Console.WriteLine($"{this.Name} cambio a {nuevoPokemon.Name} y pierde un turno");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No se ha seleccionado ningun pokemon.");
-                    }
+                    mensaje = "\nSolo puedes revivir a un pokemon que este derrotado!";
                 }
+
                 break;
 
             default:
-                Console.WriteLine($" 🚫 El objeto '{objeto}' no está disponible en la mochila.");
+                mensaje = $"\n 🚫 El objeto '{objeto}' no está disponible en la mochila.";
                 break;
         }
+        return mensaje;
     }
 }

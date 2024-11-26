@@ -81,7 +81,11 @@ public class Pokemon
     /// <returns><c>true</c> si el Pokémon está derrotado; de lo contrario, <c>false</c>.</returns>
     public bool El_Pokemon_Esta_Derrotado()
     {
-        EnCombate = false;
+        if (this.Hp == 0)
+        {
+            this.EstadoNegativo = "Ninguno";
+            EnCombate = false;
+        }
         return this.Hp <= 0;
     }
 
@@ -93,7 +97,7 @@ public class Pokemon
     {
         if (this.Defensa > 0)
         {
-            double dañoADefensa = Math.Max(this.Defensa, daño);
+            double dañoADefensa = (this.Defensa -= daño);
             this.Defensa -= dañoADefensa;
             daño -= dañoADefensa;
         }
@@ -101,9 +105,37 @@ public class Pokemon
         {
             this.Hp = Math.Max(0, this.Hp - daño);
         }
-        if (this.Defensa < 0)
+        if (this.Defensa <= 0)
         {
             this.Defensa = 0;
         }
+    }
+    
+    public string AplicarEstados()
+    {
+        string mensaje = "";
+        if (!El_Pokemon_Esta_Derrotado())
+        {
+            if (EstadoNegativo == "Envenenado")
+            {
+                double dañoVeneno = HpInicial * 0.05;
+                Hp -= dañoVeneno;
+                mensaje = $"{Name} se encuentra {EstadoNegativo} 💚 , en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un antidoto";
+                mensaje += $"Ahora {Name} tiene {Hp} puntos de vida";
+            }
+            else if (EstadoNegativo == "Quemado")
+            {
+                double dañoQuemadura = HpInicial * 0.10;
+                Hp -= dañoQuemadura;
+                mensaje = $"{Name} se encuentra {EstadoNegativo} 🔥 , en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar un antidoto";
+                mensaje += $"Ahora {Name} tiene {Hp} puntos de vida";
+            }
+        }
+        else
+        {
+            mensaje = $"{Name} fue derrotado debes cambiar de pokemon o usar un item revivir.";
+            EnCombate = false;
+        }
+        return mensaje;
     }
 }

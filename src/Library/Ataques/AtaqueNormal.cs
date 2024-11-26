@@ -37,11 +37,17 @@ public class AtaqueNormal : Ataque, IAtaque
     /// Ejecuta el ataque normal sobre un Pokémon oponente.
     /// </summary>
     /// <param name="oponente">El Pokémon que será atacado.</param>
-    public void Ejecutar_Ataque(Pokemon oponente) // ATACO AL OPONENTE 
+    public string Ejecutar_Ataque(Pokemon oponente) // ATACO AL OPONENTE 
     {
-        double dañoFinal = this.EfectividadTipos(this.Daño, this.TipoAtaque, oponente);
-        Console.WriteLine($"\n 👊 {this.Name} le hizo {dañoFinal} puntos de daño a {oponente.Name}");
-        oponente.El_Pokemon_Recibio_Daño(dañoFinal);
-        Console.WriteLine($" 📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa.");
+        if (oponente != null)
+        {
+            string mensajeAtaqueNormal = "";
+            double dañoFinal = this.EfectividadTipos(this.Daño, this.TipoAtaque, oponente);
+            mensajeAtaqueNormal += $"\n 👊 {this.Name} le hizo {dañoFinal} puntos de daño a {oponente.Name}";
+            oponente.El_Pokemon_Recibio_Daño(dañoFinal);
+            mensajeAtaqueNormal += $" 📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa.";
+            return mensajeAtaqueNormal;
+        }
+        return "\nEl pokemon oponente ya esta derrotado";
     }
 }

@@ -24,7 +24,10 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
     /// Ejecuta el ataque sobre un Pokémon oponente.
     /// </summary>
     /// <param name="oponente">El Pokémon que será atacado.</param>
-    public void Ejecutar_Ataque(Pokemon oponente) { }
+    public string Ejecutar_Ataque(Pokemon oponente)
+    {
+        return null;
+    }
 
     /// <summary>
     /// Calcula la efectividad del ataque basado en el tipo del ataque y el tipo del oponente.
@@ -37,7 +40,6 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
     {
         this.TipoAtaque = tipoDelAtaque;
         double dañoModificado = dañoEntrante;
-        Console.WriteLine($"Tipo de ataque: {this.TipoAtaque}\nTipo del oponente: {oponente.Tipo}");
 
         // Cálculo de la efectividad del ataque según el tipo
         if (this.TipoAtaque == "Agua") 
@@ -201,7 +203,6 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
                 dañoModificado *= 2;
             }
         } 
-        Console.WriteLine($"Daño modificado final: {dañoModificado}");
         return dañoModificado;
     }
 }

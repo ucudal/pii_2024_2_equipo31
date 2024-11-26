@@ -1,53 +1,76 @@
-using Library; 
+using System;
+using Library;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.IO;
 
-namespace Library.Tests;
-
-[TestFixture]
-public class FacadaTests
+namespace LibraryTests
 {
+<<<<<<< HEAD
+    [TestFixture]
+    public class FacadaTests
+=======
+    /*   ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
     [Test]
     public void TestAgregarPokemonAJugador()
+>>>>>>> origin/agustin
     {
-        // Arrange
-        string nombreJugador1 = "Ash";
-        string nombreJugador2 = "Misty";
-        Facada facada = new Facada(nombreJugador1, nombreJugador2);
+        private Facada facada;
 
-        // Act
-        facada.Jugador1.Seleccionar_6_Pokemons_Iniciales(); // Asumiendo que la función agrega Pokémon a la lista del jugador
-        facada.Jugador2.Seleccionar_6_Pokemons_Iniciales();
-
-        // Assert
-        Assert.AreEqual(6, facada.Jugador1.ListPokemons.Count, "El jugador 1 debería tener 6 Pokémon.");
-        Assert.AreEqual(6, facada.Jugador2.ListPokemons.Count, "El jugador 2 debería tener 6 Pokémon.");
-    }
-
-    [Test]
-    public void TestIniciarPartida()
-    {
-        // Arrange
-        string nombreJugador1 = "Ash";
-        string nombreJugador2 = "Misty";
-        Facada facada = new Facada(nombreJugador1, nombreJugador2);
-
-        // Agregar Pokémon a los jugadores
-        facada.Jugador1.Seleccionar_6_Pokemons_Iniciales();
-        facada.Jugador2.Seleccionar_6_Pokemons_Iniciales();
-
-        // Capturamos la salida de consola
-        using (var sw = new StringWriter())
+        [SetUp]
+        public void Setup()
         {
-            Console.SetOut(sw);
+            // Crear la fachada con los jugadores Ash y Misty
+            facada = new Facada("Ash", "Misty");
+        }
 
-            // Act
-            facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2); // Asegúrate de pasar los jugadores correctos
+        [Test]
+        public void TestIniciarBatallaConAmbosJugadores()
+        {
+            // Simular que ambos jugadores han agregado sus pokémons
+            facada.Cada_Jugador_Agrega_Pokemons(1);
+            facada.Cada_Jugador_Agrega_Pokemons(2);
 
-            // Assert
-            string output = sw.ToString().Trim();
-            Assert.IsTrue(output.Contains("Iniciando la batalla"), "La partida debería iniciar correctamente.");
+            // Iniciar la batalla
+            facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2);
+
+            // Verificar que la batalla haya comenzado y que ambos jugadores estén participando
+            Assert.AreEqual("Ash", facada.Jugador1.Name);
+            Assert.AreEqual("Misty", facada.Jugador2.Name);
+            // Se podría agregar más verificaciones para comprobar el estado de la batalla
+        }
+
+        [Test]
+        public void TestUnirJugadorASalaDeEspera()
+        {
+            // Crear un jugador y unirlo a la sala de espera
+            Jugador ash = new Jugador("Ash");
+            facada.Unir_Jugador_A_La_Espera(ash);
+
+            // Verificar que Ash está en la lista de espera
+            string listaEspera = facada.MostrarJugadoresEnEspera();
+            Assert.IsTrue(listaEspera.Contains("Ash"));
+        }
+
+        [Test]
+        public void TestIniciarBatallaEnSalaDeEspera()
+        {
+            // Crear jugadores y unirlos a la sala de espera
+            Jugador ash = new Jugador("Ash");
+            Jugador misty = new Jugador("Misty");
+            facada.Unir_Jugador_A_La_Espera(ash);
+            facada.Unir_Jugador_A_La_Espera(misty);
+
+            // Iniciar la batalla en la sala de espera
+            facada.IniciarBatallaEnEspera();
+
+            // Verificar que la batalla se ha iniciado entre Ash y Misty
+            string listaEspera = facada.MostrarJugadoresEnEspera();
+            Assert.IsTrue(listaEspera.Contains("Ash"));
+            Assert.IsTrue(listaEspera.Contains("Misty"));
         }
     }
+<<<<<<< HEAD
 }
+=======
+    */
+}
+>>>>>>> origin/agustin

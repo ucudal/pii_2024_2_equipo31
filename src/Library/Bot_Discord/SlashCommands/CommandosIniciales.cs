@@ -1,0 +1,302 @@
+using DSharpPlus;
+using DSharpPlus.Entities;
+using DSharpPlus.Interactivity.Extensions;
+using DSharpPlus.SlashCommands;
+
+namespace Library.SlashCommands;
+
+public class CommandosIniciales : ApplicationCommandModule
+{
+    public static Sala_De_Espera nueva_SalaDeEspera = new Sala_De_Espera();
+    public static Facada nueva_Facada = new Facada(nueva_SalaDeEspera);
+    
+    [SlashCommand("unirse", "Te une a una sala de espera para luchar")]
+    public async Task UnirseAlaEspera(InteractionContext ctx)
+    {
+        await ctx.DeferAsync();
+        
+        try
+        {
+            string nombreJugadorActual = ctx.User.Username;
+            Jugador jugadorActual = new Jugador(nombreJugadorActual);
+            
+            if (nueva_Facada.jugadorEnEspera.Count != 0) // CUANDO HAY ALGUIEN EN LA LISTA, REVISARA QUE EL MISMO NOS ENCUENTRE
+            {
+                foreach (Jugador enEspera in nueva_Facada.jugadorEnEspera)
+                {
+                    if (enEspera.Name == jugadorActual.Name) // SI SE ENCUENTRA, NO LO UNE, MUESTRA QUE YA ESTA EN LA LISTA
+                    {
+                        var embedMessage = new DiscordEmbedBuilder
+                        {
+                            Color = DiscordColor.Blue,
+                            Title = $"Sala de espera",
+                            Description = $"{jugadorActual.Name} ya se encuentra en la sala de espera"
+                        };
+                
+                        await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+                        
+                    }
+                    else // SI NINGUN NOMBRE COINCIDE CON EL SUYO, SE UNE
+                    {
+                        nueva_Facada.UnirJugador(jugadorActual.Name);
+                        var embedMessage = new DiscordEmbedBuilder
+                        {
+                            Color = DiscordColor.Blue,
+                            Title = $"Sala de espera",
+                            Description = $"{jugadorActual.Name} se ha unido a la lista de espera\n" +
+                                          $"Ahora debes seleccionar tus pokemons iniciales!\n" +
+                                          $"Usa el comando >> /todoslosPokemons << para ver los pokemon disponibles"
+                        };
+                
+                        await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+                    }
+                }
+            }
+            else // CUANDO NO HAY NADIE EN LA LISTA DE ESPERA DIRECTAMENTE LO UNE A LA MISMA 
+            {
+                nueva_Facada.UnirJugador(jugadorActual.Name);
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Blue,
+                    Title = $"Sala de espera",
+                    Description = $"{jugadorActual.Name} se ha unido a la lista de espera\n" +
+                                  $"Ahora debes seleccionar tus pokemons iniciales!\n" +
+                                  $"Usa el comando >> /todoslosPokemons << para ver los pokemon disponibles"
+                };
+                
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+    
+    [SlashCommand("espera", "Muestra la lista de jugadores en espera")]
+    public async Task JugadoresEnEspera(InteractionContext ctx)
+    {
+        await ctx.DeferAsync();
+        
+        var embedMessage = new DiscordEmbedBuilder
+        {
+            Color = DiscordColor.Brown,
+            Title = "Jugadores en espera",
+            Description = $"{nueva_SalaDeEspera.MostrarListaDeEspera()}"
+        };
+
+        await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+    }
+
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+    
+    [SlashCommand("mis_pokemons", "muestra tus pokemons disponibles para luchar")]
+    public async Task PokemonsDelJugadorParaLuchar(InteractionContext ctx)
+    {
+        await ctx.DeferAsync();
+        
+        string nombreJugadorActual = ctx.User.Username;
+        Jugador jugadorActual = nueva_SalaDeEspera.ObtenerJugador(out string mensajeMetodo, nombreJugadorActual);
+        
+        if (nueva_SalaDeEspera.jugadoresCreados.Count == 0)
+        {
+            var embedMessage = new DiscordEmbedBuilder
+            {
+                Color = DiscordColor.Red,
+                Title = $"Pokemons disponibles de {nombreJugadorActual}",
+                Description = "Actualmente no estas en una sala de espera.\n" +
+                              "Utiliza > /unirse < primero."
+            };
+
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+        }
+        else if (nueva_SalaDeEspera.jugadoresCreados.Count > 0 && nueva_SalaDeEspera.jugadoresCreados.Contains(jugadorActual))
+        {
+            if (jugadorActual.ListPokemons.Count <= 6 && jugadorActual.ListPokemons.Count > 0)
+            {
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Red,
+                    Title = $"Pokemons disponibles de {jugadorActual.Name}",
+                    ImageUrl = "https://wallpapers.com/images/hd/nicolas-cage-meme-pokemon-characters-66m522s32l1oiz43.jpg",
+                    Description = $"{jugadorActual.Mostrar_Pokemons_Disponibles_Del_Jugador()}"
+                };
+
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+            else if (jugadorActual.ListPokemons.Count == 0)
+            {
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Red,
+                    Title = $"Pokemons disponibles de {jugadorActual.Name}",
+                    Description = "Actualmente no tienes pokemons disponibles.\n" +
+                                  "Utiliza > /seleccionar < para agregar pokemons."
+                };
+
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+        }
+    }
+    
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+    [SlashCommand("seleccionar", "<<PRIMERO UTILIZA EL COMANDO /todoslosPokemons>>\nselecciona 6 pokemons iniciales para luchar")]
+    public async Task SeleccionarLosPokemonsInciales(InteractionContext ctx, [Option("ID_Pokemon", "Id del pokemon a seleccionar")] double idPokemon)
+    {
+        await ctx.DeferAsync();
+
+        string nombreJugadorActual = ctx.User.Username;
+        Jugador jugadorActual = nueva_SalaDeEspera.ObtenerJugador(out string mensajeMetodo, nombreJugadorActual);
+        
+        if (nueva_SalaDeEspera.jugadoresCreados.Count != 0)
+        {
+            if (jugadorActual.ListPokemons.Count == 0)
+            {
+                string mensajesSeleccionPokemon = jugadorActual.Seleccionar_6_Pokemons_Iniciales(idPokemon);
+                
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Green,
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    Title = $"Pokemons seleccionados",
+                    Description =
+                        $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
+                        "\nPuedes tener hasta 6 pokemon"
+                };
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+            else if (jugadorActual.ListPokemons.Count < 6)
+            {
+                string mensajesSeleccionPokemon = jugadorActual.Seleccionar_6_Pokemons_Iniciales(idPokemon); 
+                
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Green,
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    Title = $"Pokemons seleccionados",
+                    Description =
+                        $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
+                        "\nPuedes tener hasta 6 pokemon"
+                };
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+            else
+            {
+                var embedMessage = new DiscordEmbedBuilder
+                {
+                    Color = DiscordColor.Green,
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
+                    Title = $"Pokemons seleccionados",
+                    Description =
+                        $"Ya tienes 6 pokemon\n {nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}"
+                };
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+            }
+        }
+        else
+        {
+            var embedMessage = new DiscordEmbedBuilder
+            {
+                Color = DiscordColor.Green,
+                Title = $"Pokemons seleccionados",
+                Description =
+                    $"Primero debes unirte a la sala de espera, utiliza el comando >> /unirse <<"
+            };
+            
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embedMessage));
+        }
+    }
+    
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+
+    [SlashCommand("todoslosPokemons", "Muestra todos los pokemons disponibles del juego")]
+    public async Task TodosLosPokemon(InteractionContext ctx)
+    {
+        await ctx.DeferAsync();
+        
+        string nombreJugadorActual = ctx.User.Username;
+        Jugador jugadorContarTodosLosPokemons = new Jugador(nombreJugadorActual);
+
+        var embed = new DiscordEmbedBuilder
+        {
+            Color = DiscordColor.Yellow,
+            Title = "Pokemons del juego",
+            Description = "Usa el comando >> /seleccionar [ID del pokemon] << para seleccionarlo" + nueva_Facada.MostrarPokemonsDisponibles(jugadorContarTodosLosPokemons.Name) 
+        };
+        
+        await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
+    }
+    
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+
+    [SlashCommand("batalla", "inicia una batalla con otra persona que este en la sala de espera.")]
+    public async Task IniciarLaBatallaDiscord(InteractionContext ctx)
+    {
+        string nombreJugadorActual = ctx.User.Username;
+        Jugador jugadorActual = nueva_SalaDeEspera.ObtenerJugador(out string mensajeMetodo, nombreJugadorActual);
+        
+        if (nueva_SalaDeEspera.jugadoresCreados.Count >= 2)
+        {
+            await nueva_Facada.IniciarBatalla(jugadorActual.Name, ctx);
+        }
+        else
+        {
+            var embed = new DiscordEmbedBuilder
+            {
+                Color = DiscordColor.Black,
+                Title = "Batalla",
+                Description = $"No hay suficientes jugadores para iniciar una batalla."
+            };
+            await ctx.Interaction.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource,new DiscordInteractionResponseBuilder().AddEmbed(embed));
+        }
+    }
+
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+    
+    [SlashCommand("testSeleccionMultiple", "SELECCIONA LOS 6 PRIMEROS POKEMONS PARA TESTEAR RAPIDO")]
+    public async Task TestSleccion(InteractionContext ctx)
+    {
+        ctx.CreateResponseAsync("Seleccion multiple exitosa");
+        string nombreJugadorActual = ctx.User.Username;
+        Jugador jugadorActual = nueva_SalaDeEspera.ObtenerJugador(out string mensajeMetodo, nombreJugadorActual);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(1);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(2);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(3);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(4);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(5);
+        jugadorActual.Seleccionar_6_Pokemons_Iniciales(6);
+    }
+    
+    /*
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    */
+}

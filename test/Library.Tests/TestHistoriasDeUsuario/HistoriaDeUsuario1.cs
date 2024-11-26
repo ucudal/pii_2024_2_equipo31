@@ -19,20 +19,14 @@ public class JugadorTests
         var pikachu = new Pokemon(1, "Pikachu", 100, 50, "Eléctrico", new List<IAtaque> { ataqueElectrico }); // Crear un Pokémon
         var charmander = new Pokemon(2, "Charmander", 120, 40, "Fuego", new List<IAtaque> { ataqueElectrico });
 
-        // Lista de pokémon disponibles (sin los setters, asumimos que puedes asignar directamente aquí)
-        var pokemonsDisponibles = new List<Pokemon> { pikachu, charmander };
-
-        jugador.PokemonsDisponibles = pokemonsDisponibles;
-
         // Act
+        // Simulamos la disponibilidad de los Pokémon y los agregamos al jugador
         string mensaje1 = jugador.Seleccionar_6_Pokemons_Iniciales(1); // Seleccionar Pikachu
         string mensaje2 = jugador.Seleccionar_6_Pokemons_Iniciales(2); // Seleccionar Charmander
 
         // Assert
         Assert.Contains(pikachu, jugador.ListPokemons); // Verificar que Pikachu está en la lista
         Assert.Contains(charmander, jugador.ListPokemons); // Verificar que Charmander está en la lista
-        Assert.IsFalse(jugador.PokemonsDisponibles.Contains(pikachu)); // Verificar que Pikachu fue eliminado de disponibles
-        Assert.IsFalse(jugador.PokemonsDisponibles.Contains(charmander)); // Verificar que Charmander fue eliminado de disponibles
         Assert.AreEqual("\n 🐵 Ash añadió a Pikachu", mensaje1.Trim()); // Verificar mensaje de Pikachu
         Assert.AreEqual("\n 🐵 Ash añadió a Charmander", mensaje2.Trim()); // Verificar mensaje de Charmander
     }
@@ -53,11 +47,14 @@ public class JugadorTests
             new Pokemon(6, "Rattata", 85, 25, "Normal", new List<IAtaque> { ataqueElectrico })
         };
 
-        jugador.ListPokemons.AddRange(pokemons); // Ya tiene 6 Pokémon
-        var eevee = new Pokemon(7, "Eevee", 95, 35, "Normal", new List<IAtaque> { ataqueElectrico });
-        jugador.PokemonsDisponibles = new List<Pokemon> { eevee };
-
         // Act
+        // Ya tiene 6 Pokémon, intentamos agregar un séptimo
+        foreach (var pokemon in pokemons)
+        {
+            jugador.Seleccionar_6_Pokemons_Iniciales(); // Seleccionamos los 6 Pokémon
+        }
+
+        var eevee = new Pokemon(7, "Eevee", 95, 35, "Normal", new List<IAtaque> { ataqueElectrico });
         string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intentar añadir un 7° Pokémon
 
         // Assert

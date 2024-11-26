@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using NUnit.Framework; // Usando NUnit como ejemplo para Test
 using Library; // Asegúrate de usar el namespace correcto
 
-namespace LibraryTests;
+namespace Library.Tests;
 
 [TestFixture]
-public class JugadorTests
+public class HistoriaDeUsuario1
 {
     [Test]
     public void Seleccionar_6_Pokemons_Iniciales_Agrega_Pokemon_Valido()

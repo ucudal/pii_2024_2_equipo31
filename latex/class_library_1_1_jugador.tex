@@ -1,0 +1,163 @@
+\doxysection{Library.\+Jugador Class Reference}
+\hypertarget{class_library_1_1_jugador}{}\label{class_library_1_1_jugador}\index{Library.Jugador@{Library.Jugador}}
+
+
+Representa un jugador en el juego de Pokémon.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_jugador_a08300073d56e1146926129abe3562968}{Jugador}} (string nombre)
+\begin{DoxyCompactList}\small\item\em Constructor que inicializa un nuevo jugador con un nombre y establece los Pokémon y los ítems. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_a4658d80c75d59c2ce9d1d24c9a80c0d2}\label{class_library_1_1_jugador_a4658d80c75d59c2ce9d1d24c9a80c0d2} 
+List$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ {\bfseries Inicializar\+\_\+\+Total\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Juego} ()
+\begin{DoxyCompactList}\small\item\em Crea una lista con todos los Pokémon del juego a modo de base de datos. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_a5fddd5b80e744e314b51949a0ef89b1d}\label{class_library_1_1_jugador_a5fddd5b80e744e314b51949a0ef89b1d} 
+string {\bfseries Seleccionar\+\_\+6\+\_\+\+Pokemons\+\_\+\+Iniciales} (double id\+Pok)
+\begin{DoxyCompactList}\small\item\em Hace que cada jugador seleccione a 6 Pokémon en su lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} \mbox{\hyperlink{class_library_1_1_jugador_a90658392ccd7cc54b4fc29548aab093f}{Seleccionar\+\_\+\+Pokemons\+\_\+\+Para\+\_\+\+Luchar}} (out string mensaje, double id\+Pok, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon\+Actual=null)
+\begin{DoxyCompactList}\small\item\em El jugador selecciona Pokémon que estén disponibles para luchar. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_af0e00b9ce3bd28e4b36c18b2096d2f71}\label{class_library_1_1_jugador_af0e00b9ce3bd28e4b36c18b2096d2f71} 
+string {\bfseries Mostrar\+\_\+\+Todos\+\_\+\+Los\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Del\+\_\+\+Juego} ()
+\begin{DoxyCompactList}\small\item\em Muestra todos los Pokémon disponibles del juego (no los del jugador). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_jugador_ae181b500a4b7c5e7f1a1b4ca3f90818e}{Mostrar\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Del\+\_\+\+Jugador}} ()
+\begin{DoxyCompactList}\small\item\em Muestra una lista de los Pokémon disponibles del jugador actual. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_jugador_ab0b814d3ab5c51545d36f1c0540cdf3e}{Acciones\+\_\+\+Del\+\_\+\+Jugador\+\_\+\+En\+\_\+\+Batalla}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} propio, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente, Component\+Interaction\+Create\+Event\+Args ctx)
+\begin{DoxyCompactList}\small\item\em Presenta las acciones disponibles para el jugador durante una batalla Pokémon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_jugador_a54b57a207b2f8616cddf7d130ae6e955}{Jugador\+\_\+\+Tiene\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Para\+\_\+\+Luchar}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el jugador tiene Pokémon con vida en su lista. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_jugador_a5b327e76f07076d4ff5fa07b8d851d51}{Mochila\+\_\+\+Del\+\_\+\+Jugador}} (string objeto, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon\+Moch)
+\begin{DoxyCompactList}\small\item\em Gestiona el uso de objetos de la mochila del jugador durante una batalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_jugador_aeab93c4e8f981120445f8a2964c9def1}\label{class_library_1_1_jugador_aeab93c4e8f981120445f8a2964c9def1} 
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Nombre del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_a97eafdbebf5a09b90a755e7855c14845}\label{class_library_1_1_jugador_a97eafdbebf5a09b90a755e7855c14845} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} {\bfseries pokemon\+En\+Batalla}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el Pokémon que está actualmente en batalla. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_a0f79787b51a136dab89a4f36f0f4b47a}\label{class_library_1_1_jugador_a0f79787b51a136dab89a4f36f0f4b47a} 
+List$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ {\bfseries List\+Pokemons}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Lista de Pokémon del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_jugador_a4815fd41b4f76502b06fcadd82b66121}\label{class_library_1_1_jugador_a4815fd41b4f76502b06fcadd82b66121} 
+List$<$ \mbox{\hyperlink{class_library_1_1_items___jugador}{Items\+\_\+\+Jugador}} $>$ {\bfseries Items}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Diccionario que almacena la cantidad de ítems del jugador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un jugador en el juego de Pokémon. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_jugador_a08300073d56e1146926129abe3562968}\index{Library.Jugador@{Library.Jugador}!Jugador@{Jugador}}
+\index{Jugador@{Jugador}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Jugador()}{Jugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_a08300073d56e1146926129abe3562968} 
+Library.\+Jugador.\+Jugador (\begin{DoxyParamCaption}\item[{string}]{nombre}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor que inicializa un nuevo jugador con un nombre y establece los Pokémon y los ítems. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Nombre del jugador.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_jugador_ab0b814d3ab5c51545d36f1c0540cdf3e}\index{Library.Jugador@{Library.Jugador}!Acciones\_Del\_Jugador\_En\_Batalla@{Acciones\_Del\_Jugador\_En\_Batalla}}
+\index{Acciones\_Del\_Jugador\_En\_Batalla@{Acciones\_Del\_Jugador\_En\_Batalla}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Acciones\_Del\_Jugador\_En\_Batalla()}{Acciones\_Del\_Jugador\_En\_Batalla()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_ab0b814d3ab5c51545d36f1c0540cdf3e} 
+async Task Library.\+Jugador.\+Acciones\+\_\+\+Del\+\_\+\+Jugador\+\_\+\+En\+\_\+\+Batalla (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{propio}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{oponente}{, }\item[{Component\+Interaction\+Create\+Event\+Args}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Presenta las acciones disponibles para el jugador durante una batalla Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em propio} & El Pokémon del jugador.\\
+\hline
+{\em oponente} & El Pokémon oponente.\\
+\hline
+{\em ctx} & El contexto de la interacción del componente Discord.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_jugador_a54b57a207b2f8616cddf7d130ae6e955}\index{Library.Jugador@{Library.Jugador}!Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar@{Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar}}
+\index{Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar@{Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar()}{Jugador\_Tiene\_Pokemons\_Disponibles\_Para\_Luchar()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_a54b57a207b2f8616cddf7d130ae6e955} 
+bool Library.\+Jugador.\+Jugador\+\_\+\+Tiene\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Para\+\_\+\+Luchar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el jugador tiene Pokémon con vida en su lista. 
+
+\begin{DoxyReturn}{Returns}
+Devuelve true si el jugador tiene Pokémon disponibles para luchar, de lo contrario, false. 
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_jugador_a5b327e76f07076d4ff5fa07b8d851d51}\index{Library.Jugador@{Library.Jugador}!Mochila\_Del\_Jugador@{Mochila\_Del\_Jugador}}
+\index{Mochila\_Del\_Jugador@{Mochila\_Del\_Jugador}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Mochila\_Del\_Jugador()}{Mochila\_Del\_Jugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_a5b327e76f07076d4ff5fa07b8d851d51} 
+string Library.\+Jugador.\+Mochila\+\_\+\+Del\+\_\+\+Jugador (\begin{DoxyParamCaption}\item[{string}]{objeto}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon\+Moch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gestiona el uso de objetos de la mochila del jugador durante una batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objeto} & El nombre del objeto a usar.\\
+\hline
+{\em pokemon\+Moch} & El Pokémon al que se aplicará el objeto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje que describe el resultado de la acción.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_jugador_ae181b500a4b7c5e7f1a1b4ca3f90818e}\index{Library.Jugador@{Library.Jugador}!Mostrar\_Pokemons\_Disponibles\_Del\_Jugador@{Mostrar\_Pokemons\_Disponibles\_Del\_Jugador}}
+\index{Mostrar\_Pokemons\_Disponibles\_Del\_Jugador@{Mostrar\_Pokemons\_Disponibles\_Del\_Jugador}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Mostrar\_Pokemons\_Disponibles\_Del\_Jugador()}{Mostrar\_Pokemons\_Disponibles\_Del\_Jugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_ae181b500a4b7c5e7f1a1b4ca3f90818e} 
+string Library.\+Jugador.\+Mostrar\+\_\+\+Pokemons\+\_\+\+Disponibles\+\_\+\+Del\+\_\+\+Jugador (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra una lista de los Pokémon disponibles del jugador actual. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que contiene la lista de Pokémon con su ID, nombre, vida, defensa y tipo.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_jugador_a90658392ccd7cc54b4fc29548aab093f}\index{Library.Jugador@{Library.Jugador}!Seleccionar\_Pokemons\_Para\_Luchar@{Seleccionar\_Pokemons\_Para\_Luchar}}
+\index{Seleccionar\_Pokemons\_Para\_Luchar@{Seleccionar\_Pokemons\_Para\_Luchar}!Library.Jugador@{Library.Jugador}}
+\doxysubsubsection{\texorpdfstring{Seleccionar\_Pokemons\_Para\_Luchar()}{Seleccionar\_Pokemons\_Para\_Luchar()}}
+{\footnotesize\ttfamily \label{class_library_1_1_jugador_a90658392ccd7cc54b4fc29548aab093f} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} Library.\+Jugador.\+Seleccionar\+\_\+\+Pokemons\+\_\+\+Para\+\_\+\+Luchar (\begin{DoxyParamCaption}\item[{out string}]{mensaje}{, }\item[{double}]{id\+Pok}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon\+Actual}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+El jugador selecciona Pokémon que estén disponibles para luchar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensaje} & \\
+\hline
+{\em pokemon\+Actual} & El Pokémon actual que se encuentra en combate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El Pokémon seleccionado para luchar.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Jugadores/Jugador.\+cs\end{DoxyCompactItemize}

@@ -24,7 +24,7 @@ Para comenzar al equipo se le panteó una **lista objetivos** que debía cumplir
 ___
 
 #### Facada.
-![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/FACADA%20Final%20Segunda%20Entrega.png)
+![Facada](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/Final%20Tercer%20Entrega.png)
 
 ___
 
@@ -40,7 +40,7 @@ Continuando, como parte del proceso de actualización, se realizó una reestruct
 ___
 
 #### Diagrama de clases (UML ACTUAL).
-![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Segunda%20Entrega%20Final.png)
+![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Final%20Tercer%20Entrega.png)
 ___
 
 #### Tarjetas CRC (ACTUAL)
@@ -53,6 +53,7 @@ ___
 - El cambio de pokemon fue un problema, tanto el hecho de cambiar durante la batalla como intentar cambiarlo cuando ya no tenia vida. (la utilización del comando ref fue clave)
 - Cuando el pokemon en batalla perdia toda su vida y no tenia mas items revivir, la batalla se perdia automaticamente, no se consideraba si habian mas pokemons disponibles para luchar o no.
 - Uno de los desafios "finales" fue en cuanto a la implementación del bot, ya que el proyecto ya estaba enfocado en ir mostrando los mensajes por consola y cuando se ejecutaba el bot por discord no mostraba los pokemones, etc. Debido a ello se tuvo que cambiar casi todos los "console.writeline" por return en los metodos void o por el comando "out mensaje" para los metodos que ya devolvian algo como un tipo pokemon, de esa forma el metodo tiene una "doble devoluciom" o un "doble tipo" y se puede enviar dichos mensajes al bot.
+- La creacion y prueba de los test fue un desafio importante, ya que al crearlos y darle a "run" el programa quedaba runeando de manera indefinida debido a que consumian muchos recursos, por ende el test no daba ni error ni acierto. En una reunion con el docente a cargo se establecio que el equipo centraria su tiempo en realizar los test de las historias de usuario y no de todo el programa como en un inicio.
 ___
 
 ### Bibliografía
@@ -78,6 +79,8 @@ ___
 [Diseños](https://github.com/ucudal/PII_Guias)
 
 [Discord Bot](https://discordjs.guide/#before-you-begin)
+
+[DSharpPlus](https://github.com/samjesus8/CSharp-Discord-Bot-Template)
 
 ___
 

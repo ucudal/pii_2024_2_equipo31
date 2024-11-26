@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto Pokemon_LRAC: Library.Batalla Class Reference</title>
+<title>My Project: Library.Batalla Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Proyecto Pokemon_LRAC
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -90,6 +90,7 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_library_1_1_batalla-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Library.Batalla Class Reference</div></div>
 </div><!--header-->
@@ -103,16 +104,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84cbb4d799482d5c1569a925c57e110d" id="r_a84cbb4d799482d5c1569a925c57e110d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84cbb4d799482d5c1569a925c57e110d">Batalla</a> (<a class="el" href="class_library_1_1_jugador.html">Jugador</a> jugador1, <a class="el" href="class_library_1_1_jugador.html">Jugador</a> jugador2)</td></tr>
 <tr class="memdesc:a84cbb4d799482d5c1569a925c57e110d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la clase <a class="el" href="class_library_1_1_batalla.html" title="Representa una batalla entre dos jugadores con sus respectivos Pokémon.">Batalla</a> con los jugadores especificados.  <br /></td></tr>
 <tr class="separator:a84cbb4d799482d5c1569a925c57e110d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbff03c4fc4b4d56f943fbb7ef481516" id="r_adbff03c4fc4b4d56f943fbb7ef481516"><td class="memItemLeft" align="right" valign="top"><a id="adbff03c4fc4b4d56f943fbb7ef481516" name="adbff03c4fc4b4d56f943fbb7ef481516"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Iniciar_Batalla</b> ()</td></tr>
-<tr class="memdesc:adbff03c4fc4b4d56f943fbb7ef481516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia la batalla entre los jugadores, permitiendo que cada uno de ellos tome turnos alternos hasta que uno pierda. <br /></td></tr>
-<tr class="separator:adbff03c4fc4b4d56f943fbb7ef481516"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a206b5af0f4e7138cc279c0ec878b79a8" id="r_a206b5af0f4e7138cc279c0ec878b79a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a206b5af0f4e7138cc279c0ec878b79a8">Cada_Jugador_Tomar_Su_Turno</a> (<a class="el" href="class_library_1_1_jugador.html">Jugador</a> jugador, ref <a class="el" href="class_library_1_1_pokemon.html">Pokemon</a> propio, <a class="el" href="class_library_1_1_pokemon.html">Pokemon</a> oponente)</td></tr>
-<tr class="memdesc:a206b5af0f4e7138cc279c0ec878b79a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite que cada jugador realice sus acciones de batalla en su turno, afectando al Pokémon oponente.  <br /></td></tr>
-<tr class="separator:a206b5af0f4e7138cc279c0ec878b79a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0ad9f6748c3cd5274cefd129fd1e2a" id="r_a6d0ad9f6748c3cd5274cefd129fd1e2a"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d0ad9f6748c3cd5274cefd129fd1e2a">Iniciar_Batalla_Pruebas</a> (ComponentInteractionCreateEventArgs ctx)</td></tr>
+<tr class="memdesc:a6d0ad9f6748c3cd5274cefd129fd1e2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia una batalla de prueba entre dos jugadores, utilizando el primer Pokémon de cada jugador.  <br /></td></tr>
+<tr class="separator:a6d0ad9f6748c3cd5274cefd129fd1e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc34d88aaba713d0e53b07a2c2dd2f4" id="r_afcc34d88aaba713d0e53b07a2c2dd2f4"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc34d88aaba713d0e53b07a2c2dd2f4">turnoSiguiente</a> (ComponentInteractionCreateEventArgs ctx)</td></tr>
+<tr class="memdesc:afcc34d88aaba713d0e53b07a2c2dd2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alterna el turno entre los jugadores y ejecuta las acciones correspondientes del jugador activo en la batalla.  <br /></td></tr>
+<tr class="separator:afcc34d88aaba713d0e53b07a2c2dd2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28e923aaab08a4421d5edd6d5770851c" id="r_a28e923aaab08a4421d5edd6d5770851c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e923aaab08a4421d5edd6d5770851c">EsMiTurno</a> (ComponentInteractionCreateEventArgs args)</td></tr>
+<tr class="memdesc:a28e923aaab08a4421d5edd6d5770851c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si es el turno del jugador que realizó la interacción en Discord.  <br /></td></tr>
+<tr class="separator:a28e923aaab08a4421d5edd6d5770851c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ee7805ee46ff235c983e00b779048a" id="r_a29ee7805ee46ff235c983e00b779048a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29ee7805ee46ff235c983e00b779048a">Cada_Jugador_Actualiza_Los_Enfriamientos_De_Ataques_Especiales</a> (<a class="el" href="class_library_1_1_jugador.html">Jugador</a> jugador)</td></tr>
 <tr class="memdesc:a29ee7805ee46ff235c983e00b779048a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza los tiempos de enfriamiento de los ataques especiales de cada Pokémon del jugador.  <br /></td></tr>
 <tr class="separator:a29ee7805ee46ff235c983e00b779048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ca708e111fe5ba96c468b46717be82" id="r_ae4ca708e111fe5ba96c468b46717be82"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4ca708e111fe5ba96c468b46717be82">Client_ComponentInteractionCreated</a> (DiscordClient sender, ComponentInteractionCreateEventArgs args)</td></tr>
+<tr class="memdesc:ae4ca708e111fe5ba96c468b46717be82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja el evento cuando un jugador interactúa con un componente de Discord.  <br /></td></tr>
+<tr class="separator:ae4ca708e111fe5ba96c468b46717be82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a3b51ee9f3fa7642e02f4e4a7cb4b52b4" id="r_a3b51ee9f3fa7642e02f4e4a7cb4b52b4"><td class="memItemLeft" align="right" valign="top"><a id="a3b51ee9f3fa7642e02f4e4a7cb4b52b4" name="a3b51ee9f3fa7642e02f4e4a7cb4b52b4"></a>
+<a class="el" href="class_library_1_1_jugador.html">Jugador</a>&#160;</td><td class="memItemRight" valign="bottom"><b>jugador1</b></td></tr>
+<tr class="separator:a3b51ee9f3fa7642e02f4e4a7cb4b52b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a17bd7537939b9173e5ee42e942c65" id="r_a99a17bd7537939b9173e5ee42e942c65"><td class="memItemLeft" align="right" valign="top"><a id="a99a17bd7537939b9173e5ee42e942c65" name="a99a17bd7537939b9173e5ee42e942c65"></a>
+<a class="el" href="class_library_1_1_jugador.html">Jugador</a>&#160;</td><td class="memItemRight" valign="bottom"><b>jugador2</b></td></tr>
+<tr class="separator:a99a17bd7537939b9173e5ee42e942c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac110db37619a18a02c0d61b9c1478ac4" id="r_ac110db37619a18a02c0d61b9c1478ac4"><td class="memItemLeft" align="right" valign="top"><a id="ac110db37619a18a02c0d61b9c1478ac4" name="ac110db37619a18a02c0d61b9c1478ac4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>esTurnoJugador1</b></td></tr>
+<tr class="separator:ac110db37619a18a02c0d61b9c1478ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Representa una batalla entre dos jugadores con sus respectivos Pokémon. </p>
@@ -189,8 +207,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Iniciar_Batalla</b> (
 
 </div>
 </div>
-<a id="a206b5af0f4e7138cc279c0ec878b79a8" name="a206b5af0f4e7138cc279c0ec878b79a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a206b5af0f4e7138cc279c0ec878b79a8">&#9670;&#160;</a></span>Cada_Jugador_Tomar_Su_Turno()</h2>
+<a id="ae4ca708e111fe5ba96c468b46717be82" name="ae4ca708e111fe5ba96c468b46717be82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ca708e111fe5ba96c468b46717be82">&#9670;&#160;</a></span>Client_ComponentInteractionCreated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,19 +217,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Iniciar_Batalla</b> (
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Library.Batalla.Cada_Jugador_Tomar_Su_Turno </td>
+          <td class="memname">async Task Library.Batalla.Client_ComponentInteractionCreated </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_library_1_1_jugador.html">Jugador</a></td>          <td class="paramname"><span class="paramname"><em>jugador</em></span>, </td>
+          <td class="paramtype">DiscordClient</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ref <a class="el" href="class_library_1_1_pokemon.html">Pokemon</a></td>          <td class="paramname"><span class="paramname"><em>propio</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_library_1_1_pokemon.html">Pokemon</a></td>          <td class="paramname"><span class="paramname"><em>oponente</em></span>&#160;)</td>
+          <td class="paramtype">ComponentInteractionCreateEventArgs</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -221,15 +234,129 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Iniciar_Batalla</b> (
 </table>
 </div><div class="memdoc">
 
-<p>Permite que cada jugador realice sus acciones de batalla en su turno, afectando al Pokémon oponente. </p>
+<p>Maneja el evento cuando un jugador interactúa con un componente de Discord. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jugador</td><td>El jugador que toma el turno.</td></tr>
-    <tr><td class="paramname">propio</td><td>El Pokémon del jugador que toma el turno.</td></tr>
-    <tr><td class="paramname">oponente</td><td>El Pokémon oponente.</td></tr>
+    <tr><td class="paramname">sender</td><td>El cliente de Discord que envió el evento.</td></tr>
+    <tr><td class="paramname">args</td><td>Los argumentos del evento que contienen información sobre la interacción.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Una tarea asíncrona que representa la operación.</dd></dl>
+
+</div>
+</div>
+<a id="a28e923aaab08a4421d5edd6d5770851c" name="a28e923aaab08a4421d5edd6d5770851c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28e923aaab08a4421d5edd6d5770851c">&#9670;&#160;</a></span>EsMiTurno()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Library.Batalla.EsMiTurno </td>
+          <td>(</td>
+          <td class="paramtype">ComponentInteractionCreateEventArgs</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica si es el turno del jugador que realizó la interacción en Discord. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>Argumentos del evento de interacción del componente, que contienen información sobre el usuario y el canal. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve <code>true</code> si es el turno del jugador correspondiente, de lo contrario, devuelve <code>false</code> y envía un mensaje indicando que no es el turno actual del usuario. </dd></dl>
+<p>Este método compara el nombre del jugador activo con el nombre del usuario que realizó la interacción. Si no es el turno del jugador, envía un mensaje informativo al canal correspondiente. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (batalla.EsMiTurno(args))</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Ejecutar acciones del jugador</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd>ComponentInteractionCreateEventArgs, esTurnoJugador1</dd></dl>
+
+</div>
+</div>
+<a id="a6d0ad9f6748c3cd5274cefd129fd1e2a" name="a6d0ad9f6748c3cd5274cefd129fd1e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0ad9f6748c3cd5274cefd129fd1e2a">&#9670;&#160;</a></span>Iniciar_Batalla_Pruebas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task Library.Batalla.Iniciar_Batalla_Pruebas </td>
+          <td>(</td>
+          <td class="paramtype">ComponentInteractionCreateEventArgs</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicia una batalla de prueba entre dos jugadores, utilizando el primer Pokémon de cada jugador. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexto del evento de interacción del componente, necesario para modificar el mensaje en Discord. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Este método selecciona automáticamente el primer Pokémon de cada jugador para la batalla. Se determina aleatoriamente quién comienza el turno. Luego, se construye un mensaje con opciones de acción (atacar, usar mochila, cambiar Pokémon) que se envía al canal de Discord correspondiente. </p>
+<dl class="section return"><dt>Returns</dt><dd>Una tarea asincrónica que representa la operación de modificar el mensaje en Discord para la interacción. </dd></dl>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line">await batalla.Iniciar_Batalla_Pruebas(ctx);</div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_library_1_1_pokemon.html" title="Representa un Pokémon con atributos específicos como puntos de salud, defensa, tipo y una lista de at...">Pokemon</a>, <a class="el" href="class_library_1_1_jugador.html" title="Representa un jugador en el juego de Pokémon.">Jugador</a>, ComponentInteractionCreateEventArgs</dd></dl>
+
+</div>
+</div>
+<a id="afcc34d88aaba713d0e53b07a2c2dd2f4" name="afcc34d88aaba713d0e53b07a2c2dd2f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc34d88aaba713d0e53b07a2c2dd2f4">&#9670;&#160;</a></span>turnoSiguiente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task Library.Batalla.turnoSiguiente </td>
+          <td>(</td>
+          <td class="paramtype">ComponentInteractionCreateEventArgs</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alterna el turno entre los jugadores y ejecuta las acciones correspondientes del jugador activo en la batalla. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Contexto del evento de interacción del componente, utilizado para realizar acciones y modificar mensajes en Discord. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Este método determina de quién es el turno actualmente (jugador 1 o jugador 2), ejecuta las acciones del jugador activo y actualiza los enfriamientos de los ataques especiales del jugador correspondiente. </p>
+<dl class="section return"><dt>Returns</dt><dd>Una tarea asincrónica que representa las acciones realizadas por el jugador activo durante su turno. </dd></dl>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line">await batalla.turnoSiguiente(ctx);</div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_library_1_1_jugador.html#ab0b814d3ab5c51545d36f1c0540cdf3e" title="Presenta las acciones disponibles para el jugador durante una batalla Pokémon.">Jugador.Acciones_Del_Jugador_En_Batalla</a>, <a class="el" href="#a29ee7805ee46ff235c983e00b779048a" title="Actualiza los tiempos de enfriamiento de los ataques especiales de cada Pokémon del jugador.">Cada_Jugador_Actualiza_Los_Enfriamientos_De_Ataques_Especiales</a>, ComponentInteractionCreateEventArgs</dd></dl>
 
 </div>
 </div>

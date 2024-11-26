@@ -5,7 +5,7 @@ using Xunit;
 public class HistoriaDeUsuario6
 {
     // Caso 1: Hay al menos un Pokémon con Hp positivo y que no está en combate.
-    [Fact]
+    [Test]
     public void Jugador_Tiene_Pokemons_Disponibles_Para_Luchar_Debe_Devolver_True_Si_Hay_Pokemon_Con_Hp_Positivo_Y_No_En_Combate()
     {
         // Arrange: Configuramos el jugador con dos Pokémon.
@@ -21,7 +21,7 @@ public class HistoriaDeUsuario6
     }
 
     // Caso 2: Todos los Pokémon tienen Hp igual a 0.
-    [Fact]
+    [Test]
     public void Jugador_Tiene_Pokemons_Disponibles_Para_Luchar_Debe_Devolver_False_Si_Todos_Estan_Sin_Hp()
     {
         // Arrange: Configuramos el jugador con dos Pokémon, ambos sin Hp.
@@ -45,7 +45,7 @@ public class HistoriaDeUsuario6
     }
 
     // Caso 3: Todos los Pokémon están en combate.
-    [Fact]
+    [Test]
     public void Jugador_Tiene_Pokemons_Disponibles_Para_Luchar_Debe_Devolver_False_Si_Todos_Estan_En_Combate()
     {
         // Arrange: Configuramos el jugador con Pokémon en combate.
@@ -61,7 +61,7 @@ public class HistoriaDeUsuario6
     }
 
     // Caso 4: No hay Pokémon en la lista.
-    [Fact]
+    [Test]
     public void Jugador_Tiene_Pokemons_Disponibles_Para_Luchar_Debe_Devolver_False_Si_No_Hay_Pokemons()
     {
         // Arrange: Configuramos el jugador sin Pokémon.

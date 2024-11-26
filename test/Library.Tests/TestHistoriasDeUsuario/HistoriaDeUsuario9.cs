@@ -5,7 +5,7 @@ using Xunit;
 public class HistoriaDeUsuario9
 {
     // Caso de prueba para el método UnirJugador.
-    [Fact]
+    [Test]
     public void UnirJugador_Debe_CrearJugadorYAgregarloCorrectamente()
     {
         Jugador jugador = new Jugador("pepe");

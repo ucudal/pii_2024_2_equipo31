@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using NUnit.Framework; // Usando NUnit como ejemplo para Test
-using Library; // Asegúrate de usar el namespace correcto
-
 namespace Library.Tests;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/agustin
 using System;
 using System.Collections.Generic;
 using NUnit.Framework; 
@@ -14,7 +12,10 @@ using Library;
 
 [TestFixture]
 public class HistoriaDelUsuario1
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/agustin
 {
     [Test]
     public void Seleccionar_6_Pokemons_Iniciales_Agrega_Pokemon_Valido()
@@ -43,7 +44,10 @@ public class HistoriaDelUsuario1
         Assert.Contains(pokemon2, jugador.ListPokemons); // Verificar que pokemon2 está en la lista
         Assert.AreEqual("🐵 Ash añadio a Crocalor", mensaje1.Trim());
         Assert.AreEqual("🐵 Ash añadio a Cacnea", mensaje2.Trim());
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/agustin
     }
 
     [Test]
@@ -69,4 +73,7 @@ public class HistoriaDelUsuario1
         Assert.AreEqual(6, jugador.ListPokemons.Count); // Asegurar que tiene solo 6
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/agustin

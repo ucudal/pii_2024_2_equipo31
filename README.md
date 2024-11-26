@@ -40,7 +40,7 @@ Continuando, como parte del proceso de actualización, se realizó una reestruct
 ___
 
 #### Diagrama de clases (UML ACTUAL).
-![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Segunda%20Entrega%20Final.png)
+![UML](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/UML%20Final%20Tercer%20Entrega.png)
 ___
 
 #### Tarjetas CRC (ACTUAL)

@@ -366,7 +366,7 @@ public class Jugador
                     }
                     mensaje += $"\n 💝 {this.Name} usó una super poción en {pokemonMoch.Name} y ahora tiene {pokemonMoch.Hp} puntos de vida";
                     Items[0].Cantidad -= 1;
-                    mensaje += $"\nA {this.Name} le quedan {Items[0].Cantidad} super pociones en su mochila.";
+                    mensaje += $"\nA {this.Name} le quedan ***{Items[0].Cantidad} super pociones*** en su mochila.";
                 }
                 else
                 {
@@ -383,12 +383,12 @@ public class Jugador
                         mensaje += $"\n 💉 {this.Name} usó una cura total en {pokemonMoch.Name} y se recupero de todos los efectos negativos";
                         Items[1].Cantidad -= 1;
                         pokemonMoch.EstadoNegativo = "Ninguno";
-                        mensaje += $"\nA {this.Name} le quedan {Items[1].Cantidad} curas totales en su mochila.";
+                        mensaje += $"\nA {this.Name} le quedan ***{Items[1].Cantidad} curas totales*** en su mochila.";
                     }
                     else if (pokemonMoch.EstadoNegativo == "Ninguno")
                     {
                         mensaje = $"\n{pokemonMoch.Name} no tiene ningun estado negativo por ser revertido." + 
-                                  $"\nA {this.Name} aun le quedan {Items[1].Cantidad} curas totales";
+                                  $"\nA {this.Name} aun le quedan ***{Items[1].Cantidad} curas totales***";
                     }
                     break;
                 }
@@ -402,7 +402,7 @@ public class Jugador
                     pokemonMoch.Hp = pokemonMoch.HpInicial * 0.5;
                     mensaje += $"\n 😇 {pokemonMoch.Name} fue revivido y ahora tiene {pokemonMoch.Hp} puntos de vida";
                     Items[2].Cantidad -= 1;
-                    mensaje += $"\nA {this.Name} le quedan {Items[2].Cantidad} revivir en su mochila.";
+                    mensaje += $"\nA {this.Name} le quedan ***{Items[2].Cantidad} revivir*** en su mochila.";
                 }
                 else
                 {

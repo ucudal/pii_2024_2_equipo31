@@ -72,11 +72,5 @@ public class AtaqueNormalTests
         oponente.El_Pokemon_Recibio_Daño(dañoEsperado);
 
         Assert.IsTrue(output.ToString().Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"));
-<<<<<<< HEAD
-    }
-}
-=======
     }
-    */
 }
->>>>>>> origin/agustin

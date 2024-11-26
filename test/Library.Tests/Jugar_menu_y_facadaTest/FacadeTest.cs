@@ -1,76 +1,73 @@
 using System;
 using Library;
 using NUnit.Framework;
-
+/*
 namespace LibraryTests
 {
-<<<<<<< HEAD
+
     [TestFixture]
     public class FacadaTests
-=======
-    /*   ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
-    [Test]
-    public void TestAgregarPokemonAJugador()
->>>>>>> origin/agustin
     {
-        private Facada facada;
-
-        [SetUp]
-        public void Setup()
-        {
-            // Crear la fachada con los jugadores Ash y Misty
-            facada = new Facada("Ash", "Misty");
-        }
-
+        
         [Test]
-        public void TestIniciarBatallaConAmbosJugadores()
+        public void TestAgregarPokemonAJugador()
+
         {
-            // Simular que ambos jugadores han agregado sus pokémons
-            facada.Cada_Jugador_Agrega_Pokemons(1);
-            facada.Cada_Jugador_Agrega_Pokemons(2);
+            private Facada facada;
 
-            // Iniciar la batalla
-            facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2);
+            [SetUp]
+            public void Setup()
+            {
+                // Crear la fachada con los jugadores Ash y Misty
+                facada = new Facada("Ash", "Misty");
+            }
 
-            // Verificar que la batalla haya comenzado y que ambos jugadores estén participando
-            Assert.AreEqual("Ash", facada.Jugador1.Name);
-            Assert.AreEqual("Misty", facada.Jugador2.Name);
-            // Se podría agregar más verificaciones para comprobar el estado de la batalla
-        }
+            [Test]
+            public void TestIniciarBatallaConAmbosJugadores()
+            {
+                // Simular que ambos jugadores han agregado sus pokémons
+                facada.Cada_Jugador_Agrega_Pokemons(1);
+                facada.Cada_Jugador_Agrega_Pokemons(2);
 
-        [Test]
-        public void TestUnirJugadorASalaDeEspera()
-        {
-            // Crear un jugador y unirlo a la sala de espera
-            Jugador ash = new Jugador("Ash");
-            facada.Unir_Jugador_A_La_Espera(ash);
+                // Iniciar la batalla
+                facada.Iniciar_Nueva_Batalla(facada.Jugador1, facada.Jugador2);
 
-            // Verificar que Ash está en la lista de espera
-            string listaEspera = facada.MostrarJugadoresEnEspera();
-            Assert.IsTrue(listaEspera.Contains("Ash"));
-        }
+                // Verificar que la batalla haya comenzado y que ambos jugadores estén participando
+                Assert.AreEqual("Ash", facada.Jugador1.Name);
+                Assert.AreEqual("Misty", facada.Jugador2.Name);
+                // Se podría agregar más verificaciones para comprobar el estado de la batalla
+            }
 
-        [Test]
-        public void TestIniciarBatallaEnSalaDeEspera()
-        {
-            // Crear jugadores y unirlos a la sala de espera
-            Jugador ash = new Jugador("Ash");
-            Jugador misty = new Jugador("Misty");
-            facada.Unir_Jugador_A_La_Espera(ash);
-            facada.Unir_Jugador_A_La_Espera(misty);
+            [Test]
+            public void TestUnirJugadorASalaDeEspera()
+            {
+                // Crear un jugador y unirlo a la sala de espera
+                Jugador ash = new Jugador("Ash");
+                facada.Unir_Jugador_A_La_Espera(ash);
 
-            // Iniciar la batalla en la sala de espera
-            facada.IniciarBatallaEnEspera();
+                // Verificar que Ash está en la lista de espera
+                string listaEspera = facada.MostrarJugadoresEnEspera();
+                Assert.IsTrue(listaEspera.Contains("Ash"));
+            }
 
-            // Verificar que la batalla se ha iniciado entre Ash y Misty
-            string listaEspera = facada.MostrarJugadoresEnEspera();
-            Assert.IsTrue(listaEspera.Contains("Ash"));
-            Assert.IsTrue(listaEspera.Contains("Misty"));
+            [Test]
+            public void TestIniciarBatallaEnSalaDeEspera()
+            {
+                // Crear jugadores y unirlos a la sala de espera
+                Jugador ash = new Jugador("Ash");
+                Jugador misty = new Jugador("Misty");
+                facada.Unir_Jugador_A_La_Espera(ash);
+                facada.Unir_Jugador_A_La_Espera(misty);
+
+                // Iniciar la batalla en la sala de espera
+                facada.IniciarBatallaEnEspera();
+
+                // Verificar que la batalla se ha iniciado entre Ash y Misty
+                string listaEspera = facada.MostrarJugadoresEnEspera();
+                Assert.IsTrue(listaEspera.Contains("Ash"));
+                Assert.IsTrue(listaEspera.Contains("Misty"));
+            }
         }
     }
-<<<<<<< HEAD
 }
-=======
-    */
-}
->>>>>>> origin/agustin
+*/

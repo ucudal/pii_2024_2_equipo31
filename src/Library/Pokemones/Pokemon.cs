@@ -142,15 +142,15 @@ public class Pokemon
             {
                 double dañoVeneno = HpInicial * 0.05;
                 Hp -= dañoVeneno;
-                mensaje = $"{Name} se encuentra {EstadoNegativo} 💚 , en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un antidoto";
-                mensaje += $"Ahora {Name} tiene {Hp} puntos de vida";
+                mensaje = $"{Name} se encuentra ***{EstadoNegativo}*** 💚 , en este turno perdio {dañoVeneno} puntos de vida\n Debes usar un ***Cura total***";
+                mensaje += $"\n Ahora {Name} tiene {Hp} puntos de vida";
             }
             else if (EstadoNegativo == "Quemado")
             {
                 double dañoQuemadura = HpInicial * 0.10;
                 Hp -= dañoQuemadura;
-                mensaje = $"{Name} se encuentra {EstadoNegativo} 🔥 , en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar un antidoto";
-                mensaje += $"Ahora {Name} tiene {Hp} puntos de vida";
+                mensaje = $"{Name} se encuentra ***{EstadoNegativo}*** 🔥 , en este turno perdio {dañoQuemadura} puntos de vida\n Debes usar una ***Cura total***";
+                mensaje += $"\n Ahora {Name} tiene {Hp} puntos de vida";
             }
         }
         else

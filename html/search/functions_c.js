@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['unir_5fjugador_5fa_5fla_5fespera_0',['Unir_Jugador_A_La_Espera',['../class_library_1_1_facada.html#a08acb0b32678c89c71155c813e29165f',1,'Library::Facada']]],
-  ['unirsealalistadeespera_1',['UnirseALaListaDeEspera',['../class_library_1_1_sala___de___espera.html#a574509e306cf83aea7ccb20802eff393',1,'Library::Sala_De_Espera']]]
+  ['testsleccion_0',['TestSleccion',['../class_library_1_1_slash_commands_1_1_commandos_iniciales.html#a6302019cff3000f119022585534033e9',1,'Library::SlashCommands::CommandosIniciales']]],
+  ['todoslospokemon_1',['TodosLosPokemon',['../class_library_1_1_slash_commands_1_1_commandos_iniciales.html#a6a5cbf0478966f1723a502eecf8038f2',1,'Library::SlashCommands::CommandosIniciales']]],
+  ['turnosiguiente_2',['turnoSiguiente',['../class_library_1_1_batalla.html#afcc34d88aaba713d0e53b07a2c2dd2f4',1,'Library::Batalla']]]
 ];

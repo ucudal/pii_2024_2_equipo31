@@ -20,6 +20,9 @@ public class Jugador
     /// Nombre del jugador.
     /// </summary>
     public string Name { get; set; }
+    /// <summary>
+    /// Obtiene el Pokémon que está actualmente en batalla.
+    /// </summary>
     public Pokemon pokemonEnBatalla { get; private set; }
     /// <summary>
     /// Lista de Pokémon del jugador.
@@ -271,6 +274,11 @@ public class Jugador
         }
         return mensaje;
     }
+    
+    /// <summary>
+    /// Muestra una lista de los Pokémon disponibles del jugador actual.
+    /// </summary>
+    /// <returns>Una cadena que contiene la lista de Pokémon con su ID, nombre, vida, defensa y tipo.</returns>
     public string Mostrar_Pokemons_Disponibles_Del_Jugador() 
     {
         var mensaje = "\nPokemons disponibles del jugador actual: ";
@@ -282,10 +290,12 @@ public class Jugador
     }
     
     /// <summary>
-    /// Muestra un menú de opciones dentro de la batalla.
+    /// Presenta las acciones disponibles para el jugador durante una batalla Pokémon.
     /// </summary>
     /// <param name="propio">El Pokémon del jugador.</param>
-    /// <param name="oponente">El Pokémon del oponente.</param>
+    /// <param name="oponente">El Pokémon oponente.</param>
+    /// <param name="ctx">El contexto de la interacción del componente Discord.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     public async Task Acciones_Del_Jugador_En_Batalla(Pokemon propio, Pokemon oponente, ComponentInteractionCreateEventArgs ctx) 
     {
         string mensaje = $"\n ⚪ {this.Name}, elige una accion:\n";
@@ -336,10 +346,11 @@ public class Jugador
     }
 
     /// <summary>
-    /// Muestra el menú de la mochila y permite al jugador usar elementos.
+    /// Gestiona el uso de objetos de la mochila del jugador durante una batalla.
     /// </summary>
-    /// <param name="objeto">El objeto seleccionado por el jugador.</param>
-    /// <param name="pokemonMoch">El Pokémon al que se le aplicará el objeto.</param>
+    /// <param name="objeto">El nombre del objeto a usar.</param>
+    /// <param name="pokemonMoch">El Pokémon al que se aplicará el objeto.</param>
+    /// <returns>Un mensaje que describe el resultado de la acción.</returns>
     public string Mochila_Del_Jugador(string objeto, Pokemon pokemonMoch)
     {
         string mensaje = "";

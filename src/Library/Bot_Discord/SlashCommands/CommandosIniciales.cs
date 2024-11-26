@@ -5,11 +5,26 @@ using DSharpPlus.SlashCommands;
 
 namespace Library.SlashCommands;
 
+/// <summary>
+/// Módulo que contiene los comandos iniciales de la aplicación.
+/// </summary>
 public class CommandosIniciales : ApplicationCommandModule
 {
+    /// <summary>
+    /// Instancia de la sala de espera.
+    /// </summary>
     public static Sala_De_Espera nueva_SalaDeEspera = new Sala_De_Espera();
+    
+    /// <summary>
+    /// Instancia de la fachada.
+    /// </summary>
     public static Facada nueva_Facada = new Facada(nueva_SalaDeEspera);
     
+    /// <summary>
+    /// Une al usuario a la sala de espera para luchar.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("unirse", "Te une a una sala de espera para luchar")]
     public async Task UnirseAlaEspera(InteractionContext ctx)
     {
@@ -80,6 +95,11 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     */
     
+    /// <summary>
+    /// Muestra la lista de jugadores en espera.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("espera", "Muestra la lista de jugadores en espera")]
     public async Task JugadoresEnEspera(InteractionContext ctx)
     {
@@ -101,6 +121,11 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     */
     
+    /// <summary>
+    /// Muestra los Pokémon disponibles del jugador para luchar.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("mis_pokemons", "muestra tus pokemons disponibles para luchar")]
     public async Task PokemonsDelJugadorParaLuchar(InteractionContext ctx)
     {
@@ -155,6 +180,13 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
     */
+    
+    /// <summary>
+    /// Permite al jugador seleccionar 6 Pokémon iniciales para luchar.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <param name="idPokemon">El ID del Pokémon a seleccionar.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("seleccionar", "<<PRIMERO UTILIZA EL COMANDO /todoslosPokemons>>\nselecciona 6 pokemons iniciales para luchar")]
     public async Task SeleccionarLosPokemonsInciales(InteractionContext ctx, [Option("ID_Pokemon", "Id del pokemon a seleccionar")] double idPokemon)
     {
@@ -228,6 +260,11 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     */
 
+    /// <summary>
+    /// Muestra todos los Pokémon disponibles del juego.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("todoslosPokemons", "Muestra todos los pokemons disponibles del juego")]
     public async Task TodosLosPokemon(InteractionContext ctx)
     {
@@ -252,6 +289,11 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     */
 
+    /// <summary>
+    /// Inicia una batalla con otra persona en la sala de espera.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("batalla", "inicia una batalla con otra persona que este en la sala de espera.")]
     public async Task IniciarLaBatallaDiscord(InteractionContext ctx)
     {
@@ -280,6 +322,11 @@ public class CommandosIniciales : ApplicationCommandModule
     ////////////////////////////////////////////////////////////////////////
     */
     
+    /// <summary>
+    /// Comando de prueba para seleccionar los 6 primeros Pokémon.
+    /// </summary>
+    /// <param name="ctx">El contexto de la interacción.</param>
+    /// <returns>Una tarea que representa la operación asíncrona.</returns>
     [SlashCommand("testSeleccionMultiple", "SELECCIONA LOS 6 PRIMEROS POKEMONS PARA TESTEAR RAPIDO")]
     public async Task TestSleccion(InteractionContext ctx)
     {

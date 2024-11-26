@@ -1,0 +1,144 @@
+\doxysection{Library.\+Sala\+\_\+\+De\+\_\+\+Espera Class Reference}
+\hypertarget{class_library_1_1_sala___de___espera}{}\label{class_library_1_1_sala___de___espera}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+
+
+Clase que representa la sala de espera para jugadores que desean unirse a una batalla.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_sala___de___espera_a9d01c7b1d37d486d851f982584706ecb}\label{class_library_1_1_sala___de___espera_a9d01c7b1d37d486d851f982584706ecb} 
+{\bfseries Sala\+\_\+\+De\+\_\+\+Espera} ()
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_library_1_1_sala___de___espera}{Sala\+\_\+\+De\+\_\+\+Espera}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_sala___de___espera_a540e38a267c50d606ed39f7ef9cdcaf8}{Agregar\+Jugador\+Creado}} (\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} jugador)
+\begin{DoxyCompactList}\small\item\em Agrega un jugador a la lista de jugadores creados. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_sala___de___espera_accc0c9541c449032f5096fcbce901102}{Unirse\+ALa\+Lista\+De\+Espera}} (\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} jugador, List$<$ \mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} $>$ \mbox{\hyperlink{class_library_1_1_sala___de___espera_a98e3f394738ef7b858d9c11eba72a7cb}{jugadores\+Creados}})
+\begin{DoxyCompactList}\small\item\em Permite que un jugador se una a la lista de espera si fue creado previamente. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_sala___de___espera_aba702521a6eca5f372a6485f2f370dfd}{Mostrar\+Lista\+De\+Espera}} ()
+\begin{DoxyCompactList}\small\item\em Muestra los jugadores que están en la lista de espera. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} \mbox{\hyperlink{class_library_1_1_sala___de___espera_af87854811eba3ce41aa6342745d0183c}{Obtener\+Jugador}} (out string mesaje\+Jugador, string nombre\+Jugador)
+\begin{DoxyCompactList}\small\item\em Busca y obtiene un jugador de la lista de espera por su nombre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} \mbox{\hyperlink{class_library_1_1_sala___de___espera_a211c6e436c57cbd6c7ff100652cfb3d5}{Obtener\+Otro\+Jugador}} (string nombre\+Jugador)
+\begin{DoxyCompactList}\small\item\em Busca y obtiene un jugador distinto en la lista de espera para formar un equipo de batalla. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_sala___de___espera_a0499df0d3b985b610c04932684056dc6}{Eliminar\+Jugador}} (\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} jugador)
+\begin{DoxyCompactList}\small\item\em Elimina a un jugador de la lista de espera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_sala___de___espera_a7023cba0ffada20f19bca0bd9825b3e2}\label{class_library_1_1_sala___de___espera_a7023cba0ffada20f19bca0bd9825b3e2} 
+List$<$ \mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} $>$ {\bfseries lista\+Espera}
+\begin{DoxyCompactList}\small\item\em Lista de jugadores en la sala de espera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_sala___de___espera_a98e3f394738ef7b858d9c11eba72a7cb}\label{class_library_1_1_sala___de___espera_a98e3f394738ef7b858d9c11eba72a7cb} 
+List$<$ \mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} $>$ {\bfseries jugadores\+Creados} = new List$<$\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Lista de jugadores que fueron creados en el sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa la sala de espera para jugadores que desean unirse a una batalla. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_sala___de___espera_a540e38a267c50d606ed39f7ef9cdcaf8}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!AgregarJugadorCreado@{AgregarJugadorCreado}}
+\index{AgregarJugadorCreado@{AgregarJugadorCreado}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{AgregarJugadorCreado()}{AgregarJugadorCreado()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_a540e38a267c50d606ed39f7ef9cdcaf8} 
+void Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Agregar\+Jugador\+Creado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}}}]{jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un jugador a la lista de jugadores creados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jugador} & El jugador a agregar.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_sala___de___espera_a0499df0d3b985b610c04932684056dc6}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!EliminarJugador@{EliminarJugador}}
+\index{EliminarJugador@{EliminarJugador}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{EliminarJugador()}{EliminarJugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_a0499df0d3b985b610c04932684056dc6} 
+string Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Eliminar\+Jugador (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}}}]{jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Elimina a un jugador de la lista de espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jugador} & El jugador a eliminar.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_sala___de___espera_aba702521a6eca5f372a6485f2f370dfd}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!MostrarListaDeEspera@{MostrarListaDeEspera}}
+\index{MostrarListaDeEspera@{MostrarListaDeEspera}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{MostrarListaDeEspera()}{MostrarListaDeEspera()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_aba702521a6eca5f372a6485f2f370dfd} 
+string Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Mostrar\+Lista\+De\+Espera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra los jugadores que están en la lista de espera. 
+
+\begin{DoxyReturn}{Returns}
+Cadena con los nombres de los jugadores en la lista de espera.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_sala___de___espera_af87854811eba3ce41aa6342745d0183c}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!ObtenerJugador@{ObtenerJugador}}
+\index{ObtenerJugador@{ObtenerJugador}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{ObtenerJugador()}{ObtenerJugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_af87854811eba3ce41aa6342745d0183c} 
+\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Obtener\+Jugador (\begin{DoxyParamCaption}\item[{out string}]{mesaje\+Jugador}{, }\item[{string}]{nombre\+Jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Busca y obtiene un jugador de la lista de espera por su nombre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & Nombre del jugador a buscar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El jugador encontrado o null si no está en la lista de espera.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_sala___de___espera_a211c6e436c57cbd6c7ff100652cfb3d5}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!ObtenerOtroJugador@{ObtenerOtroJugador}}
+\index{ObtenerOtroJugador@{ObtenerOtroJugador}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{ObtenerOtroJugador()}{ObtenerOtroJugador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_a211c6e436c57cbd6c7ff100652cfb3d5} 
+\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Obtener\+Otro\+Jugador (\begin{DoxyParamCaption}\item[{string}]{nombre\+Jugador}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Busca y obtiene un jugador distinto en la lista de espera para formar un equipo de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Jugador} & Nombre del jugador que quiere un rival.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un jugador disponible en la lista o null si no hay o es el mismo.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_sala___de___espera_accc0c9541c449032f5096fcbce901102}\index{Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}!UnirseALaListaDeEspera@{UnirseALaListaDeEspera}}
+\index{UnirseALaListaDeEspera@{UnirseALaListaDeEspera}!Library.Sala\_De\_Espera@{Library.Sala\_De\_Espera}}
+\doxysubsubsection{\texorpdfstring{UnirseALaListaDeEspera()}{UnirseALaListaDeEspera()}}
+{\footnotesize\ttfamily \label{class_library_1_1_sala___de___espera_accc0c9541c449032f5096fcbce901102} 
+string Library.\+Sala\+\_\+\+De\+\_\+\+Espera.\+Unirse\+ALa\+Lista\+De\+Espera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_jugador}{Jugador}}}]{jugador}{, }\item[{List$<$ \mbox{\hyperlink{class_library_1_1_jugador}{Jugador}} $>$}]{jugadores\+Creados}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Permite que un jugador se una a la lista de espera si fue creado previamente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jugador} & El jugador que desea unirse.\\
+\hline
+{\em jugadores\+Creados} & Lista de jugadores creados.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Jugar\+\_\+menu\+\_\+y\+\_\+facada/Sala\+\_\+\+De\+\_\+\+Espera.\+cs\end{DoxyCompactItemize}

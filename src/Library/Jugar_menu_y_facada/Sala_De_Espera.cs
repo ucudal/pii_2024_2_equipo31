@@ -134,37 +134,5 @@ public class Sala_De_Espera
         }
         return mensaje;
     }
-/*
-    /// <summary>
-    /// Inicia una batalla entre los primeros dos jugadores en la lista de espera.
-    /// </summary>
-    public string IniciarBatallaSalaEspera()
-    {
-        string mensajeBatalla = "";
-        mensajeBatalla = (listaEspera.Count.ToString());
-        if (listaEspera.Count >= 2)
-        {
-            Jugador jugador1 = listaEspera[0];
-            mensajeBatalla += jugador1.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar();
-            Jugador jugador2 = listaEspera[1];
-            mensajeBatalla += jugador2.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar();
-            listaEspera.RemoveRange(0, 2);
 
-            mensajeBatalla += $"¡{jugador1.Name} y {jugador2.Name} comenzaron una batalla!";
-
-            Random random = new Random();
-            Jugador primero = random.Next(2) == 0 ? jugador1 : jugador2;
-
-            mensajeBatalla += $"{primero.Name} comienza la partida.";
-
-            Batalla batalla = new Batalla(jugador1, jugador2);
-            batalla.Iniciar_Batalla();
-        }
-        else
-        {
-            mensajeBatalla = "No hay jugadores suficientes en la lista de espera para batallar";
-        }
-        return mensajeBatalla;
-    }
-*/
 }

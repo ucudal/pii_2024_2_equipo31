@@ -1,0 +1,178 @@
+\doxysection{Library.\+Slash\+Commands.\+Commandos\+Iniciales Class Reference}
+\hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales}{}\label{class_library_1_1_slash_commands_1_1_commandos_iniciales}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+
+
+Módulo que contiene los comandos iniciales de la aplicación.  
+
+
+Inheritance diagram for Library.\+Slash\+Commands.\+Commandos\+Iniciales\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_slash_commands_1_1_commandos_iniciales}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a20b3a9e3369a71d487b6dab75238441b}{Unirse\+Ala\+Espera}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Une al usuario a la sala de espera para luchar. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a1510d610664460880b19045aa29fd5ac}{Jugadores\+En\+Espera}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Muestra la lista de jugadores en espera. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_ae329bd517c5939b615305e7ce421b1f3}{Pokemons\+Del\+Jugador\+Para\+Luchar}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Muestra los Pokémon disponibles del jugador para luchar. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a5c596cc28b163d8c1f8c4faaa46ae04d}{Seleccionar\+Los\+Pokemons\+Inciales}} (Interaction\+Context ctx, \mbox{[}Option("{}ID\+\_\+\+Pokemon"{}, "{}Id del pokemon a seleccionar"{})\mbox{]} double id\+Pokemon)
+\begin{DoxyCompactList}\small\item\em Permite al jugador seleccionar 6 Pokémon iniciales para luchar. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6a5cbf0478966f1723a502eecf8038f2}{Todos\+Los\+Pokemon}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Muestra todos los Pokémon disponibles del juego. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_ac821baea4168838778e139d8ef4842ad}{Iniciar\+La\+Batalla\+Discord}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Inicia una batalla con otra persona en la sala de espera. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6302019cff3000f119022585534033e9}{Test\+Sleccion}} (Interaction\+Context ctx)
+\begin{DoxyCompactList}\small\item\em Comando de prueba para seleccionar los 6 primeros Pokémon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a17a39a556afef6a5d2c1d7de961dda9e}\label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a17a39a556afef6a5d2c1d7de961dda9e} 
+static \mbox{\hyperlink{class_library_1_1_sala___de___espera}{Sala\+\_\+\+De\+\_\+\+Espera}} {\bfseries nueva\+\_\+\+Sala\+De\+Espera} = new \mbox{\hyperlink{class_library_1_1_sala___de___espera}{Sala\+\_\+\+De\+\_\+\+Espera}}()
+\begin{DoxyCompactList}\small\item\em Instancia de la sala de espera. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a602f9561d10bf1622c98c12bd56d2b8c}\label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a602f9561d10bf1622c98c12bd56d2b8c} 
+static \mbox{\hyperlink{class_library_1_1_facada}{Facada}} {\bfseries nueva\+\_\+\+Facada} = new \mbox{\hyperlink{class_library_1_1_facada}{Facada}}(\mbox{\hyperlink{class_library_1_1_slash_commands_1_1_commandos_iniciales_a17a39a556afef6a5d2c1d7de961dda9e}{nueva\+\_\+\+Sala\+De\+Espera}})
+\begin{DoxyCompactList}\small\item\em Instancia de la fachada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Módulo que contiene los comandos iniciales de la aplicación. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_ac821baea4168838778e139d8ef4842ad}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!IniciarLaBatallaDiscord@{IniciarLaBatallaDiscord}}
+\index{IniciarLaBatallaDiscord@{IniciarLaBatallaDiscord}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{IniciarLaBatallaDiscord()}{IniciarLaBatallaDiscord()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_ac821baea4168838778e139d8ef4842ad} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Iniciar\+La\+Batalla\+Discord (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia una batalla con otra persona en la sala de espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a1510d610664460880b19045aa29fd5ac}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!JugadoresEnEspera@{JugadoresEnEspera}}
+\index{JugadoresEnEspera@{JugadoresEnEspera}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{JugadoresEnEspera()}{JugadoresEnEspera()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a1510d610664460880b19045aa29fd5ac} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Jugadores\+En\+Espera (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra la lista de jugadores en espera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_ae329bd517c5939b615305e7ce421b1f3}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!PokemonsDelJugadorParaLuchar@{PokemonsDelJugadorParaLuchar}}
+\index{PokemonsDelJugadorParaLuchar@{PokemonsDelJugadorParaLuchar}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{PokemonsDelJugadorParaLuchar()}{PokemonsDelJugadorParaLuchar()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_ae329bd517c5939b615305e7ce421b1f3} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Pokemons\+Del\+Jugador\+Para\+Luchar (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra los Pokémon disponibles del jugador para luchar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a5c596cc28b163d8c1f8c4faaa46ae04d}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!SeleccionarLosPokemonsInciales@{SeleccionarLosPokemonsInciales}}
+\index{SeleccionarLosPokemonsInciales@{SeleccionarLosPokemonsInciales}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{SeleccionarLosPokemonsInciales()}{SeleccionarLosPokemonsInciales()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a5c596cc28b163d8c1f8c4faaa46ae04d} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Seleccionar\+Los\+Pokemons\+Inciales (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{, }\item[{\mbox{[}\+Option("{}\+ID\+\_\+\+Pokemon"{}, "{}\+Id del pokemon a seleccionar"{})\mbox{]} double}]{id\+Pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Permite al jugador seleccionar 6 Pokémon iniciales para luchar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+{\em id\+Pokemon} & El ID del Pokémon a seleccionar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6302019cff3000f119022585534033e9}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!TestSleccion@{TestSleccion}}
+\index{TestSleccion@{TestSleccion}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{TestSleccion()}{TestSleccion()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6302019cff3000f119022585534033e9} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Test\+Sleccion (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando de prueba para seleccionar los 6 primeros Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6a5cbf0478966f1723a502eecf8038f2}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!TodosLosPokemon@{TodosLosPokemon}}
+\index{TodosLosPokemon@{TodosLosPokemon}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{TodosLosPokemon()}{TodosLosPokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a6a5cbf0478966f1723a502eecf8038f2} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Todos\+Los\+Pokemon (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra todos los Pokémon disponibles del juego. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_slash_commands_1_1_commandos_iniciales_a20b3a9e3369a71d487b6dab75238441b}\index{Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}!UnirseAlaEspera@{UnirseAlaEspera}}
+\index{UnirseAlaEspera@{UnirseAlaEspera}!Library.SlashCommands.CommandosIniciales@{Library.SlashCommands.CommandosIniciales}}
+\doxysubsubsection{\texorpdfstring{UnirseAlaEspera()}{UnirseAlaEspera()}}
+{\footnotesize\ttfamily \label{class_library_1_1_slash_commands_1_1_commandos_iniciales_a20b3a9e3369a71d487b6dab75238441b} 
+async Task Library.\+Slash\+Commands.\+Commandos\+Iniciales.\+Unirse\+Ala\+Espera (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{ctx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Une al usuario a la sala de espera para luchar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & El contexto de la interacción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una tarea que representa la operación asíncrona.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Bot\+\_\+\+Discord/\+Slash\+Commands/Commandos\+Iniciales.\+cs\end{DoxyCompactItemize}

@@ -107,7 +107,6 @@ namespace Library
             Console.WriteLine("Escribe el nombre del jugador que quiere unirse a la lista de espera: ");
             string nombreJugador = Console.ReadLine();
 
-            // Aquí se debe agregar la lógica para unir al jugador a la lista de espera
         }
     }
 }

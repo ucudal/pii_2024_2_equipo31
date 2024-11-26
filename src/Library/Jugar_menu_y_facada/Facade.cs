@@ -115,4 +115,61 @@ namespace Library
             }
         }
     }
+<<<<<<< HEAD
+
+    /// <summary>
+    /// Crea una nueva instancia de batalla entre dos jugadores y la inicia.
+    /// </summary>
+    /// <param name="jugador1">El primer jugador en la batalla.</param>
+    /// <param name="jugador2">El segundo jugador en la batalla (opcional).</param>
+    public void Iniciar_Nueva_Batalla(Jugador jugador1, Jugador jugador2 = null)
+    {
+        if (jugador2 != null)
+        {
+            batalla = new Batalla(jugador1, jugador2);
+        }
+        else
+        {
+            Console.WriteLine("No hay suficientes jugadores para iniciar una batalla.");
+            return;
+        }
+        batalla.Iniciar_Batalla();
+    }
+
+    /// <summary>
+    /// Agrega un jugador a la sala de espera.
+    /// </summary>
+    /// <param name="jugador">El jugador que se agrega a la sala de espera.</param>
+    public void Unir_Jugador_A_La_Espera(Jugador jugador)
+    {
+        salaDeEspera.AgregarJugadorCreado(jugador);
+        salaDeEspera.UnirseALaListaDeEspera(jugador, salaDeEspera.jugadoresCreados);
+    }
+
+    /// <summary>
+    /// Inicia una batalla entre los jugadores en la sala de espera.
+    /// </summary>
+    public void IniciarBatallaEnEspera()
+    {
+        if (salaDeEspera.listaEspera.Count >= 1)
+        {
+            Jugador jugadorEnEspera1 = salaDeEspera.listaEspera[0];
+            salaDeEspera.IniciarBatallaSalaEspera();
+        }
+        else
+        {
+            Console.WriteLine("No hay suficientes jugadores en la sala de espera.");
+        }
+    }
+
+    /// <summary>
+    /// Muestra la lista de jugadores en la sala de espera.
+    /// </summary>
+    public string MostrarJugadoresEnEspera()
+    {
+        return salaDeEspera.MostrarListaDeEspera();
+    }
 }
+=======
+}
+>>>>>>> origin/agustin

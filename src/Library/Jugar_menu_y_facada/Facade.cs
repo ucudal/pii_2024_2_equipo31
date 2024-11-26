@@ -102,8 +102,8 @@ public class Facada
     /// <summary>
     /// Muestra la lista de jugadores en la sala de espera.
     /// </summary>
-    public void MostrarJugadoresEnEspera()
+    public string MostrarJugadoresEnEspera()
     {
-        Console.WriteLine(salaDeEspera.MostrarListaDeEspera());
+        return salaDeEspera.MostrarListaDeEspera();
     }
 }

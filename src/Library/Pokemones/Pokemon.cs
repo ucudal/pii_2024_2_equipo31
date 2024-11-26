@@ -111,6 +111,28 @@ public class Pokemon
         }
     }
     
+    /// <summary>
+    /// Aplica los efectos de los estados negativos al Pokémon, si es que tiene alguno.
+    /// </summary>
+    /// <returns>
+    /// Un mensaje que describe el estado actual del Pokémon, los efectos aplicados y las consecuencias.
+    /// </returns>
+    /// <remarks>
+    /// Este método verifica si el Pokémon está derrotado antes de aplicar los estados. 
+    /// Si el Pokémon está "Envenenado" o "Quemado", se calcula el daño correspondiente según el estado 
+    /// y se reduce la cantidad de puntos de vida (`Hp`) del Pokémon. También genera un mensaje 
+    /// con los detalles del estado y el daño recibido.
+    /// </remarks>
+    /// <example>
+    /// Ejemplo de uso:
+    /// <code>
+    /// string resultado = pokemon.AplicarEstados();
+    /// Console.WriteLine(resultado);
+    /// </code>
+    /// </example>
+    /// <seealso cref="El_Pokemon_Esta_Derrotado"/>
+    /// <seealso cref="EstadoNegativo"/>
+    /// <seealso cref="Hp"/>
     public string AplicarEstados()
     {
         string mensaje = "";

@@ -1,0 +1,75 @@
+\chapter{Proyecto Final Programación II.}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Proyecto Final Programación II.@{Proyecto Final Programación II.}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Equipo LRAC, Proyecto Pokémon.}{Equipo LRAC, Proyecto Pokémon.}}\label{md__r_e_a_d_m_e_autotoc_md1}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{\texorpdfstring{Equipo integrado por Lautaro Arrigoni, Adolfo Bravo, Agustin Cigaran y Bernardino Ochoa.}{Equipo integrado por Lautaro Arrigoni, Adolfo Bravo, Agustin Cigaran y Bernardino Ochoa.}}\label{md__r_e_a_d_m_e_autotoc_md2}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{Introducción}{Introducción}}\label{md__r_e_a_d_m_e_autotoc_md3}
+El mismo, se trata del desarrollo de un chatbot, cuyo proposito sera facilitar la introduccion de acciones dentro de un entorno de chat. Este bot permitira organizar y gestionar una batalla entre jugadores utilizando Pokémon como personajes principales.
+
+Cada jugador contará con un equipo compuesto por seis Pokémon, los cuales participarán en combates estratégicos contra los oponentes. Cada Pokémon tendrá atributos específicos como vida, ataque y turno de participación. Asimismo, se dispondrá de una variedad de tipos de Pokémon, cada uno con una efectividad particular frente a otros tipos, lo que añadirá un componente táctico a las batallas.
+
+La victoria será otorgada al jugador que logre reducir la vida de todos los Pokémon del adversario a cero (0). Además, durante el desarrollo de la batalla, los jugadores tendrán la opción de intercambiar los Pokémon de su equipo, proporcionando mayor dinamismo y flexibilidad en el transcurso del combate. \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Primera Entrega}{Primera Entrega}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Para comenzar al equipo se le panteó una {\bfseries{lista objetivos}} que debía cumplir para la realización del proyecto pokémon, estos mismo eran\+:
+\begin{DoxyItemize}
+\item Realizar las tarjetas CRC, responsabilidades y colaboraciones identificadas para resolver el problema.
+\item Diagrama de Clases(\+UML) con las clases del modelo identificadas.
+\item Codigo C\# de las clases de dominio.
+\item Facada
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Facada.}{Facada.}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Segunda Entrega.}{Segunda Entrega.}}\label{md__r_e_a_d_m_e_autotoc_md6}
+En la segunda entrega del proyecto, se implementaron varias mejoras significativas y se ampliaron las funcionalidades originales del sistema. Entre los principales avances se encuentran la incorporación de ataques especiales para los Pokémon, que añaden un nivel de intensidad y estrategia adicional a las batallas. Estos ataques especiales permiten que cada Pokémon tenga habilidades únicas, ofreciendo así una mayor variedad de interacciones durante el combate.
+
+Otro aspecto fundamental en esta segunda etapa fue la implementación de la efectividad de tipos. Los tipos de Pokémon, como agua, fuego, planta, entre otros, ahora tienen un impacto directo en la batalla, replicando las dinámicas de ventaja y desventaja presentes en el universo Pokémon. Esta nueva mecanica ayuda a que las decisiones de los jugadores durante la batalla sean más relevantes y cuidadosas.
+
+En cuanto a la optimización del código, se llevaron a cabo diversas correcciones que permitieron mejorar la eficiencia del programa y corregir errores presentes en la primera entrega. Estas correcciones fueron esenciales para garantizar que el bot y el sistema de combate funcionen de manera fluida y sin fallos. Además, el código fue revisado para asegurar que cumpliera con lo planeado.
+
+Continuando, como parte del proceso de actualización, se realizó una reestructuración del diagrama UML. Esta revisión del diseño fue necesaria para reflejar los cambios implementados en el sistema y asegurar que el modelo mantuviera una representación precisa y coherente de las nuevas características. El diagrama UML actualizado ahora incluye las relaciones entre los Pokémon, sus ataques, los tipos, y las interacciones dentro de las batallas, brindando una visión clara y estructurada del programa.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Diagrama de clases (UML ACTUAL).}{Diagrama de clases (UML ACTUAL).}}\label{md__r_e_a_d_m_e_autotoc_md7}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Tarjetas CRC (ACTUAL)}{Tarjetas CRC (ACTUAL)}}\label{md__r_e_a_d_m_e_autotoc_md8}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Desafíos Encontrados.}{Desafíos Encontrados.}}\label{md__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Implementación de la sala de espera, fue desafiante tanto al intentar iniciar una batalla con los usuarios en la sala, como para ver la lista de jugadores en espera.
+\item Los items del jugador estaban implementados/vinculados en una lista de int, se mejoro creando una clase para dichos items para que cumpla de mejor manera la consigna e intentando que cumpla con el principio de delegación.
+\item El cambio de pokemon fue un problema, tanto el hecho de cambiar durante la batalla como intentar cambiarlo cuando ya no tenia vida. (la utilización del comando ref fue clave)
+\item Cuando el pokemon en batalla perdia toda su vida y no tenia mas items revivir, la batalla se perdia automaticamente, no se consideraba si habian mas pokemons disponibles para luchar o no.
+\item Uno de los desafios "{}finales"{} fue en cuanto a la implementación del bot, ya que el proyecto ya estaba enfocado en ir mostrando los mensajes por consola y cuando se ejecutaba el bot por discord no mostraba los pokemones, etc. Debido a ello se tuvo que cambiar casi todos los "{}console.\+writeline"{} por return en los metodos void o por el comando "{}out mensaje"{} para los metodos que ya devolvian algo como un tipo pokemon, de esa forma el metodo tiene una "{}doble devoluciom"{} o un "{}doble tipo"{} y se puede enviar dichos mensajes al bot. \DoxyHorRuler{0}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Bibliografía}{Bibliografía}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces}{\texttt{ Interfaces}}
+
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members}{\texttt{ Clases Abstractas}}
+
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements\#the-switch-statement}{\texttt{ Switch}}
+
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references}{\texttt{ Null}}
+
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref}{\texttt{ Ref}}
+
+\href{https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements}{\texttt{ Do while}}
+
+\href{https://refactoring.guru/design-patterns}{\texttt{ Refactorización y patrones de diseño}}
+
+\href{https://play.pokemonshowdown.com/teambuilder}{\texttt{ Conocimientos Pokémon}}
+
+\href{https://www.pokemon.com/us/pokedex}{\texttt{ Conocimientos Pokémon}}
+
+\href{https://github.com/ucudal/PII_Guias}{\texttt{ Diseños}}
+
+\href{https://discordjs.guide/\#before-you-begin}{\texttt{ Discord Bot}}
+
+\DoxyHorRuler{0}
+ 

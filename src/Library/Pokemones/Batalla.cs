@@ -18,6 +18,7 @@ public class Batalla
     public Jugador jugador1;
     public Jugador jugador2;
     public bool esTurnoJugador1;
+    
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="Batalla"/> con los jugadores especificados.
     /// </summary>
@@ -29,6 +30,29 @@ public class Batalla
         this.jugador2 = jugador2;
     }
     
+    /// <summary>
+    /// Inicia una batalla de prueba entre dos jugadores, utilizando el primer Pokémon de cada jugador.
+    /// </summary>
+    /// <param name="ctx">
+    /// Contexto del evento de interacción del componente, necesario para modificar el mensaje en Discord.
+    /// </param>
+    /// <remarks>
+    /// Este método selecciona automáticamente el primer Pokémon de cada jugador para la batalla.
+    /// Se determina aleatoriamente quién comienza el turno. Luego, se construye un mensaje con opciones de acción 
+    /// (atacar, usar mochila, cambiar Pokémon) que se envía al canal de Discord correspondiente.
+    /// </remarks>
+    /// <returns>
+    /// Una tarea asincrónica que representa la operación de modificar el mensaje en Discord para la interacción.
+    /// </returns>
+    /// <example>
+    /// Ejemplo de uso:
+    /// <code>
+    /// await batalla.Iniciar_Batalla_Pruebas(ctx);
+    /// </code>
+    /// </example>
+    /// <seealso cref="Pokemon"/>
+    /// <seealso cref="Jugador"/>
+    /// <seealso cref="ComponentInteractionCreateEventArgs"/>
     public async Task Iniciar_Batalla_Pruebas(ComponentInteractionCreateEventArgs ctx)
     {
         // CADA JUGADOR INICIA CON EL PRIMER POKEMON QUE SELECCIONO PARA PROBARLO DE MANERA MAS SENCILLA
@@ -63,6 +87,29 @@ public class Batalla
         await ctx.Message.ModifyAsync(builder);
     }
 
+    /// <summary>
+    /// Alterna el turno entre los jugadores y ejecuta las acciones correspondientes del jugador activo en la batalla.
+    /// </summary>
+    /// <param name="ctx">
+    /// Contexto del evento de interacción del componente, utilizado para realizar acciones y modificar mensajes en Discord.
+    /// </param>
+    /// <remarks>
+    /// Este método determina de quién es el turno actualmente (jugador 1 o jugador 2), 
+    /// ejecuta las acciones del jugador activo y actualiza los enfriamientos de los ataques especiales 
+    /// del jugador correspondiente.
+    /// </remarks>
+    /// <returns>
+    /// Una tarea asincrónica que representa las acciones realizadas por el jugador activo durante su turno.
+    /// </returns>
+    /// <example>
+    /// Ejemplo de uso:
+    /// <code>
+    /// await batalla.turnoSiguiente(ctx);
+    /// </code>
+    /// </example>
+    /// <seealso cref="Jugador.Acciones_Del_Jugador_En_Batalla"/>
+    /// <seealso cref="Cada_Jugador_Actualiza_Los_Enfriamientos_De_Ataques_Especiales"/>
+    /// <seealso cref="ComponentInteractionCreateEventArgs"/>
     public async Task turnoSiguiente(ComponentInteractionCreateEventArgs ctx)
     {
         if (!esTurnoJugador1)
@@ -79,6 +126,31 @@ public class Batalla
         }
     }
 
+    /// <summary>
+    /// Verifica si es el turno del jugador que realizó la interacción en Discord.
+    /// </summary>
+    /// <param name="args">
+    /// Argumentos del evento de interacción del componente, que contienen información sobre el usuario y el canal.
+    /// </param>
+    /// <returns>
+    /// Devuelve `true` si es el turno del jugador correspondiente, de lo contrario, devuelve `false` 
+    /// y envía un mensaje indicando que no es el turno actual del usuario.
+    /// </returns>
+    /// <remarks>
+    /// Este método compara el nombre del jugador activo con el nombre del usuario que realizó la interacción.
+    /// Si no es el turno del jugador, envía un mensaje informativo al canal correspondiente.
+    /// </remarks>
+    /// <example>
+    /// Ejemplo de uso:
+    /// <code>
+    /// if (batalla.EsMiTurno(args))
+    /// {
+    ///     // Ejecutar acciones del jugador
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="ComponentInteractionCreateEventArgs"/>
+    /// <seealso cref="esTurnoJugador1"/>
     public bool EsMiTurno(ComponentInteractionCreateEventArgs args)
     {
         if (esTurnoJugador1)
@@ -118,6 +190,12 @@ public class Batalla
         }
     }
  
+    /// <summary>
+    /// Maneja el evento cuando un jugador interactúa con un componente de Discord.
+    /// </summary>
+    /// <param name="sender">El cliente de Discord que envió el evento.</param>
+    /// <param name="args">Los argumentos del evento que contienen información sobre la interacción.</param>
+    /// <returns>Una tarea asíncrona que representa la operación.</returns>
     public async Task Client_ComponentInteractionCreated(DiscordClient sender, ComponentInteractionCreateEventArgs args)
     {
         Jugador jugadorenTurno = null;

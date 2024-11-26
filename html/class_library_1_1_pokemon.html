@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto Pokemon_LRAC: Library.Pokemon Class Reference</title>
+<title>My Project: Library.Pokemon Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Proyecto Pokemon_LRAC
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -110,6 +110,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d85cce70b764cdb7f0385dca06c2636" id="r_a5d85cce70b764cdb7f0385dca06c2636"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d85cce70b764cdb7f0385dca06c2636">El_Pokemon_Recibio_Daño</a> (double daño)</td></tr>
 <tr class="memdesc:a5d85cce70b764cdb7f0385dca06c2636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce la salud y defensa del Pokémon en función del daño recibido.  <br /></td></tr>
 <tr class="separator:a5d85cce70b764cdb7f0385dca06c2636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad7891cd8eb0be013e6183d2c3150df9" id="r_aad7891cd8eb0be013e6183d2c3150df9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad7891cd8eb0be013e6183d2c3150df9">AplicarEstados</a> ()</td></tr>
+<tr class="memdesc:aad7891cd8eb0be013e6183d2c3150df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aplica los efectos de los estados negativos al Pokémon, si es que tiene alguno.  <br /></td></tr>
+<tr class="separator:aad7891cd8eb0be013e6183d2c3150df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -216,6 +219,38 @@ List&lt; <a class="el" href="interface_library_1_1_i_ataque.html">IAtaque</a> &g
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aad7891cd8eb0be013e6183d2c3150df9" name="aad7891cd8eb0be013e6183d2c3150df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7891cd8eb0be013e6183d2c3150df9">&#9670;&#160;</a></span>AplicarEstados()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Library.Pokemon.AplicarEstados </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aplica los efectos de los estados negativos al Pokémon, si es que tiene alguno. </p>
+<dl class="section return"><dt>Returns</dt><dd>Un mensaje que describe el estado actual del Pokémon, los efectos aplicados y las consecuencias. </dd></dl>
+<p>Este método verifica si el Pokémon está derrotado antes de aplicar los estados. Si el Pokémon está "Envenenado" o "Quemado", se calcula el daño correspondiente según el estado y se reduce la cantidad de puntos de vida (<code>Hp</code>) del Pokémon. También genera un mensaje con los detalles del estado y el daño recibido. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><span class="keywordtype">string</span> resultado = pokemon.AplicarEstados();</div>
+<div class="line">Console.WriteLine(resultado);</div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ab7c17c873845f811552042566f8de5d7" title="Verifica si el Pokémon ha sido derrotado (es decir, si los puntos de salud son cero o menos) y actual...">El_Pokemon_Esta_Derrotado</a>, <a class="el" href="#af8fe78fa1489055d84a0d2914bbc752d" title="Obtiene o establece el efecto de estado negativo que afecta al Pokémon.">EstadoNegativo</a>, <a class="el" href="#a7c3e7d1fb3e12ae06e687711b4956427" title="Obtiene o establece los puntos de salud actuales del Pokémon.">Hp</a></dd></dl>
+
+</div>
+</div>
 <a id="ab7c17c873845f811552042566f8de5d7" name="ab7c17c873845f811552042566f8de5d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7c17c873845f811552042566f8de5d7">&#9670;&#160;</a></span>El_Pokemon_Esta_Derrotado()</h2>
 

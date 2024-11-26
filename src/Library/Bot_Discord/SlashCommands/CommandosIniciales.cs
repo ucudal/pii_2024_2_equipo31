@@ -45,6 +45,7 @@ public class CommandosIniciales : ApplicationCommandModule
                         {
                             Color = DiscordColor.Blue,
                             Title = $"Sala de espera",
+                            ImageUrl = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTnS4uW9trqisCCq1mCdVz5tYfcOPNpVWodqFM1ymGI30MSSyo1",
                             Description = $"{jugadorActual.Name} ya se encuentra en la sala de espera"
                         };
                 
@@ -58,6 +59,7 @@ public class CommandosIniciales : ApplicationCommandModule
                         {
                             Color = DiscordColor.Blue,
                             Title = $"Sala de espera",
+                            ImageUrl = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTnS4uW9trqisCCq1mCdVz5tYfcOPNpVWodqFM1ymGI30MSSyo1",
                             Description = $"{jugadorActual.Name} se ha unido a la lista de espera\n" +
                                           $"Ahora debes seleccionar tus pokemons iniciales!\n" +
                                           $"Usa el comando >> /todoslosPokemons << para ver los pokemon disponibles"
@@ -74,6 +76,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 {
                     Color = DiscordColor.Blue,
                     Title = $"Sala de espera",
+                    ImageUrl = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTnS4uW9trqisCCq1mCdVz5tYfcOPNpVWodqFM1ymGI30MSSyo1",
                     Description = $"{jugadorActual.Name} se ha unido a la lista de espera\n" +
                                   $"Ahora debes seleccionar tus pokemons iniciales!\n" +
                                   $"Usa el comando >> /todoslosPokemons << para ver los pokemon disponibles"
@@ -109,6 +112,7 @@ public class CommandosIniciales : ApplicationCommandModule
         {
             Color = DiscordColor.Brown,
             Title = "Jugadores en espera",
+            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgGeFhd3lPUOnH38kvkrnpqG2avn1EdCv7WZfWn_oJiyOjIULN",
             Description = $"{nueva_SalaDeEspera.MostrarListaDeEspera()}"
         };
 
@@ -154,7 +158,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 {
                     Color = DiscordColor.Red,
                     Title = $"Pokemons disponibles de {jugadorActual.Name}",
-                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/todos%20los%20pokemons.jpg",
+                    ImageUrl = "https://img.ifunny.co/images/938fb6d81278fe4d1f525c456f769ecf17e410484faa6c002ce2aa9829463877_1.jpg",
                     Description = $"{jugadorActual.Mostrar_Pokemons_Disponibles_Del_Jugador()}"
                 };
 
@@ -204,7 +208,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
@@ -219,7 +223,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"{mensajesSeleccionPokemon}\n{nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}" +
@@ -232,7 +236,7 @@ public class CommandosIniciales : ApplicationCommandModule
                 var embedMessage = new DiscordEmbedBuilder
                 {
                     Color = DiscordColor.Green,
-                    ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/seleccion.gif",
+                    ImageUrl = "https://media.tenor.com/OauN6v63OYgAAAAj/pokemon-pokememes.gif",
                     Title = $"Pokemons seleccionados",
                     Description =
                         $"Ya tienes 6 pokemon\n {nueva_Facada.MostrarPokemonsDisponiblesDelJugador(jugadorActual.Name)}"
@@ -277,6 +281,7 @@ public class CommandosIniciales : ApplicationCommandModule
         {
             Color = DiscordColor.Yellow,
             Title = "Pokemons del juego",
+            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWAsgP5HWhuhm0Uj0vrUakFYDcUPgeneoBf0kOjwYZifaeXVf3",
             Description = "Usa el comando >> /seleccionar [ID del pokemon] << para seleccionarlo" + nueva_Facada.MostrarPokemonsDisponibles(jugadorContarTodosLosPokemons.Name) 
         };
         
@@ -309,7 +314,7 @@ public class CommandosIniciales : ApplicationCommandModule
             var embed = new DiscordEmbedBuilder
             {
                 Color = DiscordColor.Black,
-                ImageUrl = "https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/batalla.jpg",
+                ImageUrl = "https://i.imgur.com/cAwSDmR.gif",
                 Title = "Batalla",
                 Description = $"No hay suficientes jugadores para iniciar una batalla."
             };

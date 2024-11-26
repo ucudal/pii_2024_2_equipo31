@@ -53,7 +53,7 @@ public class AtaqueNormalTests
         Assert.AreEqual(hpEsperado, oponente.Hp, "El HP del oponente no fue actualizado correctamente.");
     }
 
-
+    /*     ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
     [Test]
     public void TestEjecutarAtaque_DañoFinalConEfectividad()
     {
@@ -69,9 +69,15 @@ public class AtaqueNormalTests
 
         // Verificar que el daño final se haya calculado correctamente
         // Puedes ajustar el cálculo del dañoFinal aquí si tienes lógica en EfectividadTipos
-        double dañoEsperado = 10; // Cambiar según la efectividad real
+         // Cambiar según la efectividad real
         oponente.El_Pokemon_Recibio_Daño(dañoEsperado);
 
         Assert.IsTrue(output.ToString().Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"));
+<<<<<<< HEAD
     }
 }
+=======
+    }
+    */
+}
+>>>>>>> origin/agustin

@@ -10,8 +10,7 @@ public class AtaqueEspecial : Ataque, IAtaque
     /// Obtiene el nombre del ataque especial.
     /// </summary>
     public string Name { get; private set; }
-
-
+    
     /// <summary>
     /// Obtiene o establece el daño del ataque especial.
     /// </summary>
@@ -92,25 +91,34 @@ public class AtaqueEspecial : Ataque, IAtaque
     /// Ejecuta el ataque especial sobre un Pokémon oponente.
     /// </summary>
     /// <param name="oponente">El Pokémon que será atacado.</param>
-    public void Ejecutar_Ataque(Pokemon oponente) // ATACO AL OPONENTE
+    public string Ejecutar_Ataque(Pokemon oponente) // ATACO AL OPONENTE
     {
-        if (!PuedeUsarAtaque())
+        string mensajeAtaqueEspecial = "";
+        if (oponente != null)
         {
-            Console.WriteLine($"{this.Name} está en enfriamiento por {enfriamientoActual} turnos restantes ⌛ ");
-            return;
-        }
-        else
-        {
-            double dañoFinal = this.EfectividadTipos(this.Daño, this.TipoAtaque, oponente);
-            Console.WriteLine($"\n 👊 {this.Name} le hizo {dañoFinal} puntos de daño a {oponente.Name}");
-            oponente.El_Pokemon_Recibio_Daño(dañoFinal);
-            oponente.EstadoNegativo = AsignarNuevoEstado();
-            Console.WriteLine($" 📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa.");
-            if (oponente.EstadoNegativo != "Ninguno")
+            if (!PuedeUsarAtaque())
             {
-                Console.WriteLine($" Luego de ese ataque {oponente.Name} tiene el estado 💢 {oponente.EstadoNegativo} 💢 ");
+                mensajeAtaqueEspecial = $"{this.Name} está en enfriamiento por {enfriamientoActual} turnos restantes ⌛ ";
+                return mensajeAtaqueEspecial;
             }
-            enfriamientoActual = EnfriamientoMax;
+            else
+            {
+                double dañoFinal = this.EfectividadTipos(this.Daño, this.TipoAtaque, oponente);
+                mensajeAtaqueEspecial = $"\n 👊 {this.Name} le hizo {dañoFinal} puntos de daño a {oponente.Name}";
+                oponente.El_Pokemon_Recibio_Daño(dañoFinal);
+                oponente.EstadoNegativo = AsignarNuevoEstado();
+                mensajeAtaqueEspecial += $"\n 📊 A {oponente.Name} le quedan {oponente.Hp} puntos de vida, {oponente.Defensa} puntos de defensa.";
+                
+                if (oponente.EstadoNegativo != "Ninguno")
+                {
+                    mensajeAtaqueEspecial += $"\n Luego de ese ataque {oponente.Name} tiene el estado 💢 {oponente.EstadoNegativo} 💢 ";
+                }
+                enfriamientoActual = EnfriamientoMax;
+                mensajeAtaqueEspecial += $"\n Ahora el ataque especial tiene un enfriamiento de {enfriamientoActual}";
+                return mensajeAtaqueEspecial;
+            }
         }
+        mensajeAtaqueEspecial = "El pokemon oponente ya esta derrotado";
+        return mensajeAtaqueEspecial;
     }
 }

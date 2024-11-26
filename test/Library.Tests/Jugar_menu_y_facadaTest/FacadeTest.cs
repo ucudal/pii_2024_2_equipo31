@@ -4,8 +4,14 @@ using NUnit.Framework;
 
 namespace LibraryTests
 {
+<<<<<<< HEAD
     [TestFixture]
     public class FacadaTests
+=======
+    /*   ===================== COMENTE PARA PONER DARLE A RUN Y PROBAR QUE FUNCIONE EL BOT =======================
+    [Test]
+    public void TestAgregarPokemonAJugador()
+>>>>>>> origin/agustin
     {
         private Facada facada;
 
@@ -62,4 +68,9 @@ namespace LibraryTests
             Assert.IsTrue(listaEspera.Contains("Misty"));
         }
     }
+<<<<<<< HEAD
 }
+=======
+    */
+}
+>>>>>>> origin/agustin

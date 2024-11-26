@@ -53,7 +53,6 @@ public class AtaqueNormalTests
         Assert.AreEqual(hpEsperado, oponente.Hp, "El HP del oponente no fue actualizado correctamente.");
     }
 
-
     [Test]
     public void TestEjecutarAtaque_DañoFinalConEfectividad()
     {
@@ -74,4 +73,5 @@ public class AtaqueNormalTests
 
         Assert.IsTrue(output.ToString().Contains($"👊 {ataqueNormal.Name} le hizo {dañoEsperado} puntos de daño a {oponente.Name}"));
     }
+    */
 }

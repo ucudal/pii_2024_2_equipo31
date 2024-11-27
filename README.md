@@ -47,6 +47,10 @@ ___
 ![CRC](https://github.com/ucudal/pii_2024_2_equipo31/blob/agustin/docs/CRC%20Final%20Tercer%20Entrega.png)
 ___
 
+### Tercer Entrega
+A modo de cierre en la tercer entrega se debia implementar el bot de discord de manera funcional, se utilizo la libreria DSharpPlus debido a la accesibilidad al contenido educativo y la practicidad, existieron algunos problemas con la interacción del usuario y la respuesta del bot ya que en la segunda entrega funcionaba mediante mensajes de consola y eso fue un paso que retraso bastante el avance, finalmente se decidio borrar la clase menu que en consola tenia sentido pero en discord no, y se implemento el uso de botones para representar acciones, ataques, etc.
+___
+
 ### Desafíos Encontrados.
 - Implementación de la sala de espera, fue desafiante tanto al intentar iniciar una batalla con los usuarios en la sala, como para ver la lista de jugadores en espera.
 - Los items del jugador estaban implementados/vinculados en una lista de int, se mejoro creando una clase para dichos items para que cumpla de mejor manera la consigna e intentando que cumpla con el principio de delegación.
@@ -54,6 +58,11 @@ ___
 - Cuando el pokemon en batalla perdia toda su vida y no tenia mas items revivir, la batalla se perdia automaticamente, no se consideraba si habian mas pokemons disponibles para luchar o no.
 - Uno de los desafios "finales" fue en cuanto a la implementación del bot, ya que el proyecto ya estaba enfocado en ir mostrando los mensajes por consola y cuando se ejecutaba el bot por discord no mostraba los pokemones, etc. Debido a ello se tuvo que cambiar casi todos los "console.writeline" por return en los metodos void o por el comando "out mensaje" para los metodos que ya devolvian algo como un tipo pokemon, de esa forma el metodo tiene una "doble devoluciom" o un "doble tipo" y se puede enviar dichos mensajes al bot.
 - La creacion y prueba de los test fue un desafio importante, ya que al crearlos y darle a "run" el programa quedaba runeando de manera indefinida debido a que consumian muchos recursos, por ende el test no daba ni error ni acierto. En una reunion con el docente a cargo se establecio que el equipo centraria su tiempo en realizar los test de las historias de usuario y no de todo el programa como en un inicio.
+- La implementación de los botones para interactuar con el bot fue un desafio importante, ya que algunas veces las interacciones eran fallidas, no se actualizaban, descubrir que solo se pueden agrupar de a 5 botones fue un paso que genero un gran alivio, ya que durante horas perduro el error de querer mostrar a los 6 pokemons en botones, no funcionaba pero se desconocia el motivo hasta que se consulto en el foro correspondiente.
+___
+
+### Batalla de prueba en discord
+![Batalla completa](https://www.youtube.com/watch?v=LMn1d7bckBc)
 ___
 
 ### Bibliografía
@@ -82,5 +91,6 @@ ___
 
 [DSharpPlus](https://github.com/samjesus8/CSharp-Discord-Bot-Template)
 
+[DSharpPlus Gallery](https://www.nuget.org/packages/Discord.Net)
 ___
 

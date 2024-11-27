@@ -62,11 +62,12 @@ ___
 ___
 
 ### Batalla de prueba en discord
-![Batalla completa](https://www.youtube.com/watch?v=LMn1d7bckBc)
+#### Click en la imagen para ver la batalla
+[![Batalla Pokemon](https://visiongeek.pe/wp-content/uploads/Guia-basica-de-Pokemon-UNITE-%C2%BFQue-Pokemon-comprar-que-es-el-pase-de-batalla-y-tipos-de-mapas.jpg)](https://www.youtube.com/embed/LMn1d7bckBc)
 ___
 
 ### Bibliografía
-
+___
 [Interfaces](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces)
 
 [Clases Abstractas](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members)

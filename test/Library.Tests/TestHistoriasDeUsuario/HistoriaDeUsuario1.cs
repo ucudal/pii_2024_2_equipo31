@@ -55,7 +55,7 @@ public class HistoriaDelUsuario1
         
         // ACT
         
-        string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intento agregar otro mas con el limite alcanzado
+        string mensaje = jugador.Seleccionar_6_Pokemons_Iniciales(7); // Intento agregar otro más con el límite alcanzado
         
         // Assert
         Assert.AreEqual("Selección completada: tienes 6 pokemom.", mensaje.Trim()); // verificar que el mensaje sea correcto

@@ -107,7 +107,7 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
             { 
                 dañoModificado *= 0.5;
             }
-            else if (oponente.Tipo == "Bicho" || oponente.Tipo == "Fuego" || oponente.Tipo == "Planta") 
+            else if (oponente.Tipo == "Bicho" || oponente.Tipo == "Fuego" || oponente.Tipo == "Hierba") 
             { 
                 dañoModificado *= 2;
             }
@@ -147,7 +147,7 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
             { 
                 dañoModificado *= 0.5;
             }
-            else if (oponente.Tipo == "Agua" || oponente.Tipo == "Electrico" || oponente.Tipo == "Planta" || oponente.Tipo == "Tierra") 
+            else if (oponente.Tipo == "Agua" || oponente.Tipo == "Electrico" || oponente.Tipo == "Hierba" || oponente.Tipo == "Tierra") 
             { 
                 dañoModificado *= 2;
             }
@@ -161,7 +161,7 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
         }
         else if (this.TipoAtaque == "Roca") 
         { 
-            if (oponente.Tipo == "Agua" || oponente.Tipo == "Lucha" || oponente.Tipo == "Planta" || oponente.Tipo == "Tierra") 
+            if (oponente.Tipo == "Agua" || oponente.Tipo == "Lucha" || oponente.Tipo == "Hierba" || oponente.Tipo == "Tierra") 
             { 
                 dañoModificado *= 0.5;
             }
@@ -172,7 +172,7 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
         }
         else if (this.TipoAtaque == "Tierra") 
         { 
-            if (oponente.Tipo == "Agua" || oponente.Tipo == "Hielo" || oponente.Tipo == "Planta" || oponente.Tipo == "Roca" || oponente.Tipo == "Veneno") 
+            if (oponente.Tipo == "Agua" || oponente.Tipo == "Hielo" || oponente.Tipo == "Hierba" || oponente.Tipo == "Roca" || oponente.Tipo == "Veneno") 
             { 
                 dañoModificado *= 0.5;
             }
@@ -183,11 +183,11 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
         }
         else if (this.TipoAtaque == "Veneno") 
         { 
-            if (oponente.Tipo == "Bicho" || oponente.Tipo == "Psiquico" || oponente.Tipo == "Tierra" || oponente.Tipo == "Lucha" || oponente.Tipo == "Planta") 
+            if (oponente.Tipo == "Bicho" || oponente.Tipo == "Psiquico" || oponente.Tipo == "Tierra" || oponente.Tipo == "Lucha" || oponente.Tipo == "Hierba") 
             { 
                 dañoModificado *= 0.5;
             }
-            else if (oponente.Tipo == "Planta" || oponente.Tipo == "Veneno") 
+            else if (oponente.Tipo == "Hierba" || oponente.Tipo == "Veneno") 
             { 
                 dañoModificado *= 2;
             }
@@ -198,11 +198,13 @@ public abstract class Ataque : IAtaque // CLASE ABSTRACTA CON LA EFECTIVIDAD DE 
             { 
                 dañoModificado *= 0.5;
             }
-            else if (oponente.Tipo == "Bicho" || oponente.Tipo == "Lucha" || oponente.Tipo == "Planta" || oponente.Tipo == "Tierra") 
+            else if (oponente.Tipo == "Bicho" || oponente.Tipo == "Lucha" || oponente.Tipo == "Hierba" || oponente.Tipo == "Tierra") 
             { 
                 dañoModificado *= 2;
             }
         } 
         return dañoModificado;
     }
+    
 }
+

@@ -307,7 +307,8 @@ public class Jugador
             components = new DiscordComponent[]{
                 new DiscordButtonComponent(ButtonStyle.Secondary, "bag", "Usar Mochila"),
                 new DiscordButtonComponent(ButtonStyle.Success, "switch", "Cambiar Pokémon"),
-                new DiscordButtonComponent(ButtonStyle.Primary, "attack", "Atacar")
+                new DiscordButtonComponent(ButtonStyle.Primary, "attack", "Atacar"),
+                new DiscordButtonComponent(ButtonStyle.Success, "estategia", "Posibilidades")
             };
         }
         else
@@ -315,7 +316,8 @@ public class Jugador
             components = new DiscordComponent[]
             {
                 new DiscordButtonComponent(ButtonStyle.Secondary, "bag", "Usar Mochila"),
-                new DiscordButtonComponent(ButtonStyle.Success, "switch", "Cambiar Pokémon")
+                new DiscordButtonComponent(ButtonStyle.Success, "switch", "Cambiar Pokémon"),
+                new DiscordButtonComponent(ButtonStyle.Success, "estategia", "Posibilidades")
             };
         }
 
@@ -416,5 +418,139 @@ public class Jugador
                 break;
         }
         return mensaje;
+    }
+    
+    // Metodo de la defensa
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="propio"> Lista de pokemons que tiene el jugador en turno en su mochila</param>
+    /// <param name="oponente"> Pokemon del rival</param>
+    /// <returns></returns>
+    public string PosibilidadDeGanarle(List<Pokemon> propio, Pokemon oponente)
+    {
+        string mensaje = null;
+        for (int i = 0; i < propio.Count -1 ; i++)
+        {
+            mensaje = $"***{propio[i].Name} es de tipo {propio[i].Tipo}***";
+            if (propio[i].Tipo.Equals("Agua"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Agua, Fuego, Hielo***";
+                mensaje += "\nY tiene ***menos posiblidades*** de ganarle a los de tipo: ***Electrico y Hierba***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+
+            if (propio[i].Tipo.Equals("Bicho"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Lucha, Hierba, Tierra***";
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Agua, Roca, Tierra***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Dragón"))
+            {
+                mensaje += "\nTiene ***menos posibilidades*** de ganarle a los de tipo: ***Dragon, Hierba***";
+                mensaje +=
+                    "\nY tiene ***mas posibilidad*** de ganarle a los de tipo: ***Agua, Electrico, Fuego, Hierba***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Electrico"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Volador***";
+                mensaje += "\nTiene ***menos posibilidad*** de ganarle a los de tipo: ***Tierra***";
+                mensaje += "\nSu pokemon tiene ***NULAS posibilidades*** de ganarle a otro de tipo: ***Electrico***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Fantasma"))
+            {
+                mensaje += "\nTiene ***menos posibilidades*** de ganarle a los de tipo: ***Fantasma***";
+                mensaje += "\nY tiene ***mas posibilidad*** de ganarle a los de tipo: ***Veneno, Lucha, Normal***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Fuego"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Bicho, Fuego, Hierba***";
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Agua, Roca, Tierra***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Hielo"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Hielo***";
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Fuego, Lucha, Roca***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+
+            }
+            else if (propio[i].Tipo.Equals("Lucha"))
+            {
+                mensaje +=
+                    "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Psiquico, Volador, Bicho, Roca***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Normal"))
+            {
+                mensaje += "\nTiene ***NULAS posibilidades*** de ganarle a los de tipo: ***Fantasma***";
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Lucha***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Hierba"))
+            {
+                mensaje +=
+                    "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Agua, Electrico, Hierba, Tierra***";
+                mensaje +=
+                    "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Bicho, Fuego, Hielo, Veneno, Volador***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+
+            }
+            else if (propio[i].Tipo.Equals("Psiquico"))
+            {
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Bicho, Lucha, Fantasma***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Roca"))
+            {
+                mensaje +=
+                    "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Fuego, Normal, Veneno, Volador***";
+                mensaje +=
+                    "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Agua, Lucha, Hierba, Tierra***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Tierra"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Electrico***";
+                mensaje +=
+                    "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Agua, Hielo, Hierba, Roca, Veneno***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Veneno"))
+            {
+                mensaje += "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Hierba, Veneno***";
+                mensaje +=
+                    "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Bicho, Psiquico, Tierra, Lucha, Hierba***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            else if (propio[i].Tipo.Equals("Volador"))
+            {
+                mensaje +=
+                    "\nTiene ***mas posibilidades*** de ganarle a los de tipo: ***Bicho, Lucha, Hierba, Tierra***";
+                mensaje += "\nY tiene ***menos posibilidad*** de ganarle a los de tipo: ***Electrico, Hielo, Roca***";
+                mensaje += $"\nConsidere que el tipo de su rival es {oponente.Tipo}";
+                return mensaje;
+            }
+            return "Error en el tipo de su pokemon!";
+        }
+        return "Error en el tipo de su pokemon!";
     }
 }

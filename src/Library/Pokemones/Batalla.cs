@@ -324,6 +324,22 @@ public class Batalla
                         }
                     }
                 break;
+            case "estategia":
+                if (!EsMiTurno(args)) break;
+                if (!jugadorenTurno.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())
+                {
+                    await args.Message.ModifyAsync(builderDeshabilitador);
+                    await args.Channel.SendMessageAsync($"\nLa batalla acabo, {jugadorenTurno.Name} fue derrotado");
+                    await args.Interaction.DeferAsync();
+                    await args.Interaction.DeleteOriginalResponseAsync(); 
+                    break;
+                }
+                mensaje = jugadorenTurno.PosibilidadDeGanarle(jugador1.ListPokemons, jugador2.pokemonEnBatalla);
+                await args.Channel.SendMessageAsync(mensaje + "\n");
+                await args.Interaction.DeferAsync();
+                await args.Interaction.DeleteOriginalResponseAsync();
+                await turnoSiguiente(args);
+                break;
             case "bag":
                 if (!EsMiTurno(args)) break;
                 if (!jugadorenTurno.Jugador_Tiene_Pokemons_Disponibles_Para_Luchar())

@@ -36,7 +36,7 @@ public class Pokemon
     /// <summary>
     /// Obtiene el tipo del Pokémon.
     /// </summary>
-    public string Tipo { get; private set; }
+    public Pokemon Tipo { get; private set; }
 
     /// <summary>
     /// Obtiene o establece si el Pokémon está actualmente en combate.
@@ -51,7 +51,7 @@ public class Pokemon
     /// <summary>
     /// Obtiene la lista de ataques disponibles para el Pokémon.
     /// </summary>
-    public List<IAtaque> Ataques { get; private set; }
+    public Pokemon Ataques { get; private set; }
 
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="Pokemon"/> con los atributos especificados.

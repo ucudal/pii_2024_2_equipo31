@@ -28,7 +28,7 @@ public class HistoriaDelUsuario1
         // manualmente creo una lista para comparar
         List<Pokemon> listaAcomprobar = new List<Pokemon>();
         listaAcomprobar.Add(TodosLosPokemons[0]);
-        listaAcomprobar.Add(TodosLosPokemons[0]);
+        listaAcomprobar.Add(TodosLosPokemons[1]);
         
         
         // Assert
